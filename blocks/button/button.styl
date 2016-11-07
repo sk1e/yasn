@@ -1,0 +1,75 @@
+@require "../../global.styl"
+
+
+button-theme(background-color, border-color)
+  background background-color
+  border 1px solid border-color
+  if background-color == white
+    color border-color
+
+.buttons
+  vertical-align bottom
+  
+.button
+  position relative
+  border-radius 3px
+  text-transform uppercase
+  font-weight heavy
+  cursor pointer
+  overflow hidden
+  
+  &_size  
+    &_big
+      width 120px
+      height 35px        
+    &_small
+      font-size 11px
+      width 78px
+      height 22px
+    
+  &_preview
+    margin-right 23px
+    vertical-align bottom
+    
+  &_theme
+    &_dark-1
+      button-theme(theme-color-1, theme-color-1)
+    &_dark-2
+      button-theme(theme-color-2, theme-color-2)
+    &_light-1
+      button-theme(white, theme-color-1)
+    &_light-2
+      button-theme(white, theme-color-2)
+
+  &_shadow
+    &_dark-1
+      box-shadow 0px 3px 0px 0px theme-shadowed-color-1
+    &_dark-2
+      box-shadow 0px 3px 0px 0px theme-shadowed-color-2    
+    &_light-1
+      box-shadow 0px 3px 0px 0px theme-color-1
+    &_light-2
+      box-shadow 0px 3px 0px 0px theme-color-2
+    &_none
+      box-shadow none
+      
+
+.ripple-effect
+  position absolute
+  border-radius 50% 
+  width 3px 
+  height 3px 
+  background white    
+  animation  ripple-animation 1s 
+
+
+
+@keyframes ripple-animation 
+  from 
+    transform scale(1) 
+    opacity 0.5 
+
+  to 
+    transform scale(50) 
+    opacity 0
+    

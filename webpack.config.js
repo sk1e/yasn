@@ -5,6 +5,7 @@ const path = require('path');
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
+const webpack = require("webpack")
 
 module.exports = {
   entry: './flat.js',
@@ -26,6 +27,9 @@ module.exports = {
     plugins: [
         new HtmlWebpackPlugin({template: "index.pug"}),
         new ExtractTextPlugin('[name].css', {allChunks: true}),
+        new webpack.ProvidePlugin({
+            $: 'jquery'
+        })
     ],
 
 };

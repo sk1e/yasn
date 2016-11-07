@@ -1,9 +1,20 @@
 doctype html
-
+include ./blocks/button/button.pug
 
 html(lang="en")
   head
     meta(charset="utf-8")
     title FlatUI
-  body
-    .main-container
+  body    
+    .preview-column
+      h2 standard buttons
+      .preview-row.preview-row_button-row
+        +button("dark-1", "small", "button")(preview=true)
+        +button("dark-1", "big", "button")(preview=true)
+        +button("dark-2", "big", "button")(preview=true)
+        +button("dark-2", "small", "button")(preview=true)
+      .preview-row.preview-row_button-row
+        +button("light-1", "small", "button")(preview=true)
+        +button("light-1", "big", "button")(preview=true)
+        +button("light-2", "big", "button")(preview=true)
+        +button("light-2", "small", "button")(preview=true)
