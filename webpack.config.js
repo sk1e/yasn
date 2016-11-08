@@ -29,6 +29,7 @@ module.exports = {
         new ExtractTextPlugin('[name].css', {allChunks: true}),
         new webpack.ProvidePlugin({
             $: 'jquery'
+            // d3: "d3"
         })
     ],
 

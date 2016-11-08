@@ -1,11 +1,14 @@
 doctype html
 include ./blocks/button/button.pug
+include ./blocks/arrow-button/arrow-button.pug
 
 html(lang="en")
   head
     meta(charset="utf-8")
     title FlatUI
-  body    
+  body
+    svg M6.123233995736766e-15,-100A100,100,0,0,1,100,0L0,0Z
+
     .preview-column
       h2 standard buttons
       .preview-row.preview-row_button-row
@@ -18,3 +21,9 @@ html(lang="en")
         +button("light-1", "big", "button")(preview=true)
         +button("light-2", "big", "button")(preview=true)
         +button("light-2", "small", "button")(preview=true)
+      .preview-column
+        h2 arrow buttons
+        .preview-row
+          each theme in ["light-1", "inactive", "dark-1"]
+            each side in ["left", "right"]
+              +arrow-button(theme, side)(preview=true)

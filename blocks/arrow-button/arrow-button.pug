@@ -1,0 +1,8 @@
+mixin arrow-button(theme, side)
+  - var buttonClass = `arrow-button_theme_${theme}`
+
+  if attributes.preview
+    - buttonClass += " arrow-button_preview"
+  
+  .arrow-button(class=buttonClass)      
+    .arrow-button__arrow(class=`arrow-button__arrow_theme_${theme} arrow-button__arrow_side_${side}`)
