@@ -4,5 +4,7 @@ mixin arrow-button(theme, side)
   if attributes.preview
     - buttonClass += " arrow-button_preview"
   
-  .arrow-button(class=buttonClass)      
-    .arrow-button__arrow(class=`arrow-button__arrow_theme_${theme} arrow-button__arrow_side_${side}`)
+  button.arrow-button(class=buttonClass)
+    .arrow-button__arrow
+      span.fa(class=`arrow-button__arrow_theme_${theme} fa-angle-${side}`)
+      

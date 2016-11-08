@@ -18,6 +18,7 @@ module.exports = {
     loaders: [
         { test: /\.pug$/, loader: 'pug' },
         { test: /\.styl$/, loader: ExtractTextPlugin.extract('!css!stylus') },
+        { test: /\.css$/, loader: 'style!css'},
         { test: /\.(png|svg|ttf|eot|woff|woff2)$/, loader: 'file?name=[path][name].[ext]' }
     ]
   },
@@ -29,7 +30,6 @@ module.exports = {
         new ExtractTextPlugin('[name].css', {allChunks: true}),
         new webpack.ProvidePlugin({
             $: 'jquery'
-            // d3: "d3"
         })
     ],
 
