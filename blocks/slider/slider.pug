@@ -1,0 +1,14 @@
+mixin slider(type)
+  case type
+    when "tooltiped"
+      .slider.slider_type_tooltiped
+        .ui-slider-handle
+          +tooltip("dark-2", "slider", "bottom")
+    when "scaled"
+      .slider.slider_type_scaled
+        .slider__scale
+          div 0
+          div 25
+          div 50
+          div 75
+          div 100
