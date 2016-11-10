@@ -1,8 +1,3 @@
 mixin button(theme, size, name)
-  - var buttonClass = `button button_size_${size} button_theme_${theme} button_shadow_${theme}`
-  
-  if attributes.preview
-    - buttonClass += " button_preview"
-    
-  button(class=buttonClass)=name
+  button(class=`button button_size_${size} button_theme_${theme} button_shadow_${theme}`)=name
     

@@ -1,10 +1,5 @@
-mixin arrow-button(theme, side)
-  - var buttonClass = `arrow-button_theme_${theme}`
-
-  if attributes.preview
-    - buttonClass += " arrow-button_preview"
-  
-  button.arrow-button(class=buttonClass)
+mixin arrow-button(theme, side)  
+  button.arrow-button(class=`arrow-button_theme_${theme}`)
     .arrow-button__arrow
       span.fa(class=`arrow-button__arrow_theme_${theme} fa-angle-${side}`)
       
