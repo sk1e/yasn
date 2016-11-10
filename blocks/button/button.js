@@ -10,24 +10,24 @@ $('.button')
     })
 
     .on('click', function (event) {
-      event.preventDefault();
-      
-      var $div = $('<div/>'),
-          btnOffset = $(this).offset(),
-      	  xPos = event.pageX - btnOffset.left,
-      	  yPos = event.pageY - btnOffset.top;      
-      
-      $div.addClass('ripple-effect');
-      $div
-        .css({
-            top: yPos,
-            left: xPos,
-        }) 
-        .appendTo($(this));
+        event.preventDefault();
+        
+        var $div = $('<div/>'),
+            btnOffset = $(this).offset(),
+      	    xPos = event.pageX - btnOffset.left,
+      	    yPos = event.pageY - btnOffset.top;      
+        
+        $div.addClass('ripple-effect');
+        $div
+            .css({
+                top: yPos,
+                left: xPos,
+            }) 
+            .appendTo($(this));
 
-      window.setTimeout(function(){
-        $div.remove();
-      }, 1000);
+        window.setTimeout(function(){
+            $div.remove();
+        }, 1000);
     });
-    
+
 

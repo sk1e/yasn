@@ -11,4 +11,8 @@ require('./blocks/button/button.styl');
 require('./blocks/button/button.js');
 require('./blocks/percentage/percentage.styl');
 require('./blocks/percentage/percentage.js');
+require('./blocks/pie-chart/pie-chart.styl');
+require('./blocks/pie-chart/pie-chart.js');
+
 require('./fonts/font-awesome-4.7.0/css/font-awesome.min.css')
+

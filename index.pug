@@ -8,21 +8,27 @@ html(lang="en")
     title FlatUI
   body    
     .preview-column
-      h2 standard buttons
-      .preview-row.preview-row_button-row
-        +button("dark-1", "small", "button")(preview=true)
-        +button("dark-1", "big", "button")(preview=true)
-        +button("dark-2", "big", "button")(preview=true)
-        +button("dark-2", "small", "button")(preview=true)
-      .preview-row.preview-row_button-row
-        +button("light-1", "small", "button")(preview=true)
-        +button("light-1", "big", "button")(preview=true)
-        +button("light-2", "big", "button")(preview=true)
-        +button("light-2", "small", "button")(preview=true)
+      .preview-column
+        h2 standard buttons
+        .preview-row.preview-row_button-row
+          +button("dark-1", "small", "button")(preview=true)
+          +button("dark-1", "big", "button")(preview=true)
+          +button("dark-2", "big", "button")(preview=true)
+          +button("dark-2", "small", "button")(preview=true)
+        .preview-row.preview-row_button-row
+          +button("light-1", "small", "button")(preview=true)
+          +button("light-1", "big", "button")(preview=true)
+          +button("light-2", "big", "button")(preview=true)
+          +button("light-2", "small", "button")(preview=true)
       .preview-column
         h2 arrow buttons
         .preview-row
           each theme in ["light-1", "inactive", "dark-1"]
             each side in ["left", "right"]
               +arrow-button(theme, side)(preview=true)
-        
+      .preview-column
+        h2 percentages / pie chart
+        .preview-row 
+          each percents in [0, 38, 62, 89]
+            canvas.percentage(value=percents width=100 height=100).percentage_preview
+          canvas.pie-chart(values=[10, 30, 30, 30] width=100 height=100)
