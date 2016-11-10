@@ -1,5 +1,6 @@
 'use strict';
 
+
 require('./index.pug');
 require('./fonts.styl');
 require('./global.styl');
@@ -13,6 +14,9 @@ require('./blocks/percentage/percentage.styl');
 require('./blocks/percentage/percentage.js');
 require('./blocks/pie-chart/pie-chart.styl');
 require('./blocks/pie-chart/pie-chart.js');
+require('./blocks/tooltip/tooltip.styl');
+
+
+
 
 require('./fonts/font-awesome-4.7.0/css/font-awesome.min.css')
-

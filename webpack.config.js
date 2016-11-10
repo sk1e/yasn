@@ -17,11 +17,11 @@ module.exports = {
   module: {
     loaders: [
         { test: /\.pug$/, loader: 'pug' },
-        { test: /\.styl$/, loader: ExtractTextPlugin.extract('!css!stylus') },
-        { test: /\.css$/, loader: 'style!css'},
+        { test: /\.(css|styl)/, loader: ExtractTextPlugin.extract('css-loader?sourceMap!stylus') },
         { test: /\.(png|svg|ttf|eot|woff|woff2)$/, loader: 'file?name=[path][name].[ext]' }
     ]
   },
+
     resolve: {
         modulesDirectories: ["node_modules"]
     },

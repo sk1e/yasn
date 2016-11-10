@@ -1,0 +1,57 @@
+@require "../../constants.styl"
+
+.tooltip
+  position absolute
+  border-radius 5px
+  &__container
+    display flex
+    align-items center
+    justify-content center    
+    position relative
+    width 100%
+    height 100%
+        
+  &__text
+    font-weight heavy
+    font-size 14px
+    color: white
+    z-index 1
+    margin 0px 10px
+    
+  &__pointer
+    transform rotate(45deg)
+    border-radius 2px
+    position absolute
+    width 13px
+    height 13px
+    &_location
+      &_bottom
+        left 33%
+        bottom -2px
+      &_left 
+        left -2px
+        bottom 26%
+
+    &_theme
+     &_dark-1
+       background theme-color-1
+     &_dark-2
+       background theme-color-2
+  &_theme
+    &_dark-1
+      background theme-color-1
+    &_dark-2
+      background theme-color-2
+  &_relation
+    &_slider
+      width 35px
+      height 24px
+      left -8px
+      top -31px
+    &_text-field
+      min-width 72px
+      height 28px
+ 
+  &_hidden
+    visibility hidden
+      
