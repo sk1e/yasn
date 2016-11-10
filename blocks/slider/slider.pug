@@ -7,8 +7,5 @@ mixin slider(type)
     when "scaled"
       .slider.slider_type_scaled
         .slider__scale
-          div 0
-          div 25
-          div 50
-          div 75
-          div 100
+          each n in [0, 25, 50, 75, 100]
+            div=n
