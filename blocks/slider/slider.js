@@ -6,6 +6,9 @@ $(function() {
     const tooltipText = tooltip.find(".tooltip__text").first()
     
     tooltipedSlider.slider({
+        create: function() {
+            tooltip.addClass("tooltip_hidden")
+        },
 	slide: function(event, ui) {
 	    tooltipText.text(ui.value);
 	},

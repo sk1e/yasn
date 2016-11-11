@@ -4,6 +4,7 @@ include ./blocks/arrow-button/arrow-button.pug
 include ./blocks/tooltip/tooltip.pug
 include ./blocks/slider/slider.pug
 include ./blocks/stages/stages.pug
+include ./blocks/input/input.pug
 
 html(lang="en")
   head
@@ -43,4 +44,19 @@ html(lang="en")
       .preview-column
         h2 stages
         +stages(["1", "2", "3"], ["4", "5"])
-      
+      .preview-column
+        h2 form elements
+        .preview-row.preview-row_form-row
+          .preview-column.preview-column_tt
+            form
+              .input
+                input.input__field(type="text", placeholder="Your Name")
+                +tooltip("dark-2", "text-field", "left") 
+                  span ERROR
+              .input
+                input.input__field(type="text", placeholder="Your Email")
+                +tooltip("dark-1", "text-field", "left")
+                  span THANKS!
+              textarea.text-area(placeholder="Your Message")
+          .preview-column
+            h2 toogles

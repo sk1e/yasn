@@ -1,7 +1,6 @@
 @require "../../constants.styl"
 
 .tooltip
-  position absolute
   border-radius 5px
   &__container
     display flex
@@ -13,7 +12,7 @@
         
   &__text
     font-weight heavy
-    font-size 14px
+
     color: white
     z-index 1
     margin 0px 10px
@@ -47,11 +46,14 @@
       
   &_relation
     &_slider
+      font-size 14px
+      position absolute
       width 35px
       height 24px
       left -8px
       top -31px
     &_text-field
+      font-size 10px
       min-width 72px
       height 28px
  

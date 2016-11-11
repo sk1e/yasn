@@ -5,6 +5,8 @@ require('./index.pug');
 require('./fonts.styl');
 require('./global.styl');
 
+require('./blocks/text-area/text-area.styl');
+require('./blocks/input/input.styl');
 require('./blocks/arrow-button/arrow-button.styl');
 require('./blocks/preview-row/preview-row.styl');
 require('./blocks/preview-column/preview-column.styl');
@@ -26,3 +28,5 @@ require("jquery-ui/themes/base/theme.css")
 
 
 require('./fonts/font-awesome-4.7.0/css/font-awesome.min.css')
+
+
