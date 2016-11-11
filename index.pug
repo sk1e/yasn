@@ -3,6 +3,7 @@ include ./blocks/button/button.pug
 include ./blocks/arrow-button/arrow-button.pug
 include ./blocks/tooltip/tooltip.pug
 include ./blocks/slider/slider.pug
+include ./blocks/stages/stages.pug
 
 html(lang="en")
   head
@@ -41,4 +42,5 @@ html(lang="en")
           +slider("scaled")
       .preview-column
         h2 stages
-          
+        +stages(["1", "2", "3"], ["4", "5"])
+      

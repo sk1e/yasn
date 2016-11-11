@@ -8,7 +8,7 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require("webpack")
 
 module.exports = {
-  entry: './flat.js',
+  entry: './ui-kit.js',
   output: {
     path: path.join(__dirname, 'build'),
     publicPath: '',

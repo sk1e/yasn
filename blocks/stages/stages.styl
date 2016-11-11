@@ -1,0 +1,32 @@
+@require "../../constants.styl"
+
+.stages
+  display flex
+  justify-content space-between
+  align-items center
+  width 100%
+  height 5px
+  border-radius 5px  
+
+  &__stage
+    display flex
+    align-items center
+    justify-content center    
+    width 29px
+    height 29px
+    border-radius 50%
+    background theme-color-2
+    font-size 15px
+    font-weight heavy
+    
+    &_face
+      &_complete
+        background theme-color-2
+        color white
+      &_incomplete
+        background theme-inactive-color
+        color #999
+               
+  .preview-column &
+    margin-top 30px
+    width 600px

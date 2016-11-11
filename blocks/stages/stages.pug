@@ -1,0 +1,11 @@
+
+mixin stages(completeStages, incompleteStages)
+  - const a = completeStages.length
+  - const b = incompleteStages.length
+  - const completnessScale = a && (a - 1) / (a + b - 1) * 100
+  
+  .stages(style=`background: linear-gradient(to right, #e75735 ${completnessScale}%, #e5e5e5 0%)`)
+    each x in completeStages
+      .stages__stage.stages__stage_face_complete= x
+    each x in incompleteStages
+      .stages__stage.stages__stage_face_incomplete= x

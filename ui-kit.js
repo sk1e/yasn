@@ -17,7 +17,7 @@ require('./blocks/pie-chart/pie-chart.js');
 require('./blocks/tooltip/tooltip.styl');
 require('./blocks/slider/slider.styl');
 require('./blocks/slider/slider.js');
-
+require('./blocks/stages/stages.styl');
 
 require("jquery-ui/ui/widgets/slider.js")
 require("jquery-ui/themes/base/slider.css")
