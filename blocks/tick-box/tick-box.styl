@@ -1,0 +1,22 @@
+@require "../../constants.styl"
+
+.tick-box
+  display flex
+  align-items center
+  justify-content center  
+  width 25px
+  height 25px
+  border-radius 50%
+  cursor pointer
+  
+  &_state
+    &_on
+      color white
+      background theme-color-1
+    &_off
+      color #c0c0c0
+      background theme-inactive-color
+      
+      
+  .preview-column &
+    margin-right 10px

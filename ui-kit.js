@@ -5,6 +5,8 @@ require('./index.pug');
 require('./fonts.styl');
 require('./global.styl');
 
+require('./blocks/tick-box/tick-box.js');
+require('./blocks/tick-box/tick-box.styl');
 require('./blocks/toggle/toggle.js');
 require('./blocks/toggle/toggle.styl');
 require('./blocks/text-area/text-area.styl');

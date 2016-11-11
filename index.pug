@@ -6,6 +6,7 @@ include ./blocks/slider/slider.pug
 include ./blocks/stages/stages.pug
 include ./blocks/input/input.pug
 include ./blocks/toggle/toggle.pug
+include ./blocks/tick-box/tick-box.pug
 
 html(lang="en")
   head
@@ -48,8 +49,8 @@ html(lang="en")
       .preview-column
         h2 form elements
         .preview-row.preview-row_form-row
-          .preview-column.preview-column_tt
-            form
+          form
+            .preview-column
               .input
                 input.input__field(type="text", placeholder="Your Name")
                 +tooltip("dark-2", "text-field", "left") 
@@ -59,9 +60,15 @@ html(lang="en")
                 +tooltip("dark-1", "text-field", "left")
                   span THANKS!
               textarea.text-area(placeholder="Your Message")
+              +button("dark-1", "big", "submit")
           .preview-column.preview-column_right
             h2 toggles
             .preview-column
               .preview-row
                 +toggle("off")
                 +toggle("on")
+            h2 tick boxes
+            .preview-column
+              .preview-row
+                +tick-box("on")
+                +tick-box("off")
