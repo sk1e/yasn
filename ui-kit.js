@@ -5,6 +5,8 @@ require('./index.pug');
 require('./fonts.styl');
 require('./global.styl');
 
+require('./blocks/toggle/toggle.js');
+require('./blocks/toggle/toggle.styl');
 require('./blocks/text-area/text-area.styl');
 require('./blocks/input/input.styl');
 require('./blocks/arrow-button/arrow-button.styl');

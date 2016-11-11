@@ -1,0 +1,35 @@
+@require "../../constants.styl"
+
+.toggle
+  display flex
+  align-items center
+  justify-content space-between
+  width 60px
+  height 24px
+  border-radius 15px
+  font-size 12px
+  font-weight heavy
+  color white
+  cursor pointer
+  
+  &_state
+    &_on
+      background theme-color-1
+      &::before
+        margin-left 11px
+        content "ON"
+    &_off
+      background theme-inactive-color      
+      &::after
+        margin-right 11px
+        content "OFF"
+      
+  &__handle
+    margin 0 3px
+    background white
+    height 18px
+    width 18px
+    border-radius 50%
+
+  .preview-column &:first-child
+    margin-right 15px

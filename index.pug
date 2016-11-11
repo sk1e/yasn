@@ -5,6 +5,7 @@ include ./blocks/tooltip/tooltip.pug
 include ./blocks/slider/slider.pug
 include ./blocks/stages/stages.pug
 include ./blocks/input/input.pug
+include ./blocks/toggle/toggle.pug
 
 html(lang="en")
   head
@@ -58,5 +59,9 @@ html(lang="en")
                 +tooltip("dark-1", "text-field", "left")
                   span THANKS!
               textarea.text-area(placeholder="Your Message")
-          .preview-column
-            h2 toogles
+          .preview-column.preview-column_right
+            h2 toggles
+            .preview-column
+              .preview-row
+                +toggle("off")
+                +toggle("on")
