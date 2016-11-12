@@ -1,0 +1,35 @@
+@require "../../constants.styl"
+
+.search
+  position relative
+  
+  &__button
+    display flex
+    align-items center
+    justify-content center
+    color white 
+    font-size 13px
+    width 28px
+    height 28px
+    background theme-color-2
+    cursor pointer
+  
+  &__results
+    position absolute
+    
+    &_hidden
+      visibility hidden
+    &_empty
+      padding 3px 12px
+      display flex
+      align-items center
+      justify-content space-between
+      font-size 13px
+      background theme-color-2
+      width 100%
+      height 28px    
+      color white
+
+    
+
+    

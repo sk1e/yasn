@@ -7,6 +7,7 @@ include ./blocks/stages/stages.pug
 include ./blocks/input/input.pug
 include ./blocks/toggle/toggle.pug
 include ./blocks/tick-box/tick-box.pug
+include ./blocks/search/search.pug
 
 html(lang="en")
   head
@@ -52,11 +53,11 @@ html(lang="en")
           form
             .preview-column
               .input
-                input.input__field(type="text", placeholder="Your Name")
+                input.input__field.input__field_tooltiped(type="text", placeholder="Your Name")
                 +tooltip("dark-2", "text-field", "left") 
                   span ERROR
               .input
-                input.input__field(type="text", placeholder="Your Email")
+                input.input__field.input__field_tooltiped(type="text", placeholder="Your Email")
                 +tooltip("dark-1", "text-field", "left")
                   span THANKS!
               textarea.text-area(placeholder="Your Message")
@@ -72,3 +73,7 @@ html(lang="en")
               .preview-row
                 +tick-box("on")
                 +tick-box("off")
+      .preview-row
+        .preview-column
+          h2 search / drop down
+          +search()

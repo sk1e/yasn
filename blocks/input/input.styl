@@ -4,18 +4,20 @@
 .input
   display flex
   align-items center
-  margin-bottom 12px
   
   &__field
     padding 3px 12px
     background theme-inactive-color
     color #999
-    border none
-    margin-right 7px
+    border none    
     height 28px
-    //- font-family SourceSansPro
-    //- font-size 14px
     font 14px SourceSansPro
     
-    .preview-column &
+    &_tooltiped
       width 210px
+      margin-right 7px
+      margin-bottom 12px
+      
+    &_search
+      width 270px
+    
