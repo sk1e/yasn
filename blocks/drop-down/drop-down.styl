@@ -1,0 +1,38 @@
+@require "../../constants.styl"
+
+.drop-down
+  width 300px
+  display flex
+
+  position relative
+
+  
+  &__select
+    background theme-inactive-color
+    border none
+    height 28px
+    width 300px
+    padding 3px 12px
+    font 14px SourceSansPro
+    color #999
+    border-radius 2px
+    border-top-right-radius 5px
+    border-bottom-right-radius 5px
+    
+  &__arrow
+    display flex
+    align-items center
+    justify-content center
+    color white 
+    font-size 19px
+    right 0px
+    width 33px
+    height 28px
+    border-top-right-radius 2px
+    border-bottom-right-radius 2px
+    background theme-color-1
+    position absolute
+    pointer-events none
+    
+  .preview-column &
+    margin-top 10px

@@ -8,6 +8,7 @@ include ./blocks/input/input.pug
 include ./blocks/toggle/toggle.pug
 include ./blocks/tick-box/tick-box.pug
 include ./blocks/search/search.pug
+include ./blocks/drop-down/drop-down.pug
 
 html(lang="en")
   head
@@ -77,3 +78,4 @@ html(lang="en")
         .preview-column
           h2 search / drop down
           +search()
+          +drop-down("Choose An Option", "Option A", "Option C")
