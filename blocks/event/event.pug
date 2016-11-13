@@ -1,0 +1,12 @@
+include ../button/button.pug
+
+mixin event(title, day, month, image)
+  .event
+    img.event__image(src=require("./blocks/event/images/" + image))
+    .event__description
+      .event__day= day
+      .event__month= month
+      .event__title= title
+      .event__text
+        block
+      +button("light-1", "small", "add to calendar")

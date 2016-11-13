@@ -20,11 +20,11 @@ button-theme(background-color, border-color)
   
   &_size  
     &_big
-      width 120px
+      min-width 120px
       height 35px        
     &_small
       font-size 11px
-      width 78px
+      min-width 78px
       height 22px
         
   &_theme
@@ -43,7 +43,7 @@ button-theme(background-color, border-color)
     &_dark-2
       box-shadow 0px 3px 0px 0px theme-shadowed-color-2    
     &_light-1
-      box-shadow 0px 3px 0px 0px theme-color-1
+      box-shadow 0px 3px 0px 0px theme-shadowed-color-1
     &_light-2
       box-shadow 0px 3px 0px 0px theme-color-2
     &_none
@@ -53,6 +53,8 @@ button-theme(background-color, border-color)
     margin-right 23px
     margin-top 10px
     
+    &:last-child
+      margin-right 0
     
   .preview-column form &
     align-self flex-end
