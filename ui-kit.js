@@ -6,7 +6,7 @@ require('./index.pug');
 require('./global.styl');
 
 
-
+require('./blocks/news/news.styl');
 require('./blocks/user-profile/user-profile.styl');
 require('./blocks/drop-down/drop-down.styl');
 require('./blocks/search/search.js');
