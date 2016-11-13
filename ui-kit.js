@@ -2,10 +2,12 @@
 
 
 require('./index.pug');
-require('./fonts.styl');
+
 require('./global.styl');
 
 
+
+require('./blocks/user-profile/user-profile.styl');
 require('./blocks/drop-down/drop-down.styl');
 require('./blocks/search/search.js');
 require('./blocks/search/search.styl');
@@ -38,3 +40,4 @@ require("jquery-ui/themes/base/theme.css")
 require('./fonts/font-awesome-4.7.0/css/font-awesome.min.css')
 
 
+require('./fonts.styl');

@@ -9,12 +9,14 @@ include ./blocks/toggle/toggle.pug
 include ./blocks/tick-box/tick-box.pug
 include ./blocks/search/search.pug
 include ./blocks/drop-down/drop-down.pug
+include ./blocks/user-profile/user-profile.pug
 
 html(lang="en")
   head
     meta(charset="utf-8")
     title UI kit
   body    
+    .one.two
     .preview-column
       .preview-column
         h2 standard buttons
@@ -55,11 +57,11 @@ html(lang="en")
             .preview-column
               .input
                 input.input__field.input__field_tooltiped(type="text", placeholder="Your Name")
-                +tooltip("dark-2", "text-field", "left") 
+                +tooltip("dark-2", "left")(tooltipBody="input__tooltip-body")
                   span ERROR
               .input
                 input.input__field.input__field_tooltiped(type="text", placeholder="Your Email")
-                +tooltip("dark-1", "text-field", "left")
+                +tooltip("dark-1", "left")(tooltipBody="input__tooltip-body")
                   span THANKS!
               textarea.text-area(placeholder="Your Message")
               +button("dark-1", "big", "submit")
@@ -79,3 +81,7 @@ html(lang="en")
           h2 search / drop down
           +search()
           +drop-down("Choose An Option", "Option A", "Option C")
+        .preview-column
+          h2 user profile
+          +user-profile("John Smith", "UX designer", "john.png", "gray")(twitter="https://twitter.com/john_smith")
+          +user-profile("Sarah Brown", "Developer", "sarah.png", "dark-1")

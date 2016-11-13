@@ -1,0 +1,12 @@
+
+mixin user-profile(name, profession, image, theme)
+  .user-profile 
+    img(src=require("./blocks/user-profile/user-photos/" + image))
+
+    +tooltip(theme, "left")
+      .user-profile__name(class=`user-profile__name_theme_${theme}`)= name
+      .user-profile__profession(class=`user-profile__profession_theme_${theme}`)=profession
+      .user-profile__contacts
+        a.fa.fa-facebook.user-profile__reference(class=`user-profile__reference_theme_${theme}`, href=attributes.facebook || "")
+        a.fa.fa-twitter.user-profile__reference(class=`user-profile__reference_theme_${theme}`, href=attributes.twitter || "")
+        a.fa.fa-dribbble.user-profile__reference(class=`user-profile__reference_theme_${theme}`, href=attributes.dribbble || "")

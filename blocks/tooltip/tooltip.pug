@@ -1,6 +1,7 @@
-mixin tooltip(theme, relation, pointerLocation)
-  .tooltip(class=`tooltip_theme_${theme} tooltip_relation_${relation}`)
-    .tooltip__container
+mixin tooltip(theme, pointerLocation)
+  .tooltip
+    .tooltip__body(class=`tooltip__body_theme_${theme}`)
+      .tooltip__pointer(class=`tooltip__pointer_location_${pointerLocation}`)
       .tooltip__text
         block
-      .tooltip__pointer(class=`tooltip__pointer_location_${pointerLocation} tooltip__pointer_theme_${theme}`)
+    

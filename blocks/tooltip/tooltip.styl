@@ -1,62 +1,76 @@
 @require "../../constants.styl"
 
-.tooltip
-  border-radius 5px
-  &__container
-    display flex
-    align-items center
-    justify-content center    
-    position relative
-    width 100%
-    height 100%
-        
-  &__text
-    font-weight heavy
 
-    color: white
-    z-index 1
-    margin 0px 10px
-    
-  &__pointer
-    transform rotate(45deg)
-    border-radius 2px
+.tooltip
+  .slider &
     position absolute
-    width 13px
-    height 13px
+    left -18px
+    top -32px
+
+  &__body
+    position relative
+    margin 0px 10px
+    color white
+    display flex
+    flex-direction column
+    align-items center
+    justify-content center
+    border-radius 3px
     
-    &_location
-      &_bottom
-        left 33%
-        bottom -2px
-      &_left 
-        left -2px
-        bottom 26%
-        
+    .input &
+      font-weight heavy
+      font-size 10px
+      height 28px      
+      min-width 72px
+      
+    .slider &
+      width 35px
+      height 24px    
+      font-size 14px
+      
+    .user-profile &
+      height 93px
+      width 163px
+      border-radius 9px
+    
+    
     &_theme
       &_dark-1
         background theme-color-1
       &_dark-2
         background theme-color-2
-       
-  &_theme
-    &_dark-1
-      background theme-color-1
-    &_dark-2
-      background theme-color-2
+      &_gray
+        background theme-inactive-color        
+        
+    
+  &__pointer
+    z-index -1
+    display block
+    transform rotate(45deg)
+    border-radius 2px
+    position absolute
+    width 13px
+    height 13px
+    background inherit
+    
+    .user-profile &
+      width 26px
+      height 26px
+    
+    &_location
+      &_bottom
+        left 33% 
+        bottom -2px
+      &_left
+        left -2px
+        bottom calc(50% - 7px)
+        
+        .user-profile &
+          bottom calc(50% - 13px)
+                     
       
-  &_relation
-    &_slider
-      font-size 14px
-      position absolute
-      width 35px
-      height 24px
-      left -8px
-      top -31px
-    &_text-field
-      font-size 10px
-      min-width 72px
-      height 28px
- 
-  &_hidden
-    visibility hidden
-      
+  &__text
+    display flex
+    flex-direction column
+    align-items center
+    //- justify-content center
