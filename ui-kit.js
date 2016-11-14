@@ -5,6 +5,8 @@ require('./index.pug');
 
 require('./global.styl');
 
+require('./blocks/location/location.js');
+require('./blocks/location/location.styl');
 require('./blocks/event/event.styl');
 require('./blocks/news/news.styl');
 require('./blocks/user-profile/user-profile.styl');

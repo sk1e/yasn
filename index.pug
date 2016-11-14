@@ -12,11 +12,13 @@ include ./blocks/drop-down/drop-down.pug
 include ./blocks/user-profile/user-profile.pug
 include ./blocks/news/news.pug
 include ./blocks/event/event.pug
+include ./blocks/location/location.pug
 
 html(lang="en")
   head
-    meta(charset="utf-8")
+    meta(charset="utf-8")    
     title UI kit
+    script(src='https://api-maps.yandex.ru/2.1/?lang=en_US', type='text/javascript')
   body    
     .one.two
     .preview-column
@@ -94,4 +96,7 @@ html(lang="en")
             p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed condimentum aliquet venenatis. Etiam a nisi nunc, a tincidunt eros.
           +event("this is the title", "24", "Aug", "skyscrapers.png")
             | Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-  
+      .preview-column
+        h2 location
+        +location
+      
