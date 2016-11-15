@@ -6,6 +6,8 @@ require('./global.styl');
 
 
 
+require('./blocks/calendar/calendar.js');
+require('./blocks/calendar/calendar.styl');
 require('./blocks/location/location.js');
 require('./blocks/location/location.styl');
 require('./blocks/event/event.styl');

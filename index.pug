@@ -13,7 +13,7 @@ include ./blocks/user-profile/user-profile.pug
 include ./blocks/news/news.pug
 include ./blocks/event/event.pug
 include ./blocks/location/location.pug
-include ./blocks/photocam-icon/photocam-icon.pug
+include ./blocks/calendar/calendar.pug
 
 html(lang="en")
   head
@@ -99,6 +99,9 @@ html(lang="en")
       .preview-column
         h2 location
         //- +location
-
+      .preview-row  
+        .preview-column
+          h2 calendar
+          +calendar
           
 
