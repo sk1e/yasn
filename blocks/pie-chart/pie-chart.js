@@ -1,14 +1,17 @@
 const d3 = require("d3")
+const colors = require("../../colors.json")
 
 
 $(function() {    
     $("canvas.pie-chart").each(function () {
+
         const context = this.getContext("2d")
         const values = JSON.parse(this.attributes.values.value);
 
         const width = this.width;
         const height = this.height;
-        const colors = ["#747474", "#e75735", "#4eb7a8", "#e5e5e5"];
+
+        const fillColors = [colors["theme-color-3-foreground"], colors["theme-color-2"], colors["theme-color-1"], colors["theme-color-3"]];
         
         const arc = d3.arc()
               .innerRadius(30)
@@ -26,7 +29,7 @@ $(function() {
         arcs.forEach(function(d, i) {
             context.beginPath();
             arc(d);
-            context.fillStyle = colors[i];
+            context.fillStyle = fillColors[i];
             context.fill();
         });
 

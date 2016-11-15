@@ -1,9 +1,10 @@
 'use strict';
 
-
 require('./index.pug');
 
 require('./global.styl');
+
+
 
 require('./blocks/location/location.js');
 require('./blocks/location/location.styl');
@@ -34,7 +35,9 @@ require('./blocks/slider/slider.js');
 require('./blocks/stages/stages.styl');
 
 require("jquery-ui/ui/widgets/slider.js")
+require("jquery-ui/ui/widgets/datepicker.js")
 require("jquery-ui/themes/base/slider.css")
+require("jquery-ui/themes/base/datepicker.css")
 require("jquery-ui/themes/base/core.css")
 require("jquery-ui/themes/base/theme.css")
 

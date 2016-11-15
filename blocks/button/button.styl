@@ -39,26 +39,26 @@ button-theme(background-color, border-color)
 
   &_shadow
     &_dark-1
-      box-shadow 0px 3px 0px 0px theme-shadowed-color-1
+      box-shadow 0px 3px 0px 0px darken(theme-color-1, 10)
     &_dark-2
-      box-shadow 0px 3px 0px 0px theme-shadowed-color-2    
+      box-shadow 0px 3px 0px 0px darken(theme-color-2, 10)
     &_light-1
-      box-shadow 0px 3px 0px 0px theme-shadowed-color-1
+      box-shadow 0px 3px 0px 0px darken(theme-color-1, 10)
     &_light-2
-      box-shadow 0px 3px 0px 0px theme-color-2
+      box-shadow 0px 3px 0px 0px darken(theme-color-2, 10)
     &_none
       box-shadow none
       
-  .preview-column &
-    margin-right 23px
-    margin-top 10px
+  //- .preview-column &
+  //-   margin-right 23px
+  //-   margin-top 10px
     
-    &:last-child
-      margin-right 0
+  //-   &:last-child
+  //-     margin-right 0
     
-  .preview-column form &
-    align-self flex-end
-    margin 10px 10px 0 0
+  //- .preview-column form &
+  //-   align-self flex-end
+  //-   margin 10px 10px 0 0
 
 
 .ripple-effect

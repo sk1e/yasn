@@ -17,8 +17,9 @@ module.exports = {
   module: {
     loaders: [
         { test: /\.pug$/, loader: 'pug' },
+        { test: /\.json$/, loader: 'json' },
         { test: /\.(css|styl)/, loader: ExtractTextPlugin.extract('css-loader?sourceMap!stylus') },
-        { test: /\.(png|svg|ttf|eot|woff|woff2)$/, loader: 'file?name=[path][name].[ext]' }
+        { test: /\.(svg|png|ttf|eot|woff|woff2)$/, loader: 'file?name=[path][name].[ext]' }
     ]
   },
 
