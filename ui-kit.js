@@ -5,7 +5,8 @@ require('./index.pug');
 require('./global.styl');
 
 
-
+require('./blocks/photocam-icon/photocam-icon.styl');
+require('./blocks/message-icon/message-icon.styl');
 require('./blocks/calendar/calendar.js');
 require('./blocks/calendar/calendar.styl');
 require('./blocks/location/location.js');
