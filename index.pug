@@ -14,6 +14,7 @@ include ./blocks/news/news.pug
 include ./blocks/event/event.pug
 include ./blocks/location/location.pug
 include ./blocks/calendar/calendar.pug
+include ./blocks/messenger/messenger.pug
 
 html(lang="en")
   head
@@ -102,6 +103,8 @@ html(lang="en")
       .preview-row  
         .preview-column
           h2 calendar
-          +calendar
-          
+          +calendar          
+        .preview-column
+          h2 messaging
+          +messenger
 
