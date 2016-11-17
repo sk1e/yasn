@@ -7,6 +7,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require("webpack")
 
+// const vimeoDir = path.resolve(__dirname, "blocks/vimeo-player")
+
 module.exports = {
   entry: './ui-kit.js',
   output: {
@@ -18,7 +20,8 @@ module.exports = {
     loaders: [
         { test: /\.pug$/, loader: 'pug' },
         { test: /\.json$/, loader: 'json' },
-        { test: /\.(css|styl)/, loader: ExtractTextPlugin.extract('css-loader?sourceMap!stylus') },
+        { test: /\.(css|styl)/, loader: ExtractTextPlugin.extract('css!stylus') },
+        // { test: /\.styl/, loader: 'file?name=[path][name].css!stylus', include: vimeoDir},
         { test: /\.(svg|png|ttf|eot|woff|woff2)$/, loader: 'file?name=[path][name].[ext]' }
     ]
   },
