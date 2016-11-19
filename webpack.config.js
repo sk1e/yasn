@@ -7,35 +7,39 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const webpack = require("webpack")
 
-// const vimeoDir = path.resolve(__dirname, "blocks/vimeo-player")
 
 module.exports = {
-  entry: './ui-kit.js',
-  output: {
-    path: path.join(__dirname, 'build'),
-    publicPath: '',
-    filename: 'bundle.js'
-  },
-  module: {
-    loaders: [
-        { test: /\.pug$/, loader: 'pug' },
-        { test: /\.json$/, loader: 'json' },
-        { test: /\.(css|styl)/, loader: ExtractTextPlugin.extract('css!stylus') },
-        // { test: /\.styl/, loader: 'file?name=[path][name].css!stylus', include: vimeoDir},
-        { test: /\.(svg|png|ttf|eot|woff|woff2)$/, loader: 'file?name=[path][name].[ext]' }
-    ]
-  },
-
-    resolve: {
-        modulesDirectories: ["node_modules"]
+    entry: {
+        "ui-kit": "./ui-kit.js",
+        "index": "./index.js"
     },
+    
+
+    output: {
+        path: path.join(__dirname, 'build'),
+        filename: '[name].bundle.js'
+    },
+    
+    module: {
+        loaders: [
+            { test: /\.pug$/, loader: 'pug' },
+            { test: /\.json$/, loader: 'json' },
+            { test: /\.(css|styl)/, loader: ExtractTextPlugin.extract('css!stylus') },
+            // { test: /\.(css|styl)/, loader: 'style!css!stylus' },
+            { test: /\.(svg|png|ttf|eot|woff|woff2)$/, loader: 'file?name=[path][name].[ext]' }
+        ]
+    },
+
     plugins: [
-        new HtmlWebpackPlugin({template: "index.pug"}),
+        // pp,
+        new HtmlWebpackPlugin({template: "index.pug", filename: "index.html", chunks: ["index"]}),
+        // new HtmlWebpackPlugin({template: "index.pug", filename: "index.html", excludeChunks: ["ui-kit"]}),
+        new HtmlWebpackPlugin({template: "ui-kit.pug", filename: "ui-kit.html", chunks: ["ui-kit"]}),
         new ExtractTextPlugin('[name].css', {allChunks: true}),
         new webpack.ProvidePlugin({
             $: 'jquery'
-        })
+        }),
     ],
-
 };
+
 

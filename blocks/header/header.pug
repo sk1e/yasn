@@ -1,0 +1,25 @@
+include ../tooltip/tooltip.pug
+include ../button/button.pug
+
+mixin header
+  header.header
+    .header__title YASN      
+    .sign
+      if attributes.name
+        .sign__signed
+          .sign__greeting 
+            | Hi, 
+            i= attributes.name
+          a.sign__out(href="./index.html") Sign out
+      else
+        +button("light-2", "big", "sign in")
+        //- form
+        //-   .input
+        //-     input.input__field.input__field_tooltiped(type="text", placeholder="Your Name", required)
+        //-     +tooltip("dark-2", "left")(tooltipBody="input__tooltip-body")
+        //-       span ERROR
+        //-   .input
+        //-     input.input__field.input__field_tooltiped(type="text", placeholder="Your Email", required)
+        //-     +button("light-2", "small", "sign in")
+          
+        

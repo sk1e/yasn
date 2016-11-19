@@ -1,8 +1,15 @@
 'use strict'
 
-require('./index.pug')
-
+require('./ui-kit.pug')
 require('./global.styl')
+
+require("jquery-ui/ui/widgets/slider.js")
+require("jquery-ui/ui/widgets/datepicker.js")
+require("jquery-ui/themes/base/slider.css")
+require("jquery-ui/themes/base/datepicker.css")
+require("jquery-ui/themes/base/core.css")
+require("jquery-ui/themes/base/theme.css")
+
 
 require('./blocks/messenger/messenger.js')
 require('./blocks/messenger/messenger.styl')
@@ -38,12 +45,6 @@ require('./blocks/slider/slider.styl')
 require('./blocks/slider/slider.js')
 require('./blocks/stages/stages.styl')
 
-require("jquery-ui/ui/widgets/slider.js")
-require("jquery-ui/ui/widgets/datepicker.js")
-require("jquery-ui/themes/base/slider.css")
-require("jquery-ui/themes/base/datepicker.css")
-require("jquery-ui/themes/base/core.css")
-require("jquery-ui/themes/base/theme.css")
 
 require('./fonts/font-awesome-4.7.0/css/font-awesome.min.css')
 require('./fonts.styl')

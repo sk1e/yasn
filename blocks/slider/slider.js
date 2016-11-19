@@ -1,6 +1,9 @@
-"use strict"
+
+console.log("---------------------- hey")
+
 
 $(function() {
+    console.log("---------------------- here")
     const slider = $(".slider_type_tooltiped")
     const tooltipText = slider.find(".tooltip__text")
     
