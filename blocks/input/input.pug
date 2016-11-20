@@ -1,7 +1,7 @@
 include ../tooltip/tooltip.pug
 
-//- mixin input()
-//-   .input 
-//-     input.input__field
-//-     +tooltip("dark-2", "text-field", "left") 
-//-       span Error
+mixin tooltiped-input(text, tooltipTheme)
+  .input 
+    input.input__field.input__field_tooltiped&attributes(attributes)
+    +tooltip(tooltipTheme, "left") 
+      span= text

@@ -61,14 +61,8 @@ html(lang="en")
         .preview-row.preview-row_form-row
           form
             .preview-column
-              .input
-                input.input__field.input__field_tooltiped(type="text", placeholder="Your Name")
-                +tooltip("dark-2", "left")(tooltipBody="input__tooltip-body")
-                  span ERROR
-              .input
-                input.input__field.input__field_tooltiped(type="text", placeholder="Your Email")
-                +tooltip("dark-1", "left")(tooltipBody="input__tooltip-body")
-                  span THANKS!
+              +tooltiped-input('ERROR', 'dark-2')(type='text', placeholder='Your Name')
+              +tooltiped-input('THANKS', 'dark-1')(type='text', placeholder='Your Email')
               textarea.text-area(placeholder="Your Message")
               +button("dark-1", "big", "submit")
           .preview-column.preview-column_right
