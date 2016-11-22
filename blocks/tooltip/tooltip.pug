@@ -1,5 +1,4 @@
 mixin tooltip(theme, pointerLocation)
-  - console.log(attributes.hidden)
   .tooltip(class=attributes.hidden ? 'tooltip_hidden' : '')
     .tooltip__body(class=`tooltip__body_theme_${theme}`)
       .tooltip__pointer(class=`tooltip__pointer_location_${pointerLocation}`)
