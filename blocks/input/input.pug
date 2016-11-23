@@ -1,7 +1,12 @@
 include ../tooltip/tooltip.pug
 
-mixin tooltiped-input(text, tooltipTheme)
+mixin input
   .input 
     input.input__field.input__field_tooltiped&attributes(attributes)
-    +tooltip(tooltipTheme, "left") 
+    +tooltip('dark-1', "left")(hidden)
+
+mixin preview-input(text, tooltipTheme)
+  .input 
+    input.input__field.input__field_tooltiped&attributes(attributes)
+    +tooltip(tooltipTheme, "left")(hidden)
       span= text
