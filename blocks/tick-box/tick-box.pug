@@ -1,3 +1,9 @@
-mixin tick-box(state)
+mixin tick-box(name, state)
   .tick-box(class=`tick-box_state_${state}`)
     .fa.fa-check
+    input.tick-box__input(type="checkbox"
+      checked=(state === 'on')
+      autocomplete='off'
+      name=name
+      id=`${name}-field`)
+    
