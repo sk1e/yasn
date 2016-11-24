@@ -1,7 +1,7 @@
-mixin drop-down(...option)
-  .drop-down
-    select.drop-down__select(placeholder="qwe")
-       each x in option
+mixin drop-down(name, width, options)
+  .drop-down(style={width: `${width}px`})
+    select.drop-down__select(name=name)
+       each x in options
          option= x
     .drop-down__arrow
       .fa.fa-angle-down

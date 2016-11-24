@@ -1,17 +1,14 @@
 @require "../../constants.styl"
 
 .drop-down
-  width 300px
   display flex
-
-  position relative
-
+  position relative  
   
   &__select
     background theme-color-3
     border none
     height 28px
-    width 300px
+    width 100%
     padding 3px 12px
     font 14px SourceSansPro
     color #999
@@ -32,6 +29,7 @@
     border-bottom-right-radius 2px
     background theme-color-1
     position absolute
+
     pointer-events none
     
   .preview-column &
