@@ -2,6 +2,11 @@ doctype html
 
 include ./blocks/header/header.pug
 include ./blocks/button/button.pug
+include ./blocks/stages/stages.pug
+include ./blocks/input/input.pug
+include ./blocks/tick-box-field/tick-box-field.pug
+include ./blocks/drop-down/drop-down.pug
+include ./blocks/link/link.pug
 
 html(lang="en")
   head
@@ -10,10 +15,40 @@ html(lang="en")
   body.body
     +header
     .temptation
-      .temptation__join 
-        .temptation__join-message Join us!
-        +button("dark-1", "big", "Sign up")
       .temptation__cute Cute
       .temptation__nifty Nifty
       .temptation__amazing Amazing
-      
+
+    .sign-up
+      .sign-up__join
+        .sign-up__join-message Join us!
+        +button("dark-1", "big", "Sign up")
+      +stages([1], [2,3,4])
+      form.sign-up__form
+        .sign-up__blocks-container
+          .sign-up__block
+            +input(type='text', placeholder='Your Login')
+            +input(type='password' placeholder='Your Password')
+            +input(type='password', placeholder='Repeat Password')
+            
+          .sign-up__block
+            +input(type='text', placeholder='Your Email')
+            +tick-box-field("I'd like to receive YASN newsletter", 'wants_newsletter','off')
+            +tick-box-field("I'd like to receive YASN notifications", 'wants_notifications', 'on')
+            
+          .sign-up__block
+            +input(type='text', placeholder='Your First Name')
+            +input(type='text', placeholder='Your Second Name')
+            - const yearOptions = ['Year'].concat(Array.from({length: 120}, (v, k) => 2016 - k));
+            - const monthOptions = ['Month'].concat(Array.from({length: 12}, (v, k) => k + 1));
+            - const dayOptions = ['Day'].concat(Array.from({length: 31}, (v, k) => k + 1));
+            .sign-up__drop-down-field
+              .sign-up__drop-down-field-label Birthday
+              +drop-down("year", 90, yearOptions)
+              +drop-down("month", 100, monthOptions)
+              +drop-down("day", 90, dayOptions)
+              
+          .sign-up__block
+            .sign-up__message Finished! Unfortunately signing up doesn't work here, but you still can to sign in as John Smith.
+            +link('dark-2')(href='./john_smith') Sign in as John Smith            
+      +button("dark-2", "big", "next")
