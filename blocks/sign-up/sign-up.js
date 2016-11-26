@@ -1,6 +1,7 @@
 
-const $ = require('jquery');
-const colors = require('../../colors.json');
+import $ from 'jquery';
+import colors from '../../colors.json';
+
 
 const pagesNumber = 4;
 const blockWidth = 500;

@@ -17,9 +17,9 @@ include ./blocks/calendar/calendar.pug
 include ./blocks/messenger/messenger.pug
 include ./blocks/video/video.pug
 
-html(lang="en")
+html(lang='en')
   head
-    meta(charset="utf-8")    
+    meta(charset='utf-8')    
     title UI kit
     script(src='https://api-maps.yandex.ru/2.1/?lang=en_US', type='text/javascript')
   body        
@@ -27,20 +27,20 @@ html(lang="en")
       .preview-column
         h2 standard buttons
         .preview-row.preview-row_button-row
-          +button("dark-1", "small", "button")
-          +button("dark-1", "big", "button")
-          +button("dark-2", "big", "button")
-          +button("dark-2", "small", "button")
+          +button('dark-1', 'small', 'button')
+          +button('dark-1', 'big', 'button')
+          +button('dark-2', 'big', 'button')
+          +button('dark-2', 'small', 'button')
         .preview-row.preview-row_button-row
-          +button("light-1", "small", "button")
-          +button("light-1", "big", "button")
-          +button("light-2", "big", "button")
-          +button("light-2", "small", "button")
+          +button('light-1', 'small', 'button')
+          +button('light-1', 'big', 'button')
+          +button('light-2', 'big', 'button')
+          +button('light-2', 'small', 'button')
       .preview-column
         h2 arrow buttons
         .preview-row
-          each theme in ["light-1", "inactive", "dark-1"]
-            each side in ["left", "right"]
+          each theme in ['light-1', 'inactive', 'dark-1']
+            each side in ['left', 'right']
               +arrow-button(theme, side)
       .preview-column
         h2 percentages / pie chart
@@ -51,46 +51,46 @@ html(lang="en")
       .preview-column
         h2 sliders
         .preview-row
-          +slider("tooltiped")
-          +slider("scaled")
+          +slider('tooltiped')
+          +slider('scaled')
       .preview-column
         h2 stages
-        +stages(["1", "2", "3"], ["4", "5"])
+        +stages(['1', '2', '3'], ['4', '5'])
       .preview-column
         h2 form elements
         .preview-row.preview-row_form-row
           form
             .preview-column
-              +tooltiped-input('ERROR', 'dark-2')(type='text', placeholder='Your Name')
-              +tooltiped-input('THANKS', 'dark-1')(type='text', placeholder='Your Email')
-              textarea.text-area(placeholder="Your Message")
-              +button("dark-1", "big", "submit")
+              +preview-input('ERROR', 'dark-2')(type='text', placeholder='Your Name')
+              +preview-input('THANKS', 'dark-1')(type='text', placeholder='Your Email')
+              textarea.text-area(placeholder='Your Message')
+              +button('dark-1', 'big', 'submit')
           .preview-column.preview-column_right
             h2 toggles
             .preview-column
               .preview-row
-                +toggle("off")
-                +toggle("on")
+                +toggle('off')
+                +toggle('on')
             h2 tick boxes
             .preview-column
               .preview-row
-                +tick-box("on")
-                +tick-box("off")
+                +tick-box('tick-box-1', 'on')
+                +tick-box('tick-box-2', 'off')
       .preview-row
         .preview-column
           h2 search / drop down
           +search()
-          +drop-down('fake', 300, "Choose An Option", "Option A", "Option C")
+          +drop-down('fake', 300, 'Choose An Option', 'Option A', 'Option C')
         .preview-column
           h2 user profile
-          +user-profile("John Smith", "UX designer", "john.png", "gray")(twitter="https://twitter.com/john_smith")
-          +user-profile("Sarah Brown", "Developer", "sarah.png", "dark-1")
+          +user-profile('John Smith', 'UX designer', 'john.png', 'gray')(twitter='https://twitter.com/john_smith')
+          +user-profile('Sarah Brown', 'Developer', 'sarah.png', 'dark-1')
       .preview-column
         h2 news & events
         .preview-row
-          +news("It’s all going downhill", "24 august 2013", "bicyclist.png")
+          +news('It’s all going downhill', '24 august 2013', 'bicyclist.png')
             p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed condimentum aliquet venenatis. Etiam a nisi nunc, a tincidunt eros.
-          +event("this is the title", "24", "Aug", "skyscrapers.png")
+          +event('this is the title', '24', 'Aug', 'skyscrapers.png')
             | Lorem ipsum dolor sit amet, consectetur adipiscing elit.
       .preview-column
         h2 location
@@ -104,4 +104,4 @@ html(lang="en")
           +messenger
       .preview-column
       h2 video
-      +video("fi-S9lrnLZ8")
+      +video('fi-S9lrnLZ8')

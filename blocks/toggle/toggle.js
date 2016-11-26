@@ -1,7 +1,7 @@
-'use strict'
+import $ from 'jquery';
 
-$(function () {
-    $('.toggle').on('click', function (event) {
-        $(this).toggleClass("toggle_state_on toggle_state_off")
-    })
-})
+$(() => {
+  $('.toggle').on('click', function callback() {
+    $(this).toggleClass('toggle_state_on toggle_state_off');
+  });
+});

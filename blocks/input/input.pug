@@ -8,5 +8,5 @@ mixin input
 mixin preview-input(text, tooltipTheme)
   .input 
     input.input__field.input__field_tooltiped&attributes(attributes)
-    +tooltip(tooltipTheme, "left")(hidden)
+    +tooltip(tooltipTheme, "left")
       span= text

@@ -1,33 +1,35 @@
+/* eslint-env browser */
+
+import $ from 'jquery';
+
 $('.button')
-    .on('mousedown', function (event) {
-        $(this).addClass("button_shadow_none")
-    })
-    .on('mouseup', function (event) {
-        $(this).removeClass("button_shadow_none")
-    })
-    .on('mouseout', function (event) {
-        $(this).removeClass("button_shadow_none")
-    })
+  .on('mousedown', function callback() {
+    $(this).addClass('button_shadow_none');
+  })
+  .on('mouseup', function callback() {
+    $(this).removeClass('button_shadow_none');
+  })
+  .on('mouseout', function callback() {
+    $(this).removeClass('button_shadow_none');
+  })
 
-    .on('click', function (event) {
-        event.preventDefault();
-        
-        var $div = $('<div/>'),
-            btnOffset = $(this).offset(),
-      	    xPos = event.pageX - btnOffset.left,
-      	    yPos = event.pageY - btnOffset.top;      
-        
-        $div.addClass('ripple-effect');
-        $div
-            .css({
-                top: yPos,
-                left: xPos,
-            }) 
-            .appendTo($(this));
+  .on('click', function callback(event) {
+    event.preventDefault();
 
-        window.setTimeout(function(){
-            $div.remove();
-        }, 1000);
-    });
+    const $div = $('<div/>');
+    const offset = $(this).offset();
+    const xPos = event.pageX - offset.left;
+    const yPos = event.pageY - offset.top;
 
+    $div.addClass('ripple-effect');
+    $div
+      .css({
+        top: yPos,
+        left: xPos,
+      })
+      .appendTo($(this));
 
+    window.setTimeout(() => {
+      $div.remove();
+    }, 1000);
+  });
