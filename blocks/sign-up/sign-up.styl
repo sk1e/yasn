@@ -1,30 +1,28 @@
 @require "../../constants.styl"
 
 pages = 4
-tempted-width = 500px
-field-top-margin = 12px
-sign-up-padding = 20px
+tempted-width = 35.71rem
+field-top-margin = 0.86rem
+sign-up-padding = 1.43rem
 
 .sign-up
   display flex
   flex-direction column
   justify-content space-between  
   overflow hidden
-  border 3px solid theme-color-1
-  width 300px
-  height 70px
+  border 0.21rem solid theme-color-1
+  width 21.43rem
+  height 5.00rem
   padding sign-up-padding
-  border-radius 10px
+  border-radius 0.71rem
   margin auto
-  margin-top 200px  
+  margin-top 14.29rem
   transition border-color 0.5s, width 0.5s linear 0.5s, height 0.5s linear 0.5s
       
   &_tempted
-
-
     border-color theme-color-2
-    width 500px
-    height 300px
+    width 35.71rem
+    height 21.43rem
               
   &__join
     display flex
@@ -41,9 +39,9 @@ sign-up-padding = 20px
         border-width 0
           
   &__join-message    
-    font-size 30px
+    font-size 2.14rem
     font-weight bold
-    margin-right 20px
+    margin-right 1.43rem
     color theme-color-1
     transition opacity 0.5s
     
@@ -51,7 +49,7 @@ sign-up-padding = 20px
       opacity 0
       
   &__form
-    margin-top 30px
+    margin-top 2.14rem
     width 100%
     
   &__blocks-container
@@ -69,7 +67,7 @@ sign-up-padding = 20px
       margin-top 0
   
   &__drop-down-field-label
-    width 100px
+    width 7.14rem
       
   &__block
     width tempted-width - (2 * sign-up-padding)
@@ -93,14 +91,14 @@ sign-up-padding = 20px
       opacity 1
       
   & .tick-box-field
-    margin-top 5px
+    margin-top 0.36rem
     width 70%    
     
   & .tick-box-field + .tick-box-field
-    margin-top 10px
+    margin-top 0.71rem
   
   & .link
-    margin-top 15px
+    margin-top 1.07rem
     align-self center
   
   & .input

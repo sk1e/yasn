@@ -4,7 +4,7 @@ import colors from '../../colors.json';
 
 
 const pagesNumber = 4;
-const blockWidth = 500;
+const blockWidth = 35.71;
 
 
 function makeValidator(predicate, message) {
@@ -94,7 +94,7 @@ $(() => {
       const pageValidator = pageValidators[page];
       if (!pageValidator || (pageValidator && pageValidator())) {
         page += 1;
-        container.css('transform', `translateX(-${blockWidth * page}px)`);
+        container.css('transform', `translateX(-${blockWidth * page}rem)`);
 
         $('.sign-up .stages').css('background', `linear-gradient(to right, ${colors['theme-color-2']} ${(page / (pagesNumber - 1)) * 100}%, ${colors['theme-color-3']} 0%)`);
         $('.sign-up .stages__stage_face_incomplete').first()
