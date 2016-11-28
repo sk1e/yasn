@@ -1,4 +1,4 @@
-require('./ui-kit.pug');
+// require('./ui-kit.pug');
 require('./global.styl');
 
 require('jquery-ui/ui/widgets/slider.js');
