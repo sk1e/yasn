@@ -1,0 +1,79 @@
+@require "~constants.styl"
+
+
+.tooltip
+  .slider &
+    position absolute
+    left -1.29rem
+    top -2.29rem
+
+  &_hidden
+    visibility hidden
+
+  &__body
+    position relative
+    margin 0 0.71rem
+    color white
+    display flex
+    flex-direction column
+    align-items center
+    justify-content center
+    border-radius 0.21rem
+    padding 0 0.71rem
+
+    .input &
+      font-weight heavy
+      font-size 0.71rem
+      text-transform uppercase
+      height 2.00rem
+      min-width 5.14rem
+
+    .slider &
+      width 2.50rem
+      height 1.71rem
+      font-size 1.00rem
+
+    .user-profile &
+      height 6.64rem
+      width 11.64rem
+      border-radius 0.64rem
+
+
+    &_theme
+      &_dark-1
+        background theme-color-1
+      &_dark-2
+        background theme-color-2
+      &_gray
+        background theme-color-3
+
+
+  &__pointer
+    display block
+    transform rotate(45deg)
+    border-radius 0.14rem
+    position absolute
+    width 0.93rem
+    height 0.93rem
+    background inherit
+
+    .user-profile &
+      width 1.86rem
+      height 1.86rem
+
+    &_location
+      &_bottom
+        left 33%
+        bottom -0.14rem
+      &_left
+        left -0.14rem
+        bottom calc(50% - 0.50rem)
+
+        .user-profile &
+          bottom calc(50% - 0.93rem)
+
+  &__text
+    display flex
+    flex-direction column
+    align-items center
+    z-index 1

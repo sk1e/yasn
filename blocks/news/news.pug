@@ -1,8 +1,0 @@
-mixin news(title, date, image)
-  .news
-    img.news__image(src=require("./blocks/news/images/" + image))
-    .news__description
-      .news__title= title
-      .news__date= date
-      .news__text
-        block

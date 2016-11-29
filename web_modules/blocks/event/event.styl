@@ -1,0 +1,42 @@
+@require "~constants.styl"
+
+.event  
+  color white
+  display flex
+  
+  .preview-column &
+    margin-left 1.43rem
+  
+  &__image
+    border-top-left-radius 0.21rem
+    border-bottom-left-radius 0.21rem
+    
+  &__description
+    border-top-right-radius 0.21rem
+    border-bottom-right-radius 0.21rem
+    width 13.57rem
+    background theme-color-1
+    padding 1.07rem 1.43rem
+    
+  &__day
+    display inline-block
+    font-weight light
+    font-size 5.00rem
+    
+  &__month
+    display inline-block
+    margin-left 0.71rem
+    font-size 2.14rem
+    
+  &__title
+    font-weight heavy
+    font-size 0.93rem
+    text-transform uppercase
+    
+  &__text
+    font-size 0.82rem
+    margin 0.36rem 0
+    
+  &  .button
+    margin-left 0.86rem
+    margin-top 0.64rem

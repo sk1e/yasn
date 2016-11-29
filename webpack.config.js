@@ -5,8 +5,8 @@ const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 module.exports = {
   entry: {
-    'ui-kit': './ui-kit.js',
-    index: './index.js',
+    'ui-kit': './pages/ui-kit.js',
+    index: './pages/index.js',
   },
 
   output: {
@@ -19,19 +19,25 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel',
-        include: [path.resolve(__dirname, 'blocks')],
+        include: [path.resolve(__dirname, 'web_modules')],
         query: { presets: ['babel-preset-latest'] },
       },
       { test: /\.pug$/, loader: 'pug' },
       { test: /\.json$/, loader: 'json' },
       { test: /\.(css|styl)/, loader: ExtractTextPlugin.extract('css!stylus') },
-      { test: /\.(svg|png|ttf|eot|woff|woff2)$/, loader: 'file?name=[path][name].[ext]' },
+      { test: /\.(svg|png|ttf|eot|woff|woff2)(\?v=.+)?$/, loader: 'file?name=[path][name].[ext]' },
     ],
   },
 
   plugins: [
-    new HtmlWebpackPlugin({ template: 'index.pug', filename: 'index.html', chunks: ['index'] }),
-    new HtmlWebpackPlugin({ template: 'ui-kit.pug', filename: 'ui-kit.html', chunks: ['ui-kit'] }),
+    new HtmlWebpackPlugin({ template: 'pages/index.pug', filename: 'index.html', chunks: ['index'] }),
+    new HtmlWebpackPlugin({ template: 'pages/ui-kit.pug', filename: 'ui-kit.html', chunks: ['ui-kit'] }),
     new ExtractTextPlugin('[name].css', { allChunks: true }),
   ],
+
+  resolve: {
+    alias: {
+      'font-awesome': 'font-awesome/css/font-awesome.min.css',
+    },
+  },
 };

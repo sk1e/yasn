@@ -1,0 +1,16 @@
+include ../photocam-icon/photocam-icon.pug
+
+mixin messenger()
+  .messenger
+    .messenger__name Sarah Brown
+    .messenger__photo-container
+      img.messenger__photo(src=require('blocks/user-profile/user-photos/sarah.png'))
+    .messenger__icons
+      .message-icon
+      +photocam-icon
+    .messenger__scroll-view
+      .messenger__message-list
+        .messenger__message Hey! So are we cool to meet at the art gallery? Say 8pm
+
+    textarea.text-area(placeholder="Your message")
+    +button("dark-1", "big", "reply")

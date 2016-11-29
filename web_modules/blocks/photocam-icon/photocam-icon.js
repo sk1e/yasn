@@ -1,0 +1,1 @@
+import './photocam-icon.styl';
