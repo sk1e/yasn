@@ -1,0 +1,27 @@
+@require "~constants.styl"
+@require "./constants.styl"
+@require "../header/constants.styl"
+@require "../button/constants.styl"
+
+.sign-in
+  display flex
+  flex-direction column
+  justify-content space-between
+  padding 1rem 1rem
+  width sign-in-width
+  height header-height
+  background white
+  transition transform 0.5s linear 0.5s
+  border-bottom 2px solid theme-color-2
+    
+  & .button
+    transition transform 0.5s, background 0.3s linear 0.2s, color 0.3s linear 0.2s
+    position absolute
+    right 1rem
+    top (header-height / 2) - (button-height-big / 2)
+    
+    &_wants-sign-in
+      transform translateY(5rem)
+
+  
+  

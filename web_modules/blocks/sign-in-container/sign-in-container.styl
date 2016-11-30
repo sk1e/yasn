@@ -1,0 +1,18 @@
+@require "../header/constants.styl"
+@require "../sign-in/constants.styl"
+
+.sign-in-container
+  background black
+  display flex
+  height header-height
+  width "calc(100% + %s)" % sign-in-width
+  
+  & .header
+    width "calc(100% - %s)" % sign-in-width
+    transition width 0.5s linear 0.5s
+    
+    &_wants-sign-in
+      width "calc(100% - %s)" % (2 * sign-in-width)
+  
+body 
+   overflow hidden

@@ -13,7 +13,12 @@ html(lang='en')
     meta(charset='utf-8')
     title Join YASN!
   body.body
-    +header
+    .sign-in-container
+      +header
+      .sign-in
+        +button("light-2", "big", "sign in")
+        +input(type='text', placeholder='Your Login')
+        +input(type='password' placeholder='Your Password')        
     .temptation
       .temptation__cute Cute
       .temptation__nifty Nifty
