@@ -18,5 +18,7 @@ require('blocks/text-area/text-area');
 require('blocks/tick-box/tick-box');
 require('blocks/toggle/toggle');
 require('blocks/user-profile/user-profile');
+require('blocks/video/video');
 
 require('./templates/base.js');
+
