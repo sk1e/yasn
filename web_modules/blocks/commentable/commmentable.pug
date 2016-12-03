@@ -1,0 +1,9 @@
+
+.commentable
+  block commented-item
+  .commentable__comment-list
+    block comments
+  .commentable__input
+    img(src=require('user-photos/john.png'))
+    textarea.text-area(placeholder='Your Comment')
+  +button('dark-2', 'big', 'send')

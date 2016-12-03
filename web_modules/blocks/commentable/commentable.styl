@@ -1,0 +1,43 @@
+@require "../video/constants.styl"
+@require "~constants.styl"
+
+comment-video-width = (video-width / 1.5) + 1rem
+
+.commentable
+  display flex
+  flex-direction column
+  
+  &__commented-item
+    color blue        
+    
+  &__comment-list
+    display flex
+    flex-direction column
+    height 25rem
+    overflow-y auto
+    
+  &__comment
+    display flex
+    border-bottom 0.2rem solid theme-color-3-foreground
+    
+  &__comment-text
+    width "calc(%s + 1rem)" % comment-video-width
+    padding 0.5rem 0.5rem
+    display flex
+    flex-direction column
+    color #333
+    
+    & .video
+      height (video-height / 1.5)
+      width comment-video-width
+   
+  &__input
+    display flex
+    align-items center
+   
+  & .text-area
+    width comment-video-width + 1rem
+    height 10rem
+    
+  & .button
+    align-self flex-end

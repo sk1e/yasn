@@ -1,0 +1,7 @@
+include ../user-profile/user-profile.pug
+
+mixin comment(name, profession, imagePath, theme)
+  .commentable__comment
+    +user-profile(name, profession, imagePath, theme)&attributes(attributes)
+    .commentable__comment-text
+      block
