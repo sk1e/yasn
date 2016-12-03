@@ -4,6 +4,7 @@ import 'jquery-ui/ui/widgets/datepicker.js';
 import 'jquery-ui/themes/base/datepicker.css';
 import 'jquery-ui/themes/base/core.css';
 import 'jquery-ui/themes/base/theme.css';
+import 'font-awesome';
 
 import './calendar.styl';
 
