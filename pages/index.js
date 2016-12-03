@@ -13,4 +13,3 @@ require('blocks/input/input');
 require('blocks/stages/stages');
 require('blocks/button/button');
 
-
