@@ -1,7 +1,8 @@
+include ../tooltip/tooltip.pug
 
-mixin user-profile(name, profession, image, theme)
+mixin user-profile(name, profession, imagePath, theme)
   .user-profile 
-    img(src=require("blocks/user-profile/user-photos/" + image))
+    img(src=imagePath)
 
     +tooltip(theme, "left")
       .user-profile__name(class=`user-profile__name_theme_${theme}`)= name
@@ -10,3 +11,5 @@ mixin user-profile(name, profession, image, theme)
         a.fa.fa-facebook.user-profile__reference(class=`user-profile__reference_theme_${theme}`, href=attributes.facebook || "")
         a.fa.fa-twitter.user-profile__reference(class=`user-profile__reference_theme_${theme}`, href=attributes.twitter || "")
         a.fa.fa-dribbble.user-profile__reference(class=`user-profile__reference_theme_${theme}`, href=attributes.dribbble || "")
+        
+//- +user-profile('Sarah Brown', 'Developer', 'sarah.png', 'dark-1')

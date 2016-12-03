@@ -3,6 +3,15 @@
 .user-profile
   display flex
   align-items center
+  position relative
+  
+  &:hover .tooltip
+    visibility visible
+  
+  & .tooltip
+    visibility hidden
+    position absolute
+    top 0
   
   .preview-column &
     margin 1.43rem 1.43rem

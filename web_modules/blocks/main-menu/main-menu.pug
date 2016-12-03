@@ -1,6 +1,6 @@
-- const items = ['news', 'events', 'polls', 'messages', 'settings']
 
 mixin main-menu(activeItem)
+  - const items = ['news', 'events', 'polls', 'messages', 'profile']
   .main-menu
     each item in items
       - var ref = `./${item}`;
@@ -8,4 +8,3 @@ mixin main-menu(activeItem)
         a.main-menu__item.main-menu__item_state_active(href=ref)= item
       else
         a.main-menu__item.main-menu__item_state_inactive(href=ref)= item
-      
