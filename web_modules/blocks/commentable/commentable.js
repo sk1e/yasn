@@ -4,6 +4,7 @@ import 'blocks/user-profile/user-profile';
 import 'blocks/video/video';
 import 'blocks/text-area/text-area';
 import 'blocks/button/button';
+import 'blocks/arrow-button/arrow-button';
 
 import './commentable.styl';
 

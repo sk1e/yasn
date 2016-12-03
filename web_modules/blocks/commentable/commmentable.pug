@@ -1,6 +1,11 @@
+include ../arrow-button/arrow-button.pug
 
 .commentable
-  block commented-item
+  .commentable__commented-item
+    block commented-item
+    .commentable__commented-item-navigation
+      +arrow-button('inactive', 'left')
+      +arrow-button('inactive', 'right')
   .commentable__comment-list
     block comments
   .commentable__input

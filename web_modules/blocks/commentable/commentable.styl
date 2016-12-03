@@ -8,7 +8,15 @@ comment-video-width = (video-width / 1.5) + 1rem
   flex-direction column
   
   &__commented-item
-    color blue        
+    display flex
+    justify-content space-between
+    
+    &-navigation
+      display flex      
+      align-self flex-end
+      & .arrow-button:first-child
+        margin-right 1rem
+        
     
   &__comment-list
     display flex
