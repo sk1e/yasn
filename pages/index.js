@@ -1,3 +1,6 @@
+
+require('blocks/base-page/base-page');
+
 require('blocks/sign-in-container/sign-in-container');
 require('blocks/sign-in/sign-in');
 require('blocks/link/link');
@@ -10,4 +13,4 @@ require('blocks/input/input');
 require('blocks/stages/stages');
 require('blocks/button/button');
 
-require('./templates/base.js');
+

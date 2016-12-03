@@ -1,3 +1,6 @@
+
+require('blocks/base-page/base-page');
+
 require('blocks/arrow-button/arrow-button');
 require('blocks/button/button');
 require('blocks/calendar/calendar');
@@ -19,6 +22,4 @@ require('blocks/tick-box/tick-box');
 require('blocks/toggle/toggle');
 require('blocks/user-profile/user-profile');
 require('blocks/video/video');
-
-require('./templates/base.js');
 
