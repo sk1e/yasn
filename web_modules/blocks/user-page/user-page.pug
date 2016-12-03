@@ -1,0 +1,16 @@
+extends ../base-page/base-page.pug
+
+include ~blocks/main-menu/main-menu
+include ~blocks/header/header
+include ~blocks/news/news
+include ~blocks/calendar/calendar
+
+block body
+  +header
+  .user-page__body
+    +main-menu('news')
+    main.user-page__main
+      block main
+    .user-page__calendar
+      +calendar
+      
