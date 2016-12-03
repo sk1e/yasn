@@ -25,6 +25,7 @@ $(() => {
       text: $textarea[0].value.replace(/https:\/\/www.youtube.com\/watch\?v=(\S+)/g,
                                        '<iframe class=video src="https://www.youtube.com/embed/$1" frameborder="0" allowfullscreen></iframe>'),
     });
+    $textarea[0].value = '';
 
     const $commentList = $textarea.parent().prev();
     $commentList.append(commentHTML); // todo escape html
@@ -34,9 +35,10 @@ $(() => {
   }
 
   $('.commentable .button').on('click', submitComment);
-  $('.messenger .text-area').keydown((event) => {
+  $('.commentable .text-area').keydown((event) => {
     if (event.keyCode === 13) {
       submitComment();
     }
   });
 });
+

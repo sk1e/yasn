@@ -1,7 +1,7 @@
 @require "../video/constants.styl"
 @require "~constants.styl"
 
-comment-video-width = (video-width / 1.5) + 1rem
+comment-video-width = (video-width / 1.5) 
 
 .commentable
   display flex
@@ -16,20 +16,21 @@ comment-video-width = (video-width / 1.5) + 1rem
       align-self flex-end
       & .arrow-button:first-child
         margin-right 1rem
-        
-    
+            
   &__comment-list
+    margin-top 1rem
     display flex
     flex-direction column
     height 25rem
     overflow-y auto
+    overflow-x hidden
     
   &__comment
     display flex
     border-bottom 0.2rem solid theme-color-3-foreground
     
   &__comment-text
-    width "calc(%s + 1rem)" % comment-video-width
+    width (comment-video-width + 1rem)
     padding 0.5rem 0.5rem
     display flex
     flex-direction column
@@ -44,7 +45,7 @@ comment-video-width = (video-width / 1.5) + 1rem
     align-items center
    
   & .text-area
-    width comment-video-width + 1rem
+    width (comment-video-width + 1rem)
     height 10rem
     
   & .button

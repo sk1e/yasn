@@ -2,6 +2,7 @@ extends ../commentable/commmentable.pug
 
 include ../commentable/comment.pug
 include ../news/news.pug
+include ../video/video.pug
 
 block commented-item
   +news('It’s all going downhill', '24 august 2013', 'bicyclist.png')
@@ -10,5 +11,9 @@ block commented-item
 block comments
   - const sarahImagePath = require('user-photos/sarah.png')
   +comment('Sarah Brown', 'Developer', sarahImagePath, 'dark-1')
-    | hey
-    
+    | What is this?
+  +comment('Sarah Brown', 'Developer', sarahImagePath, 'dark-1')
+    | This is music thread now
+    +video('-v3yQsbo22s')
+  +comment('Sarah Brown', 'Developer', sarahImagePath, 'dark-1')
+    +video('rn_YodiJO6k')    
