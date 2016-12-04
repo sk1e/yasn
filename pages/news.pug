@@ -1,7 +1,11 @@
 extends ~blocks/user-page/user-page.pug
+include ~blocks/main-menu/main-menu.pug
 
 block title
   | News — YASN
 
+block main-menu
+  +main-menu('news')    
+  
 block main
   include ~blocks/commentable-news/commentable-news.pug
