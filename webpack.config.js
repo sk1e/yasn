@@ -8,6 +8,7 @@ module.exports = {
     'ui-kit': './pages/ui-kit.js',
     index: './pages/index.js',
     news: './pages/news.js',
+    events: './pages/events.js',
   },
 
   output: {
@@ -23,7 +24,7 @@ module.exports = {
         include: [path.resolve(__dirname, 'web_modules')],
         query: { presets: ['babel-preset-latest'] },
       },
-      { test: /\.pug$/, loader: 'pug' },
+      { test: /\.pug$/, loader: 'pug?pretty=true' },
       { test: /\.json$/, loader: 'json' },
       { test: /\.(css|styl)/, loader: ExtractTextPlugin.extract('css!stylus') },
       { test: /\.(svg|png|ttf|eot|woff|woff2)(\?v=.+)?$/, loader: 'file?name=[path][name].[ext]' },
@@ -34,6 +35,7 @@ module.exports = {
     new HtmlWebpackPlugin({ template: 'pages/index.pug', filename: 'index.html', chunks: ['index'] }),
     new HtmlWebpackPlugin({ template: 'pages/ui-kit.pug', filename: 'ui-kit.html', chunks: ['ui-kit'] }),
     new HtmlWebpackPlugin({ template: 'pages/news.pug', filename: 'news.html', chunks: ['news'] }),
+    new HtmlWebpackPlugin({ template: 'pages/events.pug', filename: 'events.html', chunks: ['events'] }),
     new ExtractTextPlugin('[name].css', { allChunks: true }),
   ],
 

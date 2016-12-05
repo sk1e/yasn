@@ -1,0 +1,9 @@
+extends ../commentable/commentable.pug
+
+include ../event/event
+
+
+block commented-item
+  +event('this is the title', '24', 'Aug', 'skyscrapers.png')
+    | Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+

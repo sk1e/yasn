@@ -34,7 +34,7 @@ $(() => {
     commentList.scrollTo(0, commentList.scrollHeight - commentList.clientHeight);
   }
 
-  $('.commentable .button').on('click', submitComment);
+  $('.commentable__input + .button').on('click', submitComment);
   $('.commentable .text-area').keydown((event) => {
     if (event.keyCode === 13) {
       submitComment();
