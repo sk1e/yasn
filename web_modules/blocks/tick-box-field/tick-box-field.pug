@@ -1,6 +1,6 @@
 include ../tick-box/tick-box.pug
 
-mixin tick-box-field(label, name, state)
+mixin tick-box-field(type, label, value, state)
   .tick-box-field
-    label.tick-box-field__label(for=`${name}-field`)= label
-    +tick-box(name, state)
+    +tick-box(type, value, state)&attributes(attributes)
+    label.tick-box-field__label(for=`${value}-field`)= label
