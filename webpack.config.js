@@ -9,6 +9,7 @@ module.exports = {
     index: './pages/index.js',
     news: './pages/news.js',
     events: './pages/events.js',
+    polls: './pages/polls.js',
   },
 
   output: {
@@ -36,6 +37,7 @@ module.exports = {
     new HtmlWebpackPlugin({ template: 'pages/ui-kit.pug', filename: 'ui-kit.html', chunks: ['ui-kit'] }),
     new HtmlWebpackPlugin({ template: 'pages/news.pug', filename: 'news.html', chunks: ['news'] }),
     new HtmlWebpackPlugin({ template: 'pages/events.pug', filename: 'events.html', chunks: ['events'] }),
+    new HtmlWebpackPlugin({ template: 'pages/polls.pug', filename: 'polls.html', chunks: ['polls'] }),
     new ExtractTextPlugin('[name].css', { allChunks: true }),
   ],
 
@@ -43,6 +45,7 @@ module.exports = {
     alias: {
       'font-awesome': 'font-awesome/css/font-awesome.min.css',
       'user-photos': 'blocks/user-profile/user-photos/',
+      'd3': 'd3/node_modules',
     },
   },
 };
