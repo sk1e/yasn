@@ -1,0 +1,9 @@
+include ../messenger/messenger.pug
+include ../contact-list/contact-list.pug
+
+mixin messages-body
+  .messages-body
+    +messenger
+    +contact-list([
+      { name: 'Sarah Brown', active: true },
+    ])

@@ -1,16 +1,33 @@
-const path = require('path');
+// const path = require('path');
+import path from 'path';
 
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 
+const pageList = [
+  'ui-kit',
+  'index',
+  'news',
+  'events',
+  'polls',
+  'messages',
+];
+
+const entries = {};
+pageList.forEach((x) => { entries[x] = `./pages/${x}.js`; });
+
+const htmlPlugins = [];
+
+pageList.forEach((x) => {
+  htmlPlugins.push(new HtmlWebpackPlugin({
+    template: `pages/${x}.pug`,
+    filename: `${x}.html`,
+    chunks: [x],
+  }));
+});
+
 module.exports = {
-  entry: {
-    'ui-kit': './pages/ui-kit.js',
-    index: './pages/index.js',
-    news: './pages/news.js',
-    events: './pages/events.js',
-    polls: './pages/polls.js',
-  },
+  entry: entries,
 
   output: {
     path: path.join(__dirname, 'build'),
@@ -32,20 +49,16 @@ module.exports = {
     ],
   },
 
+
   plugins: [
-    new HtmlWebpackPlugin({ template: 'pages/index.pug', filename: 'index.html', chunks: ['index'] }),
-    new HtmlWebpackPlugin({ template: 'pages/ui-kit.pug', filename: 'ui-kit.html', chunks: ['ui-kit'] }),
-    new HtmlWebpackPlugin({ template: 'pages/news.pug', filename: 'news.html', chunks: ['news'] }),
-    new HtmlWebpackPlugin({ template: 'pages/events.pug', filename: 'events.html', chunks: ['events'] }),
-    new HtmlWebpackPlugin({ template: 'pages/polls.pug', filename: 'polls.html', chunks: ['polls'] }),
     new ExtractTextPlugin('[name].css', { allChunks: true }),
-  ],
+  ].concat(htmlPlugins),
 
   resolve: {
     alias: {
       'font-awesome': 'font-awesome/css/font-awesome.min.css',
       'user-photos': 'blocks/user-profile/user-photos/',
-      'd3': 'd3/node_modules',
+      d3: 'd3/node_modules',
     },
   },
 };
