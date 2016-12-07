@@ -1,0 +1,42 @@
+@require "~constants.styl"
+.poll
+  &__items
+    margin-top 1rem
+    
+    &_hidden
+      visibility hidden
+  
+  &__chart
+    display flex
+    
+  &__legend
+    margin-left 2rem
+    display flex
+    flex-direction column
+    justify-content space-between
+    
+    
+  &__legend-item
+    align-items center
+    display flex
+    
+  &__legend-item-marker
+    height 0.5rem
+    width 3rem
+    background red
+    
+  &__legend-item-text
+    font-size 0.9rem
+    margin-left 0.9rem
+    
+    &_chosen
+      font-weight heavy
+      
+  &__legend-votes-count
+    display flex
+    
+  &__input
+    align-items center
+    display flex
+    margin-top 1rem
+    

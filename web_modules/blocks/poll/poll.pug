@@ -1,0 +1,30 @@
+include ../tick-box-field/tick-box-field.pug
+include ../pie-chart/pie-chart.pug
+include ../button/button.pug
+include ../tooltip/tooltip.pug
+
+mixin poll(name, items)
+  - const fillColors = require('blocks/pie-chart/pie-chart-view').default.fillColors
+  - const values = items.map(x => x.value)
+  .poll
+    h2= name.full
+    .poll__chart
+      +pie-chart(values)
+      .poll__legend
+        div
+          - items.forEach((x, i) => {
+            .poll__legend-item
+              .poll__legend-item-marker(style={ background: fillColors[i] })
+              .poll__legend-item-text= x.name.full
+          - })
+        .poll__legend-votes-count
+          span Votes:
+          span= values.reduce((acc, x) => acc + x)
+    form
+      .poll__items
+        each item in items
+          +tick-box-field('radio', item.name.full, `poll__${name.short}__${item.name.short}`, 'off')(name=name)
+      .poll__input
+        +button('light-2', 'big', 'vote')
+        +tooltip('dark-2', 'left')(hidden=true) You didn't choose anything
+        

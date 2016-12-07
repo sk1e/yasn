@@ -1,0 +1,10 @@
+extends ../commentable/commentable.pug
+
+include ../poll/poll.pug
+
+block commented-item
+  +poll({ full: 'Do you like yasn?', short: 'like-yasn' }, [
+    { name: { full: 'Yeah', short: 'yes' }, value: 1 },
+    { name: { full: "No I don't", short: 'no' }, value: 1 },
+  ])
+
