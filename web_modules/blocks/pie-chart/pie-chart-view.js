@@ -6,17 +6,15 @@ import { interpolate } from 'd3/d3-interpolate';
 
 import colors from 'colors.json';
 
-const fillColors = [
-  colors['theme-color-3-foreground'],
-  colors['theme-color-2'],
-  colors['theme-color-1'],
-  colors['theme-color-3'],
-];
-
 
 const PieChartView = class {
   static get fillColors() {
-    return fillColors;
+    return [
+      colors['theme-color-3-foreground'],
+      colors['theme-color-2'],
+      colors['theme-color-1'],
+      colors['theme-color-3'],
+    ];
   }
 
   get values() { return this._values; }
@@ -41,8 +39,8 @@ const PieChartView = class {
       .each(function callback(x) { this._current = x; });
   }
 
-  constructor(node, innerRadius, outerRadius) {
-    this.initializeValues(node);
+  constructor(node, values, innerRadius, outerRadius) {
+    this._values = values;
 
     const width = node.offsetWidth;
     const height = node.offsetHeight;
@@ -59,7 +57,7 @@ const PieChartView = class {
             .append('g')
             .attr('transform', `translate(${width / 2}, ${height / 2})`);
 
-    this.paths = this.makePaths(svg, width, height, this.pie(this.values), chartArc);
+    this.paths = this.makePaths(svg, width, height, this.pie(values), chartArc);
 
     this.interpolatorFactory = function interpolatorFactory(primaryArc) {
       const interpolator = interpolate(this._current, primaryArc);

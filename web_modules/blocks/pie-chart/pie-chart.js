@@ -9,6 +9,8 @@ export default pieChartViewMap;
 
 $(() => {
   $('.pie-chart').each(function callback() {
-    pieChartViewMap.set(this, new PieChartView(this, 30, 47));
+    const values = JSON.parse(this.attributes.values.value);
+
+    pieChartViewMap.set(this, new PieChartView(this, values, 30, 47));
   });
 });
