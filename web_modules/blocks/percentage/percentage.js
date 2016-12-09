@@ -1,41 +1,20 @@
 import $ from 'jquery';
-import * as d3 from 'd3';
 
+import PercentageView from './percentage-view';
 import './percentage.styl';
 
 
+const percentageViewMap = new Map();
+
+export default percentageViewMap;
+
 $(() => {
-  $('canvas.percentage').each(function callback() {
-    const context = this.getContext('2d');
-    const percents = this.attributes.value.value;
-    const width = this.width;
-    const height = this.height;
-    const colors = ['#e75735', '#fff'];
-
-    const arc = d3.arc()
-            .outerRadius(47)
-            .innerRadius(43)
-            .context(context);
-
-    const pie = d3.pie()
-            .sort(null)
-            .value(x => x);
-
-    context.translate(width / 2, height / 2);
-
-    const arcs = pie([percents, 100 - percents]);
-
-    arcs.forEach((x, i) => {
-      context.beginPath();
-      arc(x);
-      context.fillStyle = colors[i];
-      context.fill();
-    });
-
-    context.fillStyle = 'black';
-    context.font = '300 42px Lato';
-    context.textAlign = 'center';
-    context.textBaseline = 'middle';
-    context.fillText(percents, 0, 0);
+  $('.percentage').each(function callback() {
+    const value = this.attributes.value;
+    if (value) {
+      const initialPercents = JSON.parse(value.value);
+      const values = [initialPercents, 100 - initialPercents];
+      percentageViewMap.set(this, new PercentageView(this, values, 43, 47));
+    }
   });
 });
