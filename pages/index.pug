@@ -7,6 +7,7 @@ include ~blocks/input/input.pug
 include ~blocks/tick-box-field/tick-box-field.pug
 include ~blocks/drop-down/drop-down.pug
 include ~blocks/link/link.pug
+include ~blocks/birthday-dropdowns/birthday-dropdowns.pug
 
 
 block title 
@@ -44,14 +45,9 @@ block body
         .sign-up__section
           +input(type='text', placeholder='Your First Name')
           +input(type='text', placeholder='Your Second name')
-          - const yearOptions = ['Year'].concat(Array.from({length: 120}, (v, k) => 2016 - k));
-          - const monthOptions = ['Month'].concat(Array.from({length: 12}, (v, k) => k + 1));
-          - const dayOptions = ['Day'].concat(Array.from({length: 31}, (v, k) => k + 1));
           .sign-up__drop-down-field
             .sign-up__drop-down-field-label Birthday
-            +drop-down('year', 6.43, yearOptions)
-            +drop-down('month', 7.14, monthOptions)
-            +drop-down('day', 6.43, dayOptions)
+            +birthday-dropdowns
 
         .sign-up__section
           .sign-up__message Finished! Unfortunately signing up doesn't work here, but you still can to sign in as John Smith.

@@ -1,0 +1,25 @@
+include ../drop-down/drop-down.pug
+
+mixin birthday-dropdowns
+  - const yearOptions = ['Year'].concat(Array.from({length: 120}, (v, k) => 2016 - k));
+  - 
+    const monthOptions = [
+      'Month', 
+      'January', 
+      'February', 
+      'March', 
+      'April', 
+      'May', 
+      'June', 
+      'July', 
+      'August', 
+      'September', 
+      'October', 
+      'November', 
+      'December',
+    ];
+  - const dayOptions = ['Day'].concat(Array.from({length: 31}, (v, k) => k + 1));
+  .birthday-dropdowns
+    +drop-down('year', 6.43, yearOptions)
+    +drop-down('month', 7.14, monthOptions)
+    +drop-down('day', 6.43, dayOptions)
