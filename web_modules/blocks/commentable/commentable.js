@@ -40,7 +40,6 @@ $(() => {
       submitComment();
       return false;
     }
-    // console.log($textarea[0].value);
   });
 });
 
