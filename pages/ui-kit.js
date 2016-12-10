@@ -1,6 +1,7 @@
 
 require('blocks/base-page/base-page');
 
+require('blocks/heading/heading');
 require('blocks/arrow-button/arrow-button');
 require('blocks/button/button');
 require('blocks/calendar/calendar');

@@ -24,7 +24,7 @@ block title
 block body
   .preview-column
     .preview-column
-      h2 standard buttons
+      h2.heading standard buttons
       .preview-row.preview-row_button-row
         +button('dark-1', 'small', 'button')
         +button('dark-1', 'big', 'button')
@@ -36,27 +36,27 @@ block body
         +button('light-2', 'big', 'button')
         +button('light-2', 'small', 'button')
     .preview-column
-      h2 arrow buttons
+      h2.heading arrow buttons
       .preview-row
         each theme in ['light-1', 'inactive', 'dark-1']
           each side in ['left', 'right']
             +arrow-button(theme, side)
     .preview-column
-      h2 percentages / pie chart
+      h2.heading percentages / pie chart
       .preview-row 
         each percents in [0, 38, 62, 89]
           .percentage(value=percents)
         .pie-chart(values=[10, 30, 30, 30])
     .preview-column
-      h2 sliders
+      h2.heading sliders
       .preview-row
         +slider('tooltiped')
         +slider('scaled')
     .preview-column
-      h2 stages
+      h2.heading stages
       +stages(['1', '2', '3'], ['4', '5'])
     .preview-column
-      h2 form elements
+      h2.heading form elements
       .preview-row.preview-row_form-row
         form
           .preview-column
@@ -65,44 +65,44 @@ block body
             textarea.text-area(placeholder='Your Message')
             +button('dark-1', 'big', 'submit')
         .preview-column.preview-column_right
-          h2 toggles
+          h2.heading toggles
           .preview-column
             .preview-row
               +toggle('off')
               +toggle('on')
-          h2 tick boxes
+          h2.heading tick boxes
           .preview-column
             .preview-row
               +tick-box('tick-box-1', 'on')
               +tick-box('tick-box-2', 'off')
     .preview-row
       .preview-column
-        h2 search / drop down
+        h2.heading search / drop down
         +search()
         +drop-down('fake', 21.43, 'Choose An Option', 'Option A', 'Option C')
       .preview-column
-        h2 user profile
+        h2.heading user profile
         - const johnImagePath = require('user-photos/john.png')
         - const sarahImagePath = require('user-photos/sarah.png')
         +user-profile('John Smith', 'UX designer', johnImagePath, 'gray')(twitter='https://twitter.com/john_smith')
         +user-profile('Sarah Brown', 'Developer', sarahImagePath, 'dark-1')
     .preview-column
-      h2 news & events
+      h2.heading news & events
       .preview-row
         +news('It’s all going downhill', '24 august 2013', 'bicyclist.png')
           p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed condimentum aliquet venenatis. Etiam a nisi nunc, a tincidunt eros.
         +event('this is the title', '24', 'Aug', 'skyscrapers.png')
           | Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     .preview-column
-      h2 location
+      h2.heading location
       +location([37.790988, -122.414978])
     .preview-row  
       .preview-column
-        h2 calendar
+        h2.heading calendar
         +calendar          
       .preview-column
-        h2 messaging
+        h2.heading messaging
         +messenger
     .preview-column
-    h2 video
+    h2.heading video
     +video('0J2QdDbelmY')
