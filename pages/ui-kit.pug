@@ -17,7 +17,6 @@ include ~blocks/location/location.pug
 include ~blocks/calendar/calendar.pug
 include ~blocks/messenger/messenger.pug
 include ~blocks/video/video.pug
-include ~blocks/pie-chart/pie-chart.pug
 
 block title 
   | UI kit
@@ -96,7 +95,7 @@ block body
           | Lorem ipsum dolor sit amet, consectetur adipiscing elit.
     .preview-column
       h2 location
-      +location
+      +location([37.790988, -122.414978])
     .preview-row  
       .preview-column
         h2 calendar

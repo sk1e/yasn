@@ -7,9 +7,10 @@ import './location.styl';
 import markerImagePath from './images/marker.png';
 
 $(() => {
+  const coordinates = JSON.parse($('.location')[0].attributes.coordinates.value);
   ymaps.ready(() => {
     const myMap = new ymaps.Map('map', {
-      center: [37.790988, -122.414978],
+      center: coordinates,
       zoom: 15,
       controls: [],
     }, {
