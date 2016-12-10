@@ -11,6 +11,7 @@ const pageList = [
   'events',
   'polls',
   'messages',
+  'profile',
 ];
 
 const entries = {};

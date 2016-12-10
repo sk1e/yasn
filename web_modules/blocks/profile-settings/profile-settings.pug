@@ -1,0 +1,43 @@
+include ../input/input.pug
+include ../birthday-dropdowns/birthday-dropdowns.pug
+include ../button/button.pug
+include ../button/button.pug
+
+
+
+mixin profile-settings
+  .profile-settings
+    +profile-settings__section('Personal')
+      +profile-settings__text-item('name')(placeholder='Your Name', value='John') name
+      +profile-settings__text-item('surname')(placeholder='Your Surname', value='Smith') surname
+      +profile-settings__text-item('profession')(placeholder='Your Profession', value='UX designer') profession
+      .profile-settings__item
+        .profile-settings__label birthday
+        +birthday-dropdowns
+    +profile-settings__section('Contacts')
+      +profile-settings__text-item('facebook')(placeholder='https://www.facebook.com/John.Smith')
+        .profile-settings__label.fa.fa-facebook
+      +profile-settings__text-item('twitter')(placeholder='https://twitter.com/john_smith', value='https://twitter.com/john_smith')
+        .profile-settings__label.fa.fa-twitter
+      +profile-settings__text-item('dribbble')(placeholder='https://dribbble.com/JohhSmith')
+        .profile-settings__label.fa.fa-dribbble
+    .profile-settings__save-notification 
+      span Profile saved
+    .profile-settings__submit
+      .percentage
+      +button('dark-2', 'big', 'save')
+     
+    
+mixin profile-settings__text-item(shortName)
+  - const id = `profile-settings-item__${shortName}`
+  .profile-settings__item
+    label.profile-settings__label(for=id)
+      block
+    +input(id=id)&attributes(attributes)
+      
+    
+mixin profile-settings__section(title)
+  section.profile-settings__section
+    h2= title
+    block
+
