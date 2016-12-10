@@ -1,24 +1,22 @@
 import $ from 'jquery';
-
 import 'font-awesome';
 
 import '../input/input';
 import '../birthday-dropdowns/birthday-dropdowns';
 import '../button/button';
 import '../percentage/percentage';
-
 import PercentageView from '../percentage/percentage-view';
 import './profile-settings.styl';
 
 
 function filledFieldsPercent() {
-  const filled = $('.input__field').toArray()
+  const filled = $('.input').toArray()
           .reduce((acc, x) => acc + (x.value === '' ? 0 : 1), 0)
           +
           $('.drop-down__select').toArray()
           .reduce((acc, x, i) => acc + (x.value === ['Year', 'Month', 'Day'][i] ? 0 : 1), 0);
 
-  const total = $('.input__field').length + $('.drop-down__select').length;
+  const total = $('.input').length + $('.drop-down__select').length;
   return Math.round((filled / total) * 100);
 }
 
