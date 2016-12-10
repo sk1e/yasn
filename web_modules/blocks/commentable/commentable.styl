@@ -1,7 +1,8 @@
 @require "../video/constants.styl"
 @require "~constants.styl"
 
-comment-video-width = (video-width / 1.5) 
+video-size-divider = 1.5
+comment-video-width = video-width / video-size-divider
 
 .commentable
   display flex
@@ -21,13 +22,16 @@ comment-video-width = (video-width / 1.5)
     margin-top 1rem
     display flex
     flex-direction column
-    height 25rem
+    height 20rem
     overflow-y auto
     overflow-x hidden
     
   &__comment
     display flex
     border-bottom 0.2rem solid theme-color-3-foreground
+    
+    & .user-profile img
+      height 4rem
     
   &__comment-text
     width (comment-video-width + 1rem)
@@ -37,7 +41,7 @@ comment-video-width = (video-width / 1.5)
     color #333
     
     & .video
-      height (video-height / 1.5)
+      height (video-height / video-size-divider)
       width comment-video-width
    
   &__input

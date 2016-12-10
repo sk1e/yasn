@@ -19,6 +19,7 @@ $(() => {
   $('.messenger .text-area').keydown((event) => {
     if (event.keyCode === 13) {
       submitMessage();
+      return false;
     }
   });
 });

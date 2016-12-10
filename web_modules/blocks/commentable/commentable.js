@@ -38,7 +38,9 @@ $(() => {
   $('.commentable .text-area').keydown((event) => {
     if (event.keyCode === 13) {
       submitComment();
+      return false;
     }
+    // console.log($textarea[0].value);
   });
 });
 
