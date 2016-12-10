@@ -9,7 +9,7 @@ require('blocks/sign-up/sign-up');
 require('blocks/temptation/temptation');
 require('blocks/header/header');
 require('blocks/birthday-dropdowns/birthday-dropdowns');
-require('blocks/input/input');
+require('blocks/tooltiped-input/tooltiped-input');
 require('blocks/stages/stages');
 require('blocks/button/button');
 

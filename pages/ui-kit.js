@@ -6,7 +6,7 @@ require('blocks/button/button');
 require('blocks/calendar/calendar');
 require('blocks/drop-down/drop-down');
 require('blocks/event/event');
-require('blocks/input/input');
+require('blocks/tooltiped-input/tooltiped-input');
 require('blocks/location/location');
 require('blocks/messenger/messenger');
 require('blocks/news/news');

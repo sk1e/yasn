@@ -67,7 +67,7 @@ $(() => {
 
     const container = $('.sign-up__sections-container');
 
-    const $firstInputSections = $('.sign-up__section:nth-child(1) .input');
+    const $firstInputSections = $('.sign-up__section:nth-child(1) .tooltiped-input');
     const $firstTooltips = $firstInputSections.find('.tooltip__text');
     const $firstInputs = $firstInputSections.find('input');
 
@@ -77,7 +77,7 @@ $(() => {
              [requiredValidator, makeMatchingPasswordValidator($firstInputs[1])]]
             .map((fs, i) => composeFieldValidator($firstInputs[i], $firstTooltips.eq(i), fs));
 
-    const $emailInputSection = $('.sign-up__section:nth-child(2) .input');
+    const $emailInputSection = $('.sign-up__section:nth-child(2) .tooltiped-input');
     const $emailTooltip = $emailInputSection.find('.tooltip__text');
     const $emailInput = $emailInputSection.find('input');
 

@@ -1,4 +1,3 @@
-include ../input/input.pug
 include ../birthday-dropdowns/birthday-dropdowns.pug
 include ../button/button.pug
 include ../button/button.pug
@@ -33,7 +32,7 @@ mixin profile-settings__text-item(shortName)
   .profile-settings__item
     label.profile-settings__label(for=id)
       block
-    +input(id=id)&attributes(attributes)
+    input.input(id=id)&attributes(attributes)
       
     
 mixin profile-settings__section(title)

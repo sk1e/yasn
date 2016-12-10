@@ -1,0 +1,12 @@
+
+mixin tooltiped-input
+  .tooltiped-input
+    input.input&attributes(attributes)
+    +tooltip('dark-2', "left")(hidden)
+
+
+mixin preview-tooltiped-input(text, tooltipTheme)
+  .tooltiped-input
+    input.input&attributes(attributes)
+    +tooltip(tooltipTheme, "left")
+      span= text

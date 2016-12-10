@@ -5,7 +5,7 @@ include ~blocks/arrow-button/arrow-button.pug
 include ~blocks/tooltip/tooltip.pug
 include ~blocks/slider/slider.pug
 include ~blocks/stages/stages.pug
-include ~blocks/input/input.pug
+include ~blocks/tooltiped-input/tooltiped-input.pug
 include ~blocks/toggle/toggle.pug
 include ~blocks/tick-box/tick-box.pug
 include ~blocks/search/search.pug
@@ -60,8 +60,8 @@ block body
       .preview-row.preview-row_form-row
         form
           .preview-column
-            +preview-input('ERROR', 'dark-2')(type='text', placeholder='Your Name')
-            +preview-input('THANKS', 'dark-1')(type='text', placeholder='Your Email')
+            +preview-tooltiped-input('ERROR', 'dark-2')(type='text', placeholder='Your Name')
+            +preview-tooltiped-input('THANKS', 'dark-1')(type='text', placeholder='Your Email')
             textarea.text-area(placeholder='Your Message')
             +button('dark-1', 'big', 'submit')
         .preview-column.preview-column_right
