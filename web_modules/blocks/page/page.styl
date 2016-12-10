@@ -1,0 +1,11 @@
+@require "../header/constants.styl"
+
+.page
+  &__content-and-footer
+    display flex
+    flex-direction column
+    min-height "calc(100vh - %s)"  % header-height
+    justify-content space-between
+    
+  &__content
+    padding 2rem 1rem 1rem 3rem

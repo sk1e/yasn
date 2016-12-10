@@ -1,14 +1,12 @@
-extends ../base-page/base-page.pug
+extends ../page/page.pug
 
 include ~blocks/header/header
 include ~blocks/calendar/calendar
 
-block body
-  +header
-  .user-page__body
+block page-content
+  .user-page__content
     block main-menu
     main.user-page__main
       block main
     .user-page__calendar
       +calendar
-      

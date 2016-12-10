@@ -1,0 +1,14 @@
+extends ../base-page/base-page.pug
+
+include ~blocks/header/header.pug
+include ~blocks/footer/footer.pug
+
+
+block body
+  .page
+    +header
+    .page__content-and-footer
+      .page__content
+        block page-content
+      +footer
+

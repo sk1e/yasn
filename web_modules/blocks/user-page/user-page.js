@@ -1,8 +1,6 @@
-
-require('blocks/base-page/base-page');
-require('blocks/main-menu/main-menu');
-require('blocks/header/header');
-require('blocks/calendar/calendar');
+require('../page/page');
+require('../main-menu/main-menu');
+require('../calendar/calendar');
 
 require('./user-page.styl');
 
