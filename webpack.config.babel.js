@@ -16,7 +16,7 @@ const pageList = [
 ];
 
 const entries = {};
-pageList.forEach((x) => { entries[x] = `./pages/${x}.js`; });
+pageList.forEach((x) => { entries[x] = ['babel-polyfill', `./pages/${x}.js`]; });
 
 const htmlPlugins = [];
 
