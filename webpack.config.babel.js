@@ -13,6 +13,7 @@ const pageList = [
   'messages',
   'profile',
   'contacts',
+  'terms',
 ];
 
 const entries = {};
