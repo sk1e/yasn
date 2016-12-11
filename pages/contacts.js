@@ -1,2 +1,2 @@
 require('blocks/page/page');
-require('blocks/contacts/contacts');
+require('blocks/contacts-content/contacts-content');

@@ -1,0 +1,25 @@
+include ../location/location.pug
+include ../link/link.pug
+
+mixin contacts-content
+  .contacts-content
+    h1.heading Contacts
+    .contacts-content__row
+      table.contacts-content__table
+        +contacts-content__table-row('Address') 
+          | 1259 California St, San Francisco, CA
+        +contacts-content__table-row('Phone')
+          +link(href='tel:+1-234-567-8900') +1-234-567-8900
+        +contacts-content__table-row('Fax')
+          +link(href='fax:+1-234-567-8900') +1-234-567-8900
+        +contacts-content__table-row('Email')
+          +link(href='mailto:team@yasn.com') team@yasn.com
+      +location([37.790988, -122.414978])
+
+      
+mixin contacts-content__table-row(header)
+  tr.contacts-content__table-row
+    th.contacts-content__table-header= header
+    td
+      block 
+      
