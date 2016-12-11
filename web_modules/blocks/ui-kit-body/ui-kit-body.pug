@@ -1,0 +1,97 @@
+include ~blocks/button/button.pug
+include ~blocks/arrow-button/arrow-button.pug
+include ~blocks/tooltip/tooltip.pug
+include ~blocks/slider/slider.pug
+include ~blocks/stages/stages.pug
+include ~blocks/tooltiped-input/tooltiped-input.pug
+include ~blocks/toggle/toggle.pug
+include ~blocks/tick-box/tick-box.pug
+include ~blocks/search/search.pug
+include ~blocks/drop-down/drop-down.pug
+include ~blocks/user-profile/user-profile.pug
+include ~blocks/news/news.pug
+include ~blocks/event/event.pug
+include ~blocks/location/location.pug
+include ~blocks/calendar/calendar.pug
+include ~blocks/messenger/messenger.pug
+include ~blocks/video/video.pug
+
+mixin ui-kit-body__section(name)
+  section.ui-kit-body__section
+    h2.heading= name
+    .ui-kit-body__items
+      block
+
+mixin ui-kit-body
+  .ui-kit-body
+    .ui-kit-body__sections
+      +ui-kit-body__section('standard buttons')
+        .ui-kit-body__row
+          +button('dark-1', 'small', 'button')
+          +button('dark-1', 'big', 'button')
+          +button('dark-2', 'big', 'button')
+          +button('dark-2', 'small', 'button')
+        .ui-kit-body__row
+          +button('light-1', 'small', 'button')
+          +button('light-1', 'big', 'button')
+          +button('light-2', 'big', 'button')
+          +button('light-2', 'small', 'button')
+      +ui-kit-body__section('arrow buttons')
+        .ui-kit-body__row
+          each theme in ['light-1', 'inactive', 'dark-1']
+            each side in ['left', 'right']
+              +arrow-button(theme, side)
+      +ui-kit-body__section('percentages / pie chart')
+        .ui-kit-body__row
+          each percents in [0, 38, 62, 89]
+            .percentage(value=percents)
+          .pie-chart(values=[10, 30, 30, 30])
+      +ui-kit-body__section('sliders')
+        .ui-kit-body__row
+          +slider('tooltiped')
+          +slider('scaled')
+      +ui-kit-body__section('stages')
+        +stages(['1', '2', '3'], ['4', '5'])
+      +ui-kit-body__section('form elements')
+        .ui-kit-body__form-elements-row
+          .ui-kit-body__form
+            form
+              +preview-tooltiped-input('ERROR', 'dark-2')(type='text', placeholder='Your Name')
+              +preview-tooltiped-input('THANKS', 'dark-1')(type='text', placeholder='Your Email')
+              textarea.text-area(placeholder='Your Message')
+              .ui-kit-body__form-button-row
+                +button('dark-1', 'big', 'submit')
+          div
+            +ui-kit-body__section('toggles')
+              .ui-kit-body__row
+                +toggle('off')
+                +toggle('on')
+            +ui-kit-body__section('tick boxes')
+              .ui-kit-body__row
+                +tick-box('checkbox', 'tick-box-1', 'on')
+                +tick-box('checkbox', 'tick-box-2', 'off')
+      .ui-kit-body__multisection-row
+        +ui-kit-body__section('search / drop down')
+          +search()
+          +drop-down('fake', 21.43, 'Choose An Option', 'Option A', 'Option C')
+        +ui-kit-body__section('user profile')
+          - const johnImagePath = require('user-photos/john.png')
+          - const sarahImagePath = require('user-photos/sarah.png')
+          +user-profile('John Smith', 'UX designer', johnImagePath, 'gray')(twitter='https://twitter.com/john_smith')
+          +user-profile('Sarah Brown', 'Developer', sarahImagePath, 'dark-1')
+      +ui-kit-body__section('news & events')
+        .ui-kit-body__row
+          +news('It’s all going downhill', '24 august 2013', 'bicyclist.png')
+            p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed condimentum aliquet venenatis. Etiam a nisi nunc, a tincidunt eros.
+          +event('this is the title', '24', 'Aug', 'skyscrapers.png')
+            | Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+      +ui-kit-body__section('location')
+        +location([37.790988, -122.414978])
+      .ui-kit-body__multisection-row
+        +ui-kit-body__section('calendar')
+          +calendar
+        +ui-kit-body__section('messaging')
+          +messenger
+      +ui-kit-body__section('video')
+        +video('0J2QdDbelmY')
+

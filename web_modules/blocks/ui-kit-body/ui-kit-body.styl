@@ -1,0 +1,73 @@
+.ui-kit-body
+  display flex
+  justify-content center
+  padding 3rem 0
+  
+  &__form
+    display flex
+    justify-content center
+
+    & > form > *:not(:first-child)
+      margin-top 1rem
+    
+  &__form-button-row
+    display flex
+    justify-content flex-end
+    
+  &__form-elements-row
+    width 100%
+    display flex
+    align-items flex-start
+    
+    & > *
+      width 50%
+      
+    & .ui-kit-body__section:first-child .heading
+      margin-top 0
+  
+  &__sections
+    width 50rem
+    
+  &__section
+    display flex
+    flex-direction column
+    justify-content center
+    align-items center
+    
+    & .heading
+      margin 2.5rem 0
+    
+    & .text-area
+      width 100%
+                          
+  &__items
+    width 100%
+    display flex
+    flex-direction column
+    justify-content center
+    align-items center
+    
+    & > *:not(:first-child)
+      margin-top 1rem
+
+        
+  &__row    
+    display flex
+    align-items flex-end
+
+    & > *:not(:first-child)
+      margin-left 1rem
+
+    & form .input 
+      align-self flex-start
+      width 16rem
+        
+  &__multisection-row
+    display flex
+    align-items flex-start
+    
+    & > *
+     width 50%
+     
+    & .search .input
+      width 19.5rem
