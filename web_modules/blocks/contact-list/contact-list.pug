@@ -1,6 +1,6 @@
 mixin contact-list(contacts)
   .contact-list
-    header.contact-list__header Contacts
+    h2.heading Contacts
     each contact in contacts
       if contact.active
         .contact-list__contact.contact-list__contact_state_active= contact.name
