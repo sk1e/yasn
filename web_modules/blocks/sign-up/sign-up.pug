@@ -1,0 +1,37 @@
+include ~blocks/button/button.pug
+include ~blocks/stages/stages.pug
+include ~blocks/tooltiped-input/tooltiped-input.pug
+include ~blocks/tick-box-field/tick-box-field.pug
+include ~blocks/drop-down/drop-down.pug
+include ~blocks/link/link.pug
+include ~blocks/birthday-dropdowns/birthday-dropdowns.pug
+
+mixin sign-up
+  .sign-up
+    .sign-up__join
+      .sign-up__join-message Join us!
+      +button('dark-1', 'big', 'Sign up')
+    +stages([1], [2,3,4])
+    form.sign-up__form
+      .sign-up__sections-container
+        .sign-up__section
+          +tooltiped-input(type='text', placeholder='Your Login')
+          +tooltiped-input(type='password' placeholder='Your Password')
+          +tooltiped-input(type='password', placeholder='Repeat Password')
+
+        .sign-up__section
+          +tooltiped-input(type='text', placeholder='Your Email')
+          +tick-box-field('checkbox', "I'd like to receive YASN newsletter", 'wants_newsletter','off')
+          +tick-box-field('checkbox', "I'd like to receive YASN notifications", 'wants_notifications', 'on')
+
+        .sign-up__section
+          +tooltiped-input(type='text', placeholder='Your First Name')
+          +tooltiped-input(type='text', placeholder='Your Second name')
+          .sign-up__drop-down-field
+            .sign-up__drop-down-field-label Birthday
+            +birthday-dropdowns
+
+        .sign-up__section
+          .sign-up__message Finished! Unfortunately signing up doesn't work here, but you still can to sign in as John Smith.
+          +link(href='./john_smith') Sign in as John Smith            
+    +button('dark-2', 'big', 'next')

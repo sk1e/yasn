@@ -1,6 +1,16 @@
 import $ from 'jquery';
-import colors from '../../colors.json';
+import colors from 'colors.json';
+
+import 'blocks/link/link';
+import 'blocks/tick-box-field/tick-box-field';
+import 'blocks/temptation/temptation';
+import 'blocks/birthday-dropdowns/birthday-dropdowns';
+import 'blocks/tooltiped-input/tooltiped-input';
+import 'blocks/stages/stages';
+import 'blocks/button/button';
+
 import './sign-up.styl';
+
 
 const pagesNumber = 4;
 const sectionWidth = 35.71;
