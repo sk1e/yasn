@@ -104,7 +104,11 @@ $(() => {
 
     $('.sign-up__form > .button').on('click', function callback() {
       const pageValidator = pageValidators[page];
+
       if (!pageValidator || (pageValidator && pageValidator())) {
+        if (page === pagesNumber - 1) {
+          return;
+        }
         page += 1;
         container.css('transform', `translateX(-${sectionWidth * page}rem)`);
 
