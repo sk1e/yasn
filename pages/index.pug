@@ -1,22 +1,18 @@
-extends ~blocks/base-page/base-page
+extends ~blocks/page/page.pug
 
-include ~blocks/header/header.pug
-include ~blocks/button/button.pug
-include ~blocks/tooltiped-input/tooltiped-input.pug
+include ~blocks/sign-in-header/sign-in-header.pug
+include ~blocks/temptation/temptation.pug
 include ~blocks/sign-up/sign-up.pug
+
 
 block title 
   | Join YASN!
 
-block body
-  .sign-in-container
-    +header
-    .sign-in
-      +button("light-2", "big", "sign in")
-      +tooltiped-input(type='text', placeholder='Your Login')
-      +tooltiped-input(type='password' placeholder='Your Password')
-  .temptation
-    .temptation__cute Cute
-    .temptation__nifty Nifty
-    .temptation__amazing Amazing
+  
+block header
+  +sign-in-header
+
+  
+block page-content  
+  +temptation
   +sign-up

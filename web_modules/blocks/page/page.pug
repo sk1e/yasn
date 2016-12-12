@@ -6,7 +6,8 @@ include ~blocks/footer/footer.pug
 
 block body
   .page
-    +header
+    block header
+      +header
     .page__content-and-footer
       .page__content
         block page-content
