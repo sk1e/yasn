@@ -5,10 +5,13 @@ mixin user-profile(name, profession, imagePath, theme)
     img(src=imagePath)
 
     +tooltip(theme, "left")
-      .user-profile__name(class=`user-profile__name_theme_${theme}`)= name
-      .user-profile__profession(class=`user-profile__profession_theme_${theme}`)=profession
+      - const profileNameTheme = 'user-profile__name_theme_' + theme
+      - const profileProfessionTheme = 'user-profile__name_theme_' + theme
+      - const profileReferenceTheme = 'user-profile__reference_theme_' + theme
+      .user-profile__name(class=profileNameTheme)= name
+      .user-profile__profession(class=profileProfessionTheme)=profession
       .user-profile__contacts
-        a.fa.fa-facebook.user-profile__reference(class=`user-profile__reference_theme_${theme}`, href=attributes.facebook || "")
-        a.fa.fa-twitter.user-profile__reference(class=`user-profile__reference_theme_${theme}`, href=attributes.twitter || "")
-        a.fa.fa-dribbble.user-profile__reference(class=`user-profile__reference_theme_${theme}`, href=attributes.dribbble || "")
+        a.fa.fa-facebook.user-profile__reference(class=profileReferenceTheme, href=attributes.facebook || "")
+        a.fa.fa-twitter.user-profile__reference(class=profileReferenceTheme, href=attributes.twitter || "")
+        a.fa.fa-dribbble.user-profile__reference(class=profileReferenceTheme, href=attributes.dribbble || "")
 
