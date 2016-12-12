@@ -66,6 +66,7 @@ function composeFieldValidator(input, $tooltipText, validators) {
 
 $(() => {
   $('.sign-up__join > .button').on('click', () => {
+    $('.sign-up__form').addClass('sign-up__form_tempted');
     $('.sign-up').addClass('sign-up_tempted');
     $('.sign-up__join-message').addClass('sign-up__join-message_tempted');
     $('.sign-up__join > .button').addClass('button_tempted');
@@ -73,6 +74,8 @@ $(() => {
     $('.sign-up__join-message').on('transitionend', () => {
       $('.sign-up__join').addClass('sign-up__join_removed');
       $('.sign-up .stages').addClass('stages_tempted');
+      $('.sign-up__form > .button').addClass('button_tempted');
+      $('.sign-up__section').eq(0).find('.tooltiped-input').addClass('tooltiped-input_tempted');
     });
 
     const container = $('.sign-up__sections-container');
@@ -99,7 +102,7 @@ $(() => {
     const pageValidators = [firstPageFieldValidators, [emailFieldValidator]]
             .map(fs => () => fs.map(f => f()).every(x => x));
 
-    $('.sign-up > .button').on('click', function callback() {
+    $('.sign-up__form > .button').on('click', function callback() {
       const pageValidator = pageValidators[page];
       if (!pageValidator || (pageValidator && pageValidator())) {
         page += 1;
