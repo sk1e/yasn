@@ -1,7 +1,7 @@
 {
   "name": "yasn",
   "version": "0.1.0",
-  "description": "wtf",
+  "description": "ui kit",
   "main": "ui-kit.js",
   "dependencies": {
     "css-loader": "^0.25.0",
@@ -28,7 +28,8 @@
     "babel-register": "^6.18.0"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+      "build": "./node_modules/.bin/webpack --optimize-minimize",
+      "build-dev": "./node_modules/.bin/webpack --watch"
   },
   "author": "me",
   "license": "ISC"
