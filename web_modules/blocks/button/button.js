@@ -23,7 +23,7 @@ $('.button')
     const xPos = event.pageX - offset.left;
     const yPos = event.pageY - offset.top;
 
-    $div.addClass('ripple-effect');
+    $div.addClass('button__ripple-effect');
     $div
       .css({
         top: yPos,

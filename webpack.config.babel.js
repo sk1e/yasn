@@ -1,8 +1,6 @@
-// const path = require('path');
 import path from 'path';
-
-const HtmlWebpackPlugin = require('html-webpack-plugin');
-const ExtractTextPlugin = require('extract-text-webpack-plugin');
+import HtmlWebpackPlugin from 'html-webpack-plugin';
+import ExtractTextPlugin from 'extract-text-webpack-plugin';
 
 const pageList = [
   'ui-kit',
@@ -45,7 +43,7 @@ module.exports = {
         include: [path.resolve(__dirname, 'web_modules')],
         query: { presets: ['babel-preset-latest'] },
       },
-      { test: /\.pug$/, loader: 'pug?pretty=true' },
+      { test: /\.pug$/, loader: 'pug' },
       { test: /\.json$/, loader: 'json' },
       { test: /\.(css|styl)/, loader: ExtractTextPlugin.extract('css!stylus') },
       { test: /\.(svg|png|ttf|eot|woff|woff2)(\?v=.+)?$/, loader: 'file?name=[path][name].[ext]' },
