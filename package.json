@@ -4,6 +4,7 @@
   "description": "ui kit",
   "main": "ui-kit.js",
   "dependencies": {
+    "babel-loader": "^6.2.9",
     "css-loader": "^0.25.0",
     "d3": "^4.3.0",
     "extract-text-webpack-plugin": "^1.0.1",
@@ -28,8 +29,8 @@
     "babel-register": "^6.18.0"
   },
   "scripts": {
-      "build": "./node_modules/.bin/webpack --optimize-minimize",
-      "build-dev": "./node_modules/.bin/webpack --watch"
+    "build": "./node_modules/.bin/webpack --optimize-minimize",
+    "build-dev": "./node_modules/.bin/webpack --watch"
   },
   "author": "me",
   "license": "ISC"
