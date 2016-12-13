@@ -3,13 +3,12 @@ include ../tooltip/tooltip.pug
 mixin user-profile(name, profession, imagePath, theme)
   .user-profile 
     img(src=imagePath)
-
     +tooltip(theme, "left")
       - const profileNameTheme = 'user-profile__name_theme_' + theme
       - const profileProfessionTheme = 'user-profile__name_theme_' + theme
       - const profileReferenceTheme = 'user-profile__reference_theme_' + theme
       .user-profile__name(class=profileNameTheme)= name
-      .user-profile__profession(class=profileProfessionTheme)=profession
+      .user-profile__profession(class=profileProfessionTheme)= profession
       .user-profile__contacts
         a.fa.fa-facebook.user-profile__reference(class=profileReferenceTheme, href=attributes.facebook || "")
         a.fa.fa-twitter.user-profile__reference(class=profileReferenceTheme, href=attributes.twitter || "")
