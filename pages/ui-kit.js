@@ -1,3 +1,3 @@
-require('blocks/base-page/base-page');
-require('blocks/ui-kit-body/ui-kit-body');
+import 'blocks/base-page';
+import 'blocks/ui-kit-body';
 

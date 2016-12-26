@@ -40,7 +40,7 @@ module.exports = {
       {
         test: /\.js$/,
         loader: 'babel',
-        include: [path.resolve(__dirname, 'web_modules')],
+        include: [path.resolve(__dirname, 'web_modules'), path.resolve(__dirname, 'pages')],
         query: { presets: ['babel-preset-latest'] },
       },
       { test: /\.pug$/, loader: 'pug' },

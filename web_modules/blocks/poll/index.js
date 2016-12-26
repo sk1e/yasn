@@ -1,9 +1,9 @@
 import $ from 'jquery';
 
-import pieChartViewMap from '../pie-chart/pie-chart';
-import '../tick-box-field/tick-box-field';
-import '../button/button';
-import '../tooltip/tooltip';
+import pieChartViewMap from '../pie-chart';
+import '../tick-box-field';
+import '../button';
+import '../tooltip';
 import './poll.styl';
 
 $(() => {

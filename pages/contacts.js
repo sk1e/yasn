@@ -1,2 +1,2 @@
-require('blocks/page/page');
-require('blocks/contacts-content/contacts-content');
+import 'blocks/page';
+import 'blocks/contacts-content';

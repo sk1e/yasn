@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 import './search.styl';
-import '../input/input';
+import '../input';
 
 $(() => {
   const search = $('.search');

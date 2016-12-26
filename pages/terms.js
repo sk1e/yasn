@@ -1,3 +1,3 @@
-require('blocks/page/page');
-require('blocks/terms-content/terms-content');
+import 'blocks/page';
+import 'blocks/terms-content';
 

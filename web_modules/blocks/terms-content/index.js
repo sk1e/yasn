@@ -1,2 +1,2 @@
-import '../heading/heading';
+import '../heading';
 import './terms-content.styl';

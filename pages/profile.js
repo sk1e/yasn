@@ -1,2 +1,2 @@
-require('blocks/user-page/user-page');
-require('blocks/profile-settings/profile-settings');
+import 'blocks/user-page';
+import 'blocks/profile-settings';

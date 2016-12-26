@@ -1,10 +1,10 @@
 import $ from 'jquery';
 import 'font-awesome';
 
-import '../input/input';
-import '../birthday-dropdowns/birthday-dropdowns';
-import '../button/button';
-import '../percentage/percentage';
+import '../input';
+import '../birthday-dropdowns';
+import '../button';
+import '../percentage';
 import PercentageView from '../percentage/percentage-view';
 import './profile-settings.styl';
 

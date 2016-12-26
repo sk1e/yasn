@@ -1,0 +1,2 @@
+import '../commentable';
+import '../news';

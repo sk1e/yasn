@@ -1,3 +1,3 @@
-require('blocks/user-page/user-page');
-require('blocks/messages-body/messages-body');
+import 'blocks/user-page';
+import 'blocks/messages-body';
 

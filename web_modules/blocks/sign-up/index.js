@@ -1,13 +1,13 @@
 import $ from 'jquery';
 import colors from 'colors.json';
 
-import 'blocks/link/link';
-import 'blocks/tick-box-field/tick-box-field';
-import 'blocks/temptation/temptation';
-import 'blocks/birthday-dropdowns/birthday-dropdowns';
-import 'blocks/tooltiped-input/tooltiped-input';
-import 'blocks/stages/stages';
-import 'blocks/button/button';
+import '../link';
+import '../tick-box-field';
+import '../temptation';
+import '../birthday-dropdowns';
+import '../tooltiped-input';
+import '../stages';
+import '../button';
 
 import './sign-up.styl';
 

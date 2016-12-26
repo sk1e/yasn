@@ -1,2 +1,2 @@
-require('blocks/user-page/user-page');
-require('blocks/commentable-polls/commentable-polls');
+import 'blocks/user-page';
+import 'blocks/commentable-polls';

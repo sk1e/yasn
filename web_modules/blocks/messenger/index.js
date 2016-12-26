@@ -1,9 +1,9 @@
 import $ from 'jquery';
 
-import '../button/button';
-import '../text-area/text-area';
-import '../photocam-icon/photocam-icon';
-import '../message-icon/message-icon';
+import '../button';
+import '../text-area';
+import '../photocam-icon';
+import '../message-icon';
 import './messenger.styl';
 
 const submitMessage = () => {

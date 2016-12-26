@@ -1,6 +1,6 @@
-require('blocks/page/page');
+import 'blocks/page';
 
-require('blocks/sign-in-header/sign-in-header');
-require('blocks/temptation/temptation');
-require('blocks/sign-up/sign-up');
+import 'blocks/sign-in-header';
+import 'blocks/temptation';
+import 'blocks/sign-up';
 

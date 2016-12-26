@@ -1,2 +1,2 @@
-require('blocks/user-page/user-page');
-require('blocks/commentable-news/commentable-news');
+import 'blocks/user-page';
+import 'blocks/commentable-news';
