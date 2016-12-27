@@ -26,6 +26,6 @@ npm run build-dev
 ## Launching
 
 ```sh
-your-browser build/index.html
+npm run start
  ```
 
