@@ -2,7 +2,7 @@ include ../tooltip/tooltip.pug
 
 mixin user-profile(name, profession, imagePath, theme)
   .user-profile 
-    img(src=imagePath)
+    img(src=imagePath alt=name + ' photo')
     +tooltip(theme, "left")
       - const profileNameTheme = 'user-profile__name_theme_' + theme
       - const profileProfessionTheme = 'user-profile__name_theme_' + theme
