@@ -6,6 +6,8 @@ html(lang='en')
     meta(name='keywords', content='social network,news,events')
     meta(name='description', content='Awesome social network')
     meta(name='viewport', content="initial-scale=1.0, width=device-width")
+    - const faviconPath = require('favicon.ico')
+    link(rel='shortcut icon' href=faviconPath)
     title
       block title
     block scripts
