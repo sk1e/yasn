@@ -8,7 +8,7 @@ mixin poll(name, items)
   .poll
     h2= name.full
     .poll__chart
-      .pie-chart(values=values)
+      .pie-chart(data-values=values)
       .poll__legend
         div
           - items.forEach((x, i) => {

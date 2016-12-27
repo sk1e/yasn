@@ -2,7 +2,7 @@ append scripts
   script(src='https://api-maps.yandex.ru/2.1/?lang=en_US', type='text/javascript')
 
 mixin location(coordinates)
-  .location(coordinates=coordinates)
+  .location(data-coordinates=coordinates)
     .location__map(id="map")
     footer.location__footer
       .location__message Meet us!      

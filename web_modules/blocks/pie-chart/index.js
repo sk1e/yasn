@@ -9,7 +9,7 @@ export default pieChartViewMap;
 
 $(() => {
   $('.pie-chart').each(function callback() {
-    const values = JSON.parse(this.attributes.values.value);
+    const values = JSON.parse(this.attributes['data-values'].value);
 
     pieChartViewMap.set(this, new PieChartView(this, values, 30, 47));
   });

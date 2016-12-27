@@ -10,7 +10,7 @@ export default percentageViewMap;
 
 $(() => {
   $('.percentage').each(function callback() {
-    const value = this.attributes.value;
+    const value = this.attributes['data-value'];
     if (value) {
       const initialPercents = JSON.parse(value.value);
       const values = [initialPercents, 100 - initialPercents];

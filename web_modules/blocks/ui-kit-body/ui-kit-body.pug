@@ -44,8 +44,8 @@ mixin ui-kit-body
       +ui-kit-body__section('percentages / pie chart')
         .ui-kit-body__row
           each percents in [0, 38, 62, 89]
-            .percentage(value=percents)
-          .pie-chart(values=[10, 30, 30, 30])
+            .percentage(data-value=percents)
+          .pie-chart(data-values=[10, 30, 30, 30])
       +ui-kit-body__section('sliders')
         .ui-kit-body__row
           +slider('tooltiped')
