@@ -1,6 +1,6 @@
 mixin main-menu(activeItem)
   - const items = ['news', 'events', 'polls', 'messages', 'profile']
-  .main-menu
+  nav.main-menu
     each item in items
       - var ref = `./${item}.html`;
       if item === activeItem
