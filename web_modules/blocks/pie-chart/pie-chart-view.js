@@ -51,13 +51,13 @@ const PieChartView = class {
       .innerRadius(innerRadius)
       .outerRadius(outerRadius);
 
-    const svg = select(node).append('svg')
+    const $svg = select(node).append('svg')
             .attr('width', width)
             .attr('height', height)
             .append('g')
             .attr('transform', `translate(${width / 2}, ${height / 2})`);
 
-    this.paths = this.makePaths(svg, width, height, this.pie(values), chartArc);
+    this.paths = this.makePaths($svg, width, height, this.pie(values), chartArc);
 
     this.interpolatorFactory = function interpolatorFactory(primaryArc) {
       const interpolator = interpolate(this._current, primaryArc);
