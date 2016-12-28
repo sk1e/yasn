@@ -16,8 +16,6 @@ $('.button')
   })
 
   .on('click', function callback(event) {
-    event.preventDefault();
-
     const $div = $('<div/>');
     const offset = $(this).offset();
     const xPos = event.pageX - offset.left;

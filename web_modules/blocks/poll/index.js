@@ -11,7 +11,8 @@ $(() => {
   const $voteButton = $('.poll .button');
   const $tooltip = $('.poll .button + .tooltip');
 
-  $voteButton.on('click', () => {
+  $('.poll form').on('submit', (event) => {
+    event.preventDefault();
     if ($selectedTickBoxField === null) {
       $tooltip.removeClass('tooltip_hidden');
     } else {

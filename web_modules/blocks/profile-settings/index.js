@@ -27,8 +27,8 @@ $(() => {
   const view = new PercentageView(percentage[0], [filledPercent, 100 - filledPercent], 43, 47);
 
   const $saveNotifacation = $('.profile-settings__save-notification');
-
-  $('.profile-settings .button').on('click', () => {
+  $('.profile-settings').on('submit', (event) => {
+    event.preventDefault();
     view.percent = filledFieldsPercent();
     $saveNotifacation
       .addClass('profile-settings__save-notification_notifying')

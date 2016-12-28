@@ -1,10 +1,9 @@
 include ../birthday-dropdowns/birthday-dropdowns.pug
 include ../button/button.pug
-include ../button/button.pug
 
 
 mixin profile-settings
-  .profile-settings
+  form.profile-settings
     +profile-settings__section('Personal')
       +profile-settings__text-item('name')(placeholder='Your Name', value='John') name
       +profile-settings__text-item('surname')(placeholder='Your Surname', value='Smith') surname

@@ -102,10 +102,11 @@ $(() => {
     const pageValidators = [firstPageFieldValidators, [emailFieldValidator]]
             .map(fs => () => fs.map(f => f()).every(x => x));
 
-    $('.sign-up__form > .button').on('click', function callback() {
+    $('.sign-up__form > .button').on('click', function callback(event) {
+      event.preventDefault();
       const pageValidator = pageValidators[page];
 
-      if (!pageValidator || (pageValidator && pageValidator())) {
+      if (!pageValidator || pageValidator()) {
         if (page === pagesNumber - 1) {
           return;
         }
