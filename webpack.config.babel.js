@@ -14,18 +14,16 @@ const pageList = [
   'terms',
 ];
 
-const entries = {};
-pageList.forEach((x) => { entries[x] = ['babel-polyfill', `./pages/${x}.js`]; });
+const entries = pageList.reduce((acc, x) => {
+  acc[x] = ['babel-polyfill', `./pages/${x}.js`];
+  return acc;
+}, {});
 
-const htmlPlugins = [];
-
-pageList.forEach((x) => {
-  htmlPlugins.push(new HtmlWebpackPlugin({
-    template: `pages/${x}.pug`,
-    filename: `${x}.html`,
-    chunks: [x],
-  }));
-});
+const htmlPlugins = pageList.map(x => new HtmlWebpackPlugin({
+  template: `pages/${x}.pug`,
+  filename: `${x}.html`,
+  chunks: [x],
+}));
 
 module.exports = {
   entry: entries,
