@@ -1,8 +1,8 @@
-import 'd3/d3-transition';
+import 'd3-transition';
 
-import { arc, pie } from 'd3/d3-shape';
-import { select } from 'd3/d3-selection';
-import { interpolate } from 'd3/d3-interpolate';
+import { arc, pie } from 'd3-shape';
+import { select } from 'd3-selection';
+import { interpolate } from 'd3-interpolate';
 
 import colors from 'colors.json';
 
@@ -58,7 +58,6 @@ const PieChartView = class {
             .attr('transform', `translate(${width / 2}, ${height / 2})`);
 
     this.paths = this.makePaths($svg, width, height, this.pie(values), chartArc);
-
     this.interpolatorFactory = function interpolatorFactory(primaryArc) {
       const interpolator = interpolate(this._current, primaryArc);
       this._current = interpolator(0);

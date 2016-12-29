@@ -57,7 +57,6 @@ module.exports = {
     alias: {
       'font-awesome': 'font-awesome/css/font-awesome.min.css',
       'user-photos': 'blocks/user-profile/user-photos/',
-      d3: 'd3/node_modules',
     },
   },
 };

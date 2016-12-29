@@ -1,6 +1,6 @@
 import colors from 'colors.json';
 
-import { interpolate } from 'd3/d3-interpolate';
+import { interpolate } from 'd3-interpolate';
 
 import PieChartView from '../pie-chart/pie-chart-view';
 
