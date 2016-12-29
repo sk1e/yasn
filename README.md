@@ -3,7 +3,7 @@
 ## Installation
 
 ```sh
-git clone https://github.com/sk1e/yasn && cd yasn && npm i
+git clone https://github.com/sk1e/yasn && cd yasn && git checkout refactoring && npm i
     
  ```
  
