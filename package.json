@@ -32,11 +32,12 @@
     "eslint-config-airbnb": "^13.0.0",
     "eslint-plugin-import": "^2.2.0",
     "eslint-plugin-jsx-a11y": "^2.2.3",
-    "eslint-plugin-react": "^6.8.0"
+    "eslint-plugin-react": "^6.8.0",
+    "webpack-dev-server": "^1.16.2"
   },
   "scripts": {
     "build": "./node_modules/.bin/webpack --optimize-minimize",
-    "build-dev": "./node_modules/.bin/webpack --watch",
+    "build-dev": "./node_modules/.bin/webpack-dev-server --open",
     "start": "./node_modules/.bin/http-server ./build -o"
   },
   "author": "me",
