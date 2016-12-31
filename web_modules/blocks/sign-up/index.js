@@ -27,19 +27,19 @@ const SignUp = class {
     this.$container = $('.sign-up__sections-container');
     this.$nextButton = $('.sign-up__form > .button');
 
-    const $firstInputSections = $('.sign-up__section:nth-child(1) .tooltiped-input');
+    const $firstSectionInputs = $('.sign-up__section:nth-child(1) .tooltiped-input');
 
-    const passwordInputNode = $firstInputSections.eq(1).find('input')[0];
+    const passwordInputNode = $firstSectionInputs.eq(1).find('input')[0];
 
     const firstPageFieldValidators =
             [[requiredValidator, makeMinLengthValidator(3)],
              [requiredValidator, makeMinLengthValidator(6)],
              [requiredValidator, makeMatchingPasswordValidator(() => passwordInputNode.value)]]
-            .map((fs, i) => composeFieldValidator($firstInputSections.eq(i), fs));
+            .map((fs, i) => composeFieldValidator($firstSectionInputs.eq(i), fs));
 
-    const $emailInputSection = $('.sign-up__section:nth-child(2) .tooltiped-input');
+    const $emailSectionInput = $('.sign-up__section:nth-child(2) .tooltiped-input');
 
-    const emailFieldValidator = composeFieldValidator($emailInputSection.eq(0),
+    const emailFieldValidator = composeFieldValidator($emailSectionInput,
                                                       [requiredValidator, emailValidator]);
 
     this.page = 0;
