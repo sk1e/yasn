@@ -26,6 +26,10 @@ const PercentageView = class extends PieChartView {
       });
   }
 
+  constructor(node, value, innerRadius, outerRadius) {
+    super(node, [value, 100 - value], innerRadius, outerRadius);
+  }
+
   makePaths(svg, width, height, data, chartArc) {
     this.text = svg
       .append('text')

@@ -3,14 +3,30 @@ import $ from 'jquery';
 import './pie-chart.styl';
 import PieChartView from './pie-chart-view.js';
 
-const pieChartViewMap = new Map();
 
-export default pieChartViewMap;
+const PieChart = class {
+  constructor($pieChart, values) {
+    this.$pieChart = $pieChart;
+    this.values = values;
+  }
+
+  attachEventHandlers() {
+    this.$pieChart.on('add-1-for-index:', (_, index) => {
+      this.pieChartView.values = this.pieChartView.values.map((x, i) => (i === index ? x + 1 : x));
+      return false;
+    });
+  }
+
+  render() {
+    this.pieChartView = new PieChartView(this.$pieChart[0], this.values, 30, 47);
+  }
+};
 
 $(() => {
-  $('.pie-chart').each(function callback() {
-    const values = JSON.parse(this.attributes['data-values'].value);
-
-    pieChartViewMap.set(this, new PieChartView(this, values, 30, 47));
+  $('.pie-chart').each((_, node) => {
+    const values = JSON.parse(node.attributes['data-values'].value);
+    const pieChart = new PieChart($(node), values);
+    pieChart.render();
+    pieChart.attachEventHandlers();
   });
 });

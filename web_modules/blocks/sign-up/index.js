@@ -1,5 +1,4 @@
 import $ from 'jquery';
-import colors from 'colors.json';
 
 import '../link';
 import '../tick-box-field';
@@ -8,120 +7,86 @@ import '../birthday-dropdowns';
 import '../tooltiped-input';
 import '../stages';
 import '../button';
+import {
+  requiredValidator,
+  emailValidator,
+  makeMinLengthValidator,
+  makeMatchingPasswordValidator,
+  composeFieldValidator,
+} from '../tooltiped-input/validators';
 
 import './sign-up.styl';
-
+import constants from './constants.json';
 
 const pagesNumber = 4;
-const sectionWidth = 35.71;
+const sectionWidth = parseInt(constants['full-section-width'], 10);
 
-
-function makeValidator(predicate, message) {
-  return input => predicate(input) || message;
-}
-
-function makeRegexValidator(regex, message) {
-  return input => regex.test(input.value) || message;
-}
-
-function makeMatchingPasswordValidator(passwordInput) {
-  return makeValidator(repeatInput => repeatInput.value === passwordInput.value, 'passwords do not match');
-}
-
-function makeMinLengthValidator(length) {
-  return makeValidator(input => input.value.length >= length, `must be at least ${length} characters long`);
-}
-
-const requiredValidator = makeValidator(input => input.value !== '', 'this field is required');
-
-const emailRegex = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-]+)*@(?:[a-z0-9](?:[a-z0-9-]*[a-z0-9])?\.)+[a-z0-9](?:[a-z0-9-]*[a-z0-9])?$/;
-const emailValidator = makeRegexValidator(emailRegex, 'this is not an email');
-
-
-function composeFieldValidator(input, $tooltipText, validators) {
-  let invariantWasBroken = false;
-  const $tooltipBody = $tooltipText.parent();
-  const $tooltip = $tooltipBody.parent();
-
-  return function p() {
-    for (const f of validators) {
-      const result = f(input);
-      if (result !== true) {
-        invariantWasBroken = true;
-        $tooltip.removeClass('tooltip_hidden');
-        $tooltipText.text(result);
-        $tooltipBody.removeClass('tooltip__body_theme_dark-1').addClass('tooltip__body_theme_dark-2');
-        return false;
-      }
-    }
-    if (invariantWasBroken) {
-      $tooltipBody.removeClass('tooltip__body_theme_dark-2').addClass('tooltip__body_theme_dark-1');
-      $tooltipText.text('ok now');
-    }
-
-    return true;
-  };
-}
-
-
-$(() => {
-  $('.sign-up__join > .button').on('click', () => {
-    $('.sign-up__form').addClass('sign-up__form_tempted');
-    $('.sign-up').addClass('sign-up_tempted');
-    $('.sign-up__join-message').addClass('sign-up__join-message_tempted');
-    $('.sign-up__join > .button').addClass('button_tempted');
-
-    $('.sign-up__join-message').on('transitionend', () => {
-      $('.sign-up__join').addClass('sign-up__join_removed');
-      $('.sign-up .stages').addClass('stages_tempted');
-      $('.sign-up__form > .button').addClass('button_tempted');
-      $('.sign-up__section').eq(0).find('.tooltiped-input').addClass('tooltiped-input_tempted');
-    });
-
-    const container = $('.sign-up__sections-container');
+const SignUp = class {
+  constructor() {
+    this.$joinButton = $('.sign-up__join > .button');
+    this.$container = $('.sign-up__sections-container');
+    this.$nextButton = $('.sign-up__form > .button');
 
     const $firstInputSections = $('.sign-up__section:nth-child(1) .tooltiped-input');
-    const $firstTooltips = $firstInputSections.find('.tooltip__text');
-    const $firstInputs = $firstInputSections.find('input');
+
+    const passwordInputNode = $firstInputSections.eq(1).find('input')[0];
 
     const firstPageFieldValidators =
-            [[requiredValidator],
+            [[requiredValidator, makeMinLengthValidator(3)],
              [requiredValidator, makeMinLengthValidator(6)],
-             [requiredValidator, makeMatchingPasswordValidator($firstInputs[1])]]
-            .map((fs, i) => composeFieldValidator($firstInputs[i], $firstTooltips.eq(i), fs));
+             [requiredValidator, makeMatchingPasswordValidator(() => passwordInputNode.value)]]
+            .map((fs, i) => composeFieldValidator($firstInputSections.eq(i), fs));
 
     const $emailInputSection = $('.sign-up__section:nth-child(2) .tooltiped-input');
-    const $emailTooltip = $emailInputSection.find('.tooltip__text');
-    const $emailInput = $emailInputSection.find('input');
 
-    const emailFieldValidator = composeFieldValidator($emailInput[0],
-                                                      $emailTooltip,
+    const emailFieldValidator = composeFieldValidator($emailInputSection.eq(0),
                                                       [requiredValidator, emailValidator]);
 
-    let page = 0;
-    const pageValidators = [firstPageFieldValidators, [emailFieldValidator]]
-            .map(fs => () => fs.map(f => f()).every(x => x));
+    this.page = 0;
+    this.pageValidators = [firstPageFieldValidators, [emailFieldValidator]]
+      .map(fs => () => fs.map(f => f()).every(x => x));
+  }
 
-    $('.sign-up__form > .button').on('click', function callback(event) {
-      event.preventDefault();
-      const pageValidator = pageValidators[page];
+  attachEventHandlers() {
+    this.$joinButton.on('click', SignUp.transformToTempted);
+    this.$nextButton.on('click', this.moveToNextPage.bind(this));
+  }
 
-      if (!pageValidator || pageValidator()) {
-        if (page === pagesNumber - 1) {
-          return;
-        }
-        page += 1;
-        container.css('transform', `translateX(-${sectionWidth * page}rem)`);
+  moveToNextPage(event) {
+    event.preventDefault();
+    const pageValidator = this.pageValidators[this.page];
 
-        $('.sign-up .stages').css('background', `linear-gradient(to right, ${colors['theme-color-2']} ${(page / (pagesNumber - 1)) * 100}%, ${colors['theme-color-3']} 0%)`);
-        $('.sign-up .stages__stage_face_incomplete').first()
-          .removeClass('stages__stage_face_incomplete')
-          .addClass('stages__stage_face_complete');
-
-        if (page === pagesNumber - 1) {
-          $(this).addClass('button_hidden');
-        }
+    if (!pageValidator || pageValidator()) {
+      if (this.page === pagesNumber - 1) {
+        return;
       }
-    });
-  });
+      this.page += 1;
+      this.$container.css('transform', `translateX(-${sectionWidth * this.page}rem)`);
+
+      $('.sign-up .stages').trigger('move-to-next-stage:', this.page);
+
+      if (this.page === pagesNumber - 1) {
+        this.$nextButton.addClass('button_hidden');
+      }
+    }
+  }
+
+  static transformToTempted() {
+    $('.sign-up__form').addClass('sign-up__form_tempted');
+    $('.sign-up').addClass('sign-up_tempted');
+    $('.sign-up__join > .button').addClass('button_tempted');
+    $('.sign-up__join-message').addClass('sign-up__join-message_tempted')
+      .on('transitionend', () => {
+        $('.sign-up__join').addClass('sign-up__join_removed');
+        $('.sign-up .stages').addClass('stages_tempted');
+        $('.sign-up__form > .button').addClass('button_tempted');
+        $('.sign-up__section').eq(0).find('.tooltiped-input').addClass('tooltiped-input_tempted');
+      });
+  }
+};
+
+$(() => {
+  const signUp = new SignUp();
+  signUp.attachEventHandlers();
 });
+

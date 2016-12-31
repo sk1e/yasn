@@ -73,7 +73,7 @@ mixin ui-kit-body
       .ui-kit-body__multisection-row
         +ui-kit-body__section('search / drop down')
           +search()
-          +drop-down('fake', 21.43, 'Choose An Option', 'Option A', 'Option C')
+          +drop-down('fake', 21.43, ['Choose An Option', 'Option A', 'Option C'])
         +ui-kit-body__section('user profile')
           - const johnImagePath = require('user-photos/john.png')
           - const sarahImagePath = require('user-photos/sarah.png')

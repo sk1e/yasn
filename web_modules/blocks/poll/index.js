@@ -1,44 +1,68 @@
 import $ from 'jquery';
 
-import pieChartViewMap from '../pie-chart';
+import '../pie-chart';
 import '../tick-box-field';
 import '../button';
 import '../tooltip';
 import './poll.styl';
 
-$(() => {
-  let $selectedTickBoxField = null;
-  const $voteButton = $('.poll .button');
-  const $tooltip = $('.poll .button + .tooltip');
+const Poll = class {
+  constructor($poll) {
+    this.$poll = $poll;
+    this.$form = $poll.find('form');
 
-  $('.poll form').on('submit', (event) => {
+    this.$voteButton = $poll.find('.button');
+    this.$voteButtonTooltip = $poll.find('.button + .tooltip');
+
+    this.$tickBoxInputs = $poll.find('.tick-box__input');
+    this.$tickBoxFields = $poll.find('.tick-box-field');
+
+    this.$selectedTickBoxField = null;
+  }
+
+  get $selectedTickBoxLabel() {
+    return $(`label[for='${this.$selectedTickBoxField.find('.tick-box__input')[0].id}']`);
+  }
+
+  get selectedTickBoxIndex() {
+    return this.$tickBoxFields.index(this.$selectedTickBoxField);
+  }
+
+  attachEventHandlers() {
+    this.$form.on('submit', this.submitVote.bind(this));
+    this.$tickBoxInputs.one('click', () => {
+      this.$voteButton.removeClass('button_theme_light-2').addClass('button_theme_dark-2');
+      this.$voteButtonTooltip.addClass('tooltip_hidden');
+    });
+
+    const poll = this;
+    this.$tickBoxFields.on('click', function callback() {
+      poll.$selectedTickBoxField = $(this);
+    });
+  }
+
+  submitVote(event) {
     event.preventDefault();
-    if ($selectedTickBoxField === null) {
-      $tooltip.removeClass('tooltip_hidden');
+    if (this.$selectedTickBoxField === null) {
+      this.$tooltip.removeClass('tooltip_hidden');
     } else {
       const count = $('.poll__legend-votes-count span').eq(1);
       count.text(+count.text() + 1);
 
-      $voteButton.addClass('button_hidden');
-      $('.poll__items').addClass('poll__items_hidden');
+      this.$voteButton.addClass('button_hidden');
+      this.$poll.find('.poll__items').addClass('poll__items_hidden');
 
-      const $label = $(`label[for='${$selectedTickBoxField.find('.tick-box__input')[0].id}']`);
-      $(`.poll__legend-item-text:contains("${$label.text()}")`)
+      this.$poll.find(`.poll__legend-item-text:contains("${this.$selectedTickBoxLabel.text()}")`)
         .addClass('poll__legend-item-text_chosen');
 
-      const pieChartView = pieChartViewMap.get($('.poll__chart .pie-chart')[0]);
-      const index = $('.poll__items .tick-box-field').index($selectedTickBoxField);
-      pieChartView.values = pieChartView.values.map((x, i) => (i === index ? x + 1 : x));
+      this.$poll.find('.poll__chart .pie-chart').trigger('add-1-for-index:', this.selectedTickBoxIndex);
     }
-  });
+  }
+};
 
-  $('.poll .tick-box__input').one('click', () => {
-    $voteButton.removeClass('button_theme_light-2').addClass('button_theme_dark-2');
-    $tooltip.addClass('tooltip_hidden');
-  });
-
-
-  $('.poll .tick-box-field').on('click', function callback() {
-    $selectedTickBoxField = $(this);
+$(() => {
+  $('.poll').each((_, node) => {
+    const poll = new Poll($(node));
+    poll.attachEventHandlers();
   });
 });

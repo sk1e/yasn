@@ -9,29 +9,39 @@ import PercentageView from '../percentage/percentage-view';
 import './profile-settings.styl';
 
 
-function filledFieldsPercent() {
-  const filled = $('.input').toArray()
-          .reduce((acc, x) => acc + (x.value === '' ? 0 : 1), 0)
-          +
-          $('.drop-down__select').toArray()
-          .reduce((acc, x, i) => acc + (x.value === ['Year', 'Month', 'Day'][i] ? 0 : 1), 0);
+const ProfileSettings = class {
+  constructor($profileSettings) {
+    this.$profileSettings = $profileSettings;
+    this.$percentage = $profileSettings.find('.percentage');
+    this.$saveNotification = $profileSettings.find('.profile-settings__save-notification');
 
-  const total = $('.input').length + $('.drop-down__select').length;
-  return Math.round((filled / total) * 100);
-}
+    this.inputNodes = $profileSettings.find('.input').toArray();
+    this.dropDownSelectNodes = $profileSettings.find('.drop-down__select').toArray();
 
+    this.percentageView = new PercentageView(this.$percentage[0],
+                                             this.filledFieldsPercent(), 43, 47);
+  }
+  attachEventHandlers() {
+    this.$profileSettings.on('submit', (event) => {
+      event.preventDefault();
+      this.percentageView.percent = this.filledFieldsPercent();
+      this.$saveNotifacation
+        .addClass('profile-settings__save-notification_notifying')
+        .on('transitionend', () => this.$saveNotifacation.removeClass('profile-settings__save-notification_notifying'));
+    });
+  }
+
+  filledFieldsPercent() {
+    const filled = this.inputNodes.reduce((acc, x) => (x.value === '' ? acc : acc + 1), 0)
+            + this.dropDownSelectNodes
+            .reduce((acc, x, i) => (x.value === ['Year', 'Month', 'Day'][i] ? acc : acc + 1), 0);
+
+    const total = this.inputNodes.length + this.dropDownSelectNodes.length;
+    return Math.round((filled / total) * 100);
+  }
+};
 
 $(() => {
-  const percentage = $('.percentage');
-  const filledPercent = filledFieldsPercent();
-  const view = new PercentageView(percentage[0], [filledPercent, 100 - filledPercent], 43, 47);
-
-  const $saveNotifacation = $('.profile-settings__save-notification');
-  $('.profile-settings').on('submit', (event) => {
-    event.preventDefault();
-    view.percent = filledFieldsPercent();
-    $saveNotifacation
-      .addClass('profile-settings__save-notification_notifying')
-      .on('transitionend', () => $saveNotifacation.removeClass('profile-settings__save-notification_notifying'));
-  });
+  const profileSettings = new ProfileSettings($('.profile-settings').eq(0));
+  profileSettings.attachEventHandlers();
 });

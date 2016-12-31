@@ -1,4 +1,5 @@
 @require "~constants.styl"
+json('./constants.json')
 
 pages = 4
 tempted-width = 35.71rem
@@ -71,7 +72,7 @@ sign-up-padding = 1.43rem
     
   &__sections-container
     display flex
-    width tempted-width * pages
+    width full-section-width * pages
     transition transform 0.5s
     
 
@@ -87,7 +88,7 @@ sign-up-padding = 1.43rem
     width 7.14rem
       
   &__section
-    width tempted-width - (2 * sign-up-padding)
+    width full-section-width - (2 * sign-up-padding)
     margin-right 2 * sign-up-padding
     display flex
     flex-direction column

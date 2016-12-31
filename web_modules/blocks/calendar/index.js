@@ -8,15 +8,26 @@ import 'font-awesome';
 
 import './calendar.styl';
 
-$(() => {
-  $('.calendar').each(function callback() {
-    $('.calendar__widget', $(this)).datepicker({
+const Calendar = class {
+  constructor($calendar) {
+    this.$calendar = $calendar;
+  }
+
+  render() {
+    this.$calendar.find('.calendar__widget').datepicker({
       changeYear: false,
-      altField: $('.calendar__day', $(this)),
+      altField: this.$calendar.find('.calendar__day'),
       altFormat: 'd',
       firstDay: 1,
       dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
       showButtonPanel: true,
     });
+  }
+};
+
+$(() => {
+  $('.calendar').each((_, node) => {
+    const calendar = new Calendar($(node));
+    calendar.render();
   });
 });

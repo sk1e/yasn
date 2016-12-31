@@ -5,21 +5,42 @@ import '../text-area';
 import '../photocam-icon';
 import '../message-icon';
 import './messenger.styl';
+import messageSelfTemplate from './message-self-dynamic-template.pug';
 
-const submitMessage = () => {
-  const text = $('.messenger .text-area')[0];
-  $('.messenger__message-list').append(`<div class='messenger__message messenger__message_self'>${text.value}</div>`);
-  text.value = '';
-  const sv = $('.messenger__scroll-view')[0];
-  sv.scrollTo(0, sv.scrollHeight - sv.clientHeight);
+const Messenger = class {
+  constructor($messenger) {
+    this.$textarea = $messenger.find('.text-area');
+    this.$messageList = $messenger.find('.messenger__message-list');
+    this.scrollViewNode = $messenger.find('.messenger__scroll-view')[0];
+    this.$replyButton = $messenger.find('.button');
+  }
+
+  attachEventHandlers() {
+    this.$replyButton.on('click', this.submitMessage.bind(this));
+    this.$textarea.keydown((event) => {
+      if (event.keyCode === 13) {
+        this.submitMessage();
+        return false;
+      }
+      return true;
+    });
+  }
+
+  submitMessage() {
+    const textarea = this.$textarea[0];
+    if (textarea.value === '') {
+      return;
+    }
+    this.$messageList.append(messageSelfTemplate({ text: textarea.value }));
+    textarea.value = '';
+    const sv = this.scrollViewNode;
+    sv.scrollTo(0, sv.scrollHeight - sv.clientHeight);
+  }
 };
 
 $(() => {
-  $('.messenger .button').on('click', submitMessage);
-  $('.messenger .text-area').keydown((event) => {
-    if (event.keyCode === 13) {
-      submitMessage();
-      return false;
-    }
+  $('.messenger').each((_, node) => {
+    const messenger = new Messenger($(node));
+    messenger.attachEventHandlers();
   });
 });

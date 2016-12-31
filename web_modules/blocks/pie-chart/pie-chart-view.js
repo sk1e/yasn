@@ -25,20 +25,6 @@ const PieChartView = class {
     this.paths.transition().duration(750).attrTween('d', this.interpolatorFactory);
   }
 
-  initializeValues(node) {
-    this._values = JSON.parse(node.attributes.values.value);
-  }
-
-  makePaths(svg, width, height, data, chartArc) {
-    return svg.selectAll('path')
-      .data(data)
-      .enter()
-      .append('path')
-      .attr('fill', (_, i) => this.constructor.fillColors[i])
-      .attr('d', chartArc)
-      .each(function callback(x) { this._current = x; });
-  }
-
   constructor(node, values, innerRadius, outerRadius) {
     this._values = values;
 
@@ -63,6 +49,20 @@ const PieChartView = class {
       this._current = interpolator(0);
       return x => chartArc(interpolator(x));
     };
+  }
+
+  initializeValues(node) {
+    this._values = JSON.parse(node.attributes.values.value);
+  }
+
+  makePaths(svg, width, height, data, chartArc) {
+    return svg.selectAll('path')
+      .data(data)
+      .enter()
+      .append('path')
+      .attr('fill', (_, i) => this.constructor.fillColors[i])
+      .attr('d', chartArc)
+      .each(function callback(x) { this._current = x; });
   }
 };
 
