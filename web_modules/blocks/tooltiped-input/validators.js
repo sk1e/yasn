@@ -21,29 +21,34 @@ const emailRegex = /^[a-z0-9!#$%&'*+/=?^_`{|}~-]+(?:\.[a-z0-9!#$%&'*+/=?^_`{|}~-
 export const emailValidator = makeRegexValidator(emailRegex, 'this is not an email');
 
 
-export function composeFieldValidator($tooltipedInput, validators) {
+export function composeFieldValidator($tooltipedInput, fieldValidators) {
   const $tooltipText = $tooltipedInput.find('.tooltip__text');
   const inputNode = $tooltipedInput.find('.input')[0];
-  let invariantWasBroken = false;
   const $tooltipBody = $tooltipText.parent();
   const $tooltip = $tooltipBody.parent();
 
-  return function p() {
-    for (const f of validators) {
-      const result = f(inputNode);
-      if (result !== true) {
+  let invariantWasBroken = false;
+  return function validate() {
+    function loop(validators) {
+      if (validators.length === 0) {
+        if (invariantWasBroken) {
+          $tooltipBody.removeClass('tooltip__body_theme_dark-2').addClass('tooltip__body_theme_dark-1');
+          $tooltipText.text('ok now');
+        }
+        return true;
+      }
+      const [x, ...xs] = validators;
+      const isValid = x(inputNode);
+      if (isValid !== true) {
         invariantWasBroken = true;
         $tooltip.removeClass('tooltip_hidden');
-        $tooltipText.text(result);
+        $tooltipText.text(isValid);
         $tooltipBody.removeClass('tooltip__body_theme_dark-1').addClass('tooltip__body_theme_dark-2');
         return false;
       }
+      return loop(xs);
     }
-    if (invariantWasBroken) {
-      $tooltipBody.removeClass('tooltip__body_theme_dark-2').addClass('tooltip__body_theme_dark-1');
-      $tooltipText.text('ok now');
-    }
-
-    return true;
+    return loop(fieldValidators);
   };
 }
+

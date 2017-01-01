@@ -3,6 +3,12 @@
   "version": "0.1.0",
   "description": "ui kit",
   "main": "ui-kit.js",
+  "scripts": {
+    "build": "./node_modules/.bin/webpack --optimize-minimize",
+    "build-dev": "./node_modules/.bin/webpack-dev-server --open",
+    "start": "./node_modules/.bin/http-server ./build -o",
+    "lint": "./node_modules/.bin/eslint ./web_modules/ ./pages ./webpack.config.babel.js"
+  },
   "dependencies": {
     "babel-loader": "^6.2.9",
     "css-loader": "^0.25.0",
@@ -28,6 +34,7 @@
     "babel-cli": "^6.18.0",
     "babel-core": "^6.18.2",
     "babel-plugin-add-module-exports": "^0.2.1",
+    "babel-plugin-transform-object-rest-spread": "^6.20.2",
     "babel-polyfill": "^6.20.0",
     "babel-preset-latest": "^6.16.0",
     "babel-register": "^6.18.0",
@@ -37,11 +44,6 @@
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.8.0",
     "webpack-dev-server": "^1.16.2"
-  },
-  "scripts": {
-    "build": "./node_modules/.bin/webpack --optimize-minimize",
-    "build-dev": "./node_modules/.bin/webpack-dev-server --open",
-    "start": "./node_modules/.bin/http-server ./build -o"
   },
   "author": "me",
   "license": "ISC"

@@ -40,7 +40,6 @@ const TickBox = class {
   constructor($tickBox) {
     this.$tickBox = $tickBox;
     this.$tickBoxInput = $tickBox.find('.tick-box__input');
-
   }
 
   attachEventHandlers() {
@@ -50,7 +49,7 @@ const TickBox = class {
 
 
 $(() => {
-  $('.tick-box').each((_, node) =>   {
+  $('.tick-box').each((_, node) => {
     const tickBox = new TickBox($(node));
     tickBox.attachEventHandlers();
   });

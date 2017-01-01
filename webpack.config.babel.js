@@ -14,10 +14,9 @@ const pageList = [
   'terms',
 ];
 
-const entries = pageList.reduce((acc, x) => {
-  acc[x] = ['babel-polyfill', `./pages/${x}.js`];
-  return acc;
-}, {});
+const entries = pageList.reduce((acc, x) => (
+  { [x]: ['babel-polyfill', `./pages/${x}.js`], ...acc }
+), {});
 
 const htmlPlugins = pageList.map(x => new HtmlWebpackPlugin({
   template: `pages/${x}.pug`,
@@ -25,7 +24,7 @@ const htmlPlugins = pageList.map(x => new HtmlWebpackPlugin({
   chunks: [x],
 }));
 
-module.exports = {
+export default {
   entry: entries,
 
   output: {

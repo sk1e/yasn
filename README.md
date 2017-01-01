@@ -29,3 +29,8 @@ npm run build-dev
 npm run start
  ```
 
+## Linting
+
+```sh
+npm run lint
+ ```
