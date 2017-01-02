@@ -1,3 +1,3 @@
-import 'font-awesome';
+import 'font-awesome.css';
 
 import './arrow-button.styl';

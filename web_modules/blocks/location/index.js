@@ -1,7 +1,7 @@
 /* global ymaps:true */
 
 import $ from 'jquery';
-import 'font-awesome';
+import 'font-awesome.css';
 import './location.styl';
 
 import markerImagePath from './images/marker.png';

@@ -54,7 +54,7 @@ export default {
 
   resolve: {
     alias: {
-      'font-awesome': 'font-awesome/css/font-awesome.min.css',
+      'font-awesome.css': 'font-awesome/css/font-awesome.min.css',
       'user-photos': 'blocks/user-profile/user-photos/',
     },
   },

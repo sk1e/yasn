@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import 'font-awesome';
+import 'font-awesome.css';
 
 import './tick-box.styl';
 

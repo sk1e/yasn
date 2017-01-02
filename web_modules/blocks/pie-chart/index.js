@@ -1,7 +1,7 @@
 import $ from 'jquery';
 
 import './pie-chart.styl';
-import PieChartView from './pie-chart-view.js';
+import PieChartView from './pie-chart-view';
 
 
 const PieChart = class {
