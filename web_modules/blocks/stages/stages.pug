@@ -1,10 +1,11 @@
-mixin stages(completeStages, incompleteStages)
+mixin stages(completeStages, incompleteStages, mix)
   - const colors = require('colors.json')
   - const a = completeStages.length
   - const b = incompleteStages.length
   - const completnessScale = a && (a - 1) / (a + b - 1) * 100
   
-  .stages(style=`background: linear-gradient(to right, ${colors["theme-color-2"]} ${completnessScale}%, ${colors['theme-color-3']} 0%)`)
+  .stages(style=`background: linear-gradient(to right, ${colors["theme-color-2"]} ${completnessScale}%, ${colors['theme-color-3']} 0%)`
+    class=mix || '')
     each x in completeStages
       .stages__stage.stages__stage_face_complete= x
     each x in incompleteStages

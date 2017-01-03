@@ -13,7 +13,6 @@ const PieChart = class {
   attachEventHandlers() {
     this.$pieChart.on('add-1-for-index:', (_, index) => {
       this.pieChartView.values = this.pieChartView.values.map((x, i) => (i === index ? x + 1 : x));
-      return false;
     });
   }
 

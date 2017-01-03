@@ -6,19 +6,21 @@ include ~blocks/drop-down/drop-down.pug
 include ~blocks/link/link.pug
 include ~blocks/birthday-dropdowns/birthday-dropdowns.pug
 
+mixin first-section-tooltiped-input
+  +tooltiped-input('sign-up__first-section-tooltiped-input')&attributes(attributes)
 
 mixin sign-up
   .sign-up
     .sign-up__join
       .sign-up__join-message Join us!
       +button('dark-1', 'big', 'Sign up')
-    +stages([1], [2,3,4])
+    +stages([1], [2,3,4], 'sign-up__stages')
     form.sign-up__form
       .sign-up__sections-container
         .sign-up__section
-          +tooltiped-input(type='text', placeholder='Your Login')
-          +tooltiped-input(type='password' placeholder='Your Password')
-          +tooltiped-input(type='password', placeholder='Repeat Password')
+          +first-section-tooltiped-input(type='text', placeholder='Your Login')
+          +first-section-tooltiped-input(type='password' placeholder='Your Password')
+          +first-section-tooltiped-input(type='password', placeholder='Repeat Password')
 
         .sign-up__section
           +tooltiped-input(type='email', placeholder='Your Email')
@@ -35,4 +37,4 @@ mixin sign-up
         .sign-up__section
           .sign-up__message Finished! Unfortunately signing up doesn't work here, but you still can to sign in as John Smith.
           +link(href='./news.html') Sign in as John Smith            
-      +button('dark-2', 'big', 'next')
+      +button('dark-2', 'big', 'next', 'sign-up__form-button')

@@ -15,6 +15,7 @@ button-theme(background-color, border-color)
   cursor pointer
   overflow hidden
   color white
+  transition height 0.5s
     
   &__ripple-effect
     position absolute
@@ -60,6 +61,9 @@ button-theme(background-color, border-color)
   &_hidden
     visibility hidden
 
+  &_collapsed
+    height 0
+    border-width 0
 
 
 

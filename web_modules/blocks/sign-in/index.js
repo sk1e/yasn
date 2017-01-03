@@ -13,12 +13,13 @@ const SignIn = class {
     this.$signIn.on('submit', (event) => {
       event.preventDefault();
       if (this.wantsSignIn) {
-        $('.sign-in .tooltip').eq(1).removeClass('tooltip_hidden');
-        $('.sign-in .tooltip__text').eq(1).text('invalid user/password');
+        $('.sign-in .tooltip').eq(1)
+          .triggerHandler('show:')
+          .triggerHandler('set-text:', 'invalid user/password');
       } else {
         this.wantsSignIn = true;
         this.$signIn.trigger('wants-to-sign-in:');
-        $('.sign-in .button').addClass('button_wants-sign-in').removeClass('button_theme_light-2').addClass('button_theme_dark-2');
+        $('.sign-in__button').addClass('sign-in__button_wants-sign-in').triggerHandler('invert-theme:', 2);
       }
     });
   }

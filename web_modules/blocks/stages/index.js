@@ -11,18 +11,20 @@ const Stages = class {
   }
 
   attachEventHandlers() {
-    this.$stages.on('move-to-next-stage:', (event, nextStageIndex) => {
-      const leftColor = colors['theme-color-2'];
-      const leftPercentage = (nextStageIndex / (this.stagesNumber - 1)) * 100;
+    this.$stages.on('move-to-next-stage:', this.moveToNextStage.bind(this));
+  }
 
-      const rightColor = colors['theme-color-3'];
 
-      this.$stages.css('background', `linear-gradient(to right, ${leftColor} ${leftPercentage}%, ${rightColor} 0%)`);
-      this.$stage.eq(nextStageIndex)
-        .removeClass('stages__stage_face_incomplete')
-        .addClass('stages__stage_face_complete');
-      return false;
-    });
+  moveToNextStage(_, nextStageIndex) {
+    const leftColor = colors['theme-color-2'];
+    const leftPercentage = (nextStageIndex / (this.stagesNumber - 1)) * 100;
+
+    const rightColor = colors['theme-color-3'];
+
+    this.$stages.css('background', `linear-gradient(to right, ${leftColor} ${leftPercentage}%, ${rightColor} 0%)`);
+    this.$stage.eq(nextStageIndex)
+      .removeClass('stages__stage_face_incomplete')
+      .addClass('stages__stage_face_complete');
   }
 };
 

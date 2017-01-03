@@ -1,3 +1,3 @@
-mixin button(theme, size, name)
-  button(class=`button button_size_${size} button_theme_${theme} button_shadow_${theme}`)=name
+mixin button(theme, size, name, mix)
+  button(class=`button button_size_${size} button_theme_${theme} button_shadow_${theme} ${mix || ''}`)=name
     

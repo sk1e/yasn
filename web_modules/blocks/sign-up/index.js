@@ -63,7 +63,7 @@ const SignUp = class {
       this.page += 1;
       this.$container.css('transform', `translateX(-${sectionWidth * this.page}rem)`);
 
-      $('.sign-up .stages').trigger('move-to-next-stage:', this.page);
+      $('.sign-up .stages').triggerHandler('move-to-next-stage:', this.page);
 
       if (this.page === pagesNumber - 1) {
         this.$nextButton.addClass('button_hidden');
@@ -74,13 +74,13 @@ const SignUp = class {
   static transformToTempted() {
     $('.sign-up__form').addClass('sign-up__form_tempted');
     $('.sign-up').addClass('sign-up_tempted');
-    $('.sign-up__join > .button').addClass('button_tempted');
-    $('.sign-up__join-message').addClass('sign-up__join-message_tempted')
+    $('.sign-up__join > .button').triggerHandler('collapse:');
+    $('.sign-up__join-message').addClass('sign-up__join-message_transparent')
       .on('transitionend', () => {
         $('.sign-up__join').addClass('sign-up__join_removed');
-        $('.sign-up .stages').addClass('stages_tempted');
-        $('.sign-up__form > .button').addClass('button_tempted');
-        $('.sign-up__section').eq(0).find('.tooltiped-input').addClass('tooltiped-input_tempted');
+        $('.sign-up__stages').addClass('sign-up__stages_opaque');
+        $('.sign-up__form-button').addClass('sign-up__form-button_opaque');
+        $('.sign-up__first-section-tooltiped-input').addClass('sign-up__first-section-tooltiped-input_opaque');
       });
   }
 };

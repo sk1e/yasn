@@ -15,7 +15,12 @@ const Button = class {
       .on('mousedown', () => this.$button.addClass('button_shadow_none'))
       .on('mouseup', () => this.$button.removeClass('button_shadow_none'))
       .on('mouseout', () => this.$button.removeClass('button_shadow_none'))
-      .on('click', this.showRippleEffect.bind(this));
+      .on('click', this.showRippleEffect.bind(this))
+      .on('invert-theme:', (_, themeNumber) => {
+        this.$button.toggleClass(`button_theme_dark-${themeNumber} button_theme_light-${themeNumber}`);
+      })
+      .on('collapse:', () => this.$button.addClass('button_collapsed'))
+      .on('hide:', () => this.$button.addClass('button_hidden'));
   }
 
   showRippleEffect(event) {

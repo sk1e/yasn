@@ -18,6 +18,7 @@ const Poll = class {
     this.$tickBoxFields = $poll.find('.tick-box-field');
 
     this.$selectedTickBoxField = null;
+    this.radioWasSelected = false;
   }
 
   get $selectedTickBoxLabel() {
@@ -30,32 +31,36 @@ const Poll = class {
 
   attachEventHandlers() {
     this.$form.on('submit', this.submitVote.bind(this));
-    this.$tickBoxInputs.one('click', () => {
-      this.$voteButton.removeClass('button_theme_light-2').addClass('button_theme_dark-2');
-      this.$voteButtonTooltip.addClass('tooltip_hidden');
+    this.$tickBoxInputs.one('click', (event) => {
+      event.stopPropagation();
+      if (!this.radioWasSelected) {
+        this.radioWasSelected = true;
+        this.$voteButton.triggerHandler('invert-theme:', 2);
+        this.$voteButtonTooltip.triggerHandler('hide:');
+      }
     });
 
     const poll = this;
-    this.$tickBoxFields.on('click', function callback() {
-      poll.$selectedTickBoxField = $(this);
+    this.$tickBoxInputs.on('click', function callback() {
+      poll.$selectedTickBoxField = $(this).parent().parent();
     });
   }
 
   submitVote(event) {
     event.preventDefault();
     if (this.$selectedTickBoxField === null) {
-      this.$tooltip.removeClass('tooltip_hidden');
+      this.$voteButtonTooltip.triggerHandler('show:');
     } else {
       const count = $('.poll__legend-votes-count span').eq(1);
       count.text(+count.text() + 1);
 
-      this.$voteButton.addClass('button_hidden');
+      this.$voteButton.triggerHandler('hide:');
       this.$poll.find('.poll__items').addClass('poll__items_hidden');
 
       this.$poll.find(`.poll__legend-item-text:contains("${this.$selectedTickBoxLabel.text()}")`)
         .addClass('poll__legend-item-text_chosen');
 
-      this.$poll.find('.poll__chart .pie-chart').trigger('add-1-for-index:', this.selectedTickBoxIndex);
+      this.$poll.find('.poll__chart .pie-chart').triggerHandler('add-1-for-index:', this.selectedTickBoxIndex);
     }
   }
 };

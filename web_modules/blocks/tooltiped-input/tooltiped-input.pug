@@ -1,5 +1,6 @@
-mixin tooltiped-input
-  .tooltiped-input
+mixin tooltiped-input(mix)
+  - console.log('mix', mix)
+  .tooltiped-input(class=mix || '')
     input.input&attributes(attributes)
     +tooltip('dark-2', "left")(hidden)
 
