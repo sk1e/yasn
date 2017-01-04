@@ -2,10 +2,10 @@ import colors from 'colors.json';
 
 import { interpolate } from 'd3-interpolate';
 
-import PieChartView from '../pie-chart/pie-chart-view';
+import CircularArcsView from 'shared/circular-arcs-view';
 
 
-const PercentageView = class extends PieChartView {
+const PercentageView = class extends CircularArcsView {
   static get fillColors() {
     return [colors['theme-color-2'], '#fff'];
   }
