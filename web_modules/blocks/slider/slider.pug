@@ -1,9 +1,11 @@
+include ../slider-tooltip-container/slider-tooltip-container.pug
+
 mixin slider(type)
   case type
     when "tooltiped"
       .slider.slider_type_tooltiped
         .ui-slider-handle
-          +tooltip("dark-2", "bottom")(tooltip="slider__tooltip", tooltipBody="slider__tooltip-body")= 0
+          +slider-tooltip-container('dark-2')= 0
             
     when "scaled"
       .slider.slider_type_scaled

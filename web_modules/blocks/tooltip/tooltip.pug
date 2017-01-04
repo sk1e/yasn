@@ -1,7 +1,14 @@
-mixin tooltip(theme, pointerLocation)
-  .tooltip(class=attributes.hidden ? 'tooltip_hidden' : '')
-    .tooltip__body(class='tooltip__body_theme_' + theme)
-      .tooltip__pointer(class='tooltip__pointer_location_' + pointerLocation)
-      .tooltip__text
-        block
+mixin tooltip(theme, pointerLocation, mix, pointerMix)
+  - const classnames = require('classnames')
+  - 
+    const tooltipClass = classnames(
+      'tooltip_theme_' + theme, 
+      { 'tooltip_hidden': attributes.hidden }, 
+      mix
+    )
+  - const pointerClass = classnames('tooltip__pointer_location_' + pointerLocation, pointerMix)
+  .tooltip(class=tooltipClass)
+    .tooltip__pointer(class=pointerClass)
+    .tooltip__text
+      block
     

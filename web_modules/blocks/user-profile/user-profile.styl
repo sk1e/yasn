@@ -1,5 +1,5 @@
 @require "~constants.styl"
-@require "../tooltip/constants.styl"
+@require "./constants.styl"
 
 .user-profile
   display flex
@@ -8,12 +8,6 @@
   
   &:hover .tooltip
     visibility visible
-  
-  & .tooltip
-    visibility hidden
-    position absolute
-    left 100%
-    bottom "calc(50% - %s)" % (tooltip__user-profile-height / 2)
         
   &__name
     margin-top -0.36rem
@@ -54,4 +48,20 @@
           color white
         &_gray
           color #666
+              
+  &__tooltip
+    visibility hidden
+    position absolute
+    left 100%
+    bottom "calc(50% - %s)" % (user-profile-tooltip-height / 2)
     
+    height user-profile-tooltip-height
+    width 11.64rem
+    border-radius 0.64rem
+    
+    
+    &-pointer
+      bottom calc(50% - 0.93rem)
+      left -0.14rem      
+      width 1.86rem
+      height 1.86rem

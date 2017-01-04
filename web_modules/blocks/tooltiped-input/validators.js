@@ -22,18 +22,17 @@ export const emailValidator = makeRegexValidator(emailRegex, 'this is not an ema
 
 
 export function composeFieldValidator($tooltipedInput, fieldValidators) {
-  const $tooltipText = $tooltipedInput.find('.tooltip__text');
+  const $tooltip = $tooltipedInput.find('.tooltip');
   const inputNode = $tooltipedInput.find('.input')[0];
-  const $tooltipBody = $tooltipText.parent();
-  const $tooltip = $tooltipBody.parent();
 
   let invariantWasBroken = false;
   return function validate() {
     function loop(validators) {
       if (validators.length === 0) {
         if (invariantWasBroken) {
-          $tooltipBody.removeClass('tooltip__body_theme_dark-2').addClass('tooltip__body_theme_dark-1');
-          $tooltipText.text('ok now');
+          $tooltip
+            .triggerHandler('switch-theme:', 1)
+            .triggerHandler('set-text:', 'ok now');
         }
         return true;
       }
@@ -41,9 +40,10 @@ export function composeFieldValidator($tooltipedInput, fieldValidators) {
       const isValid = x(inputNode);
       if (isValid !== true) {
         invariantWasBroken = true;
-        $tooltip.removeClass('tooltip_hidden');
-        $tooltipText.text(isValid);
-        $tooltipBody.removeClass('tooltip__body_theme_dark-1').addClass('tooltip__body_theme_dark-2');
+        $tooltip
+          .triggerHandler('show:')
+          .triggerHandler('switch-theme:', 2)
+          .triggerHandler('set-text:', isValid);
         return false;
       }
       return loop(xs);

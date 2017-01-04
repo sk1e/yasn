@@ -13,7 +13,10 @@ const Tooltip = class {
     this.$tooltip
       .on('show:', () => this.$tooltip.removeClass('tooltip_hidden'))
       .on('hide:', () => this.$tooltip.addClass('tooltip_hidden'))
-      .on('set-text:', (_, value) => this.$text.text(value));
+      .on('set-text:', (_, value) => this.$text.text(value))
+      .on('switch-theme:', (_, value) => this.$tooltip
+          .removeClass(`tooltip_theme_dark-${value === 1 ? 2 : 1}`)
+          .addClass(`tooltip_theme_dark-${value}`));
   }
 };
 

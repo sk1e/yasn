@@ -1,0 +1,7 @@
+include ../tooltip/tooltip.pug
+
+mixin slider-tooltip-container(theme)
+  .slider-tooltip-container
+    +tooltip('dark-2', 'bottom', 'slider-tooltip-container__tooltip', 'slider-tooltip-container__tooltip-pointer')
+      block
+

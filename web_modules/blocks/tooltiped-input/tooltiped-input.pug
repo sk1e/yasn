@@ -1,12 +1,11 @@
 mixin tooltiped-input(mix)
-  - console.log('mix', mix)
   .tooltiped-input(class=mix || '')
     input.input&attributes(attributes)
-    +tooltip('dark-2', "left")(hidden)
+    +tooltip('dark-2', 'left', 'tooltiped-input__tooltip', 'tooltiped-input__tooltip-pointer')(hidden)
 
 
 mixin preview-tooltiped-input(text, tooltipTheme)
   .tooltiped-input
     input.input&attributes(attributes)
-    +tooltip(tooltipTheme, "left")
+    +tooltip(tooltipTheme, 'left', 'tooltiped-input__tooltip', 'tooltiped-input__tooltip-pointer')
       span= text
