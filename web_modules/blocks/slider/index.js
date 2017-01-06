@@ -8,38 +8,39 @@ import '../slider-tooltip-container';
 import './slider.styl';
 
 const TooltipedSlider = class {
-  constructor($slider) {
-    this.$slider = $slider;
-    this.$tooltipText = $slider.find('.tooltip__text');
+  constructor($widget) {
+    this.$widget = $widget;
+    this.$tooltip = $widget.find('.tooltip');
+    console.log(this.$tooltip);
   }
 
   render() {
-    this.$slider.slider({
+    this.$widget.slider({
       slide: (_, ui) => {
-        this.$tooltipText.text(ui.value);
+        this.$tooltip.triggerHandler('set-text:', ui.value);
       },
     });
   }
 };
 
 const ScaledSlider = class {
-  constructor($slider) {
-    this.$slider = $slider;
+  constructor($widget) {
+    this.$widget = $widget;
   }
 
   render() {
-    this.$slider.slider({ range: 'min' });
+    this.$widget.slider({ range: 'min' });
   }
 };
 
 
 $(() => {
-  $('.slider_type_tooltiped').each((_, node) => {
+  $('.slider__widget_type_tooltiped').each((_, node) => {
     const tooltipedSlider = new TooltipedSlider($(node));
     tooltipedSlider.render();
   });
 
-  $('.slider_type_scaled').each((_, node) => {
+  $('.slider__widget_type_scaled').each((_, node) => {
     const scaledSlider = new ScaledSlider($(node));
     scaledSlider.render();
   });

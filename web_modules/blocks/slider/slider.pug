@@ -1,14 +1,15 @@
 include ../slider-tooltip-container/slider-tooltip-container.pug
 
-mixin slider(type)
-  case type
-    when "tooltiped"
-      .slider.slider_type_tooltiped
-        .ui-slider-handle
-          +slider-tooltip-container('dark-2')= 0
-            
-    when "scaled"
-      .slider.slider_type_scaled
-        .slider__scale
-          each n in [0, 25, 50, 75, 100]
-            div=n
+mixin slider(type, mix)
+  .slider(class=mix || '')
+    case type
+      when "tooltiped"
+        .slider__widget.slider__widget_type_tooltiped
+          .ui-slider-handle
+            +slider-tooltip-container('dark-2')= 0
+
+      when "scaled"
+        .slider__widget.slider__widget_type_scaled
+          .slider__scale
+            each n in [0, 25, 50, 75, 100]
+              div=n

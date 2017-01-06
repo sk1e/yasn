@@ -4,6 +4,7 @@ import '../button';
 import '../text-area';
 import '../photocam-icon';
 import '../message-icon';
+import '../user-photo';
 import './messenger.styl';
 import messageSelfTemplate from './message-self-dynamic-template.pug';
 

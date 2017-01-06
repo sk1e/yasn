@@ -1,8 +1,7 @@
-mixin search()
+mixin search(mix)
   .search
-    form
-      .search__input
-        input.input(type="text", placeholder="Search")
+    form.search__form(class=mix || '')
+        input.input.search__input(type="text", placeholder="Search")
         buttton.search__button
           .fa.fa-search
     .search__results.search__results_empty.search__results_hidden                        

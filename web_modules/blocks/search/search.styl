@@ -1,27 +1,34 @@
 @require "~constants.styl"
 
+button-width = 2.3rem
+
 .search
   position relative
-
   &__button
     display flex
     align-items center
     justify-content center
     color white
     font-size 0.93rem
-    width 2.00rem
+    width 2.3rem
     height 2.00rem
     background theme-color-2
     cursor pointer
-    border-top-right-radius 0.14rem
-    border-bottom-right-radius 0.14rem
+    border-top-right-radius 0.24rem
+    border-bottom-right-radius 0.24rem
     
   &__input
+    max-width 25rem
+    width "calc(100% - %s)" % button-width
+    
+  &__form
     display flex
       
   &__results
+    top 3.15rem
     position absolute
     z-index 1
+    border-radius 0.25rem
 
     &_hidden
       visibility hidden

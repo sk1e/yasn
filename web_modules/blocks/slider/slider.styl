@@ -1,39 +1,43 @@
 @require "~constants.styl"
 
+handle-height = 1.43rem
+
 .slider
-  width 18.57rem
+  height handle-height
+  &__widget
+    width 18.57rem
+    &_type
+      &_tooltiped
+        &.ui-slider .ui-slider-handle
+           background theme-color-2
+      &_scaled
+        &.ui-slider .ui-slider-handle
+           background theme-color-1
+        & .ui-slider-range
+           background theme-color-1
 
-  &.ui-widget.ui-widget-content
-    border none
 
-  &.ui-slider
-    background theme-color-3
-    height 0.36rem
 
-  &.ui-slider .ui-slider-handle
-    outline none
-    border-radius 50%
-    border none
-    margin-top -0.15rem
-    height 1.43rem
-    width 1.43rem
+    &.ui-widget.ui-widget-content
+      border none
+
+    &.ui-slider
+      background theme-color-3
+      height 0.36rem
+
+    &.ui-slider .ui-slider-handle
+      outline none
+      border-radius 50%
+      border none
+      margin-top -0.15rem
+      height handle-height
+      width handle-height
 
   &__scale
     display flex
     justify-content space-between
-    margin-top 1.07rem
+    padding-top 1.07rem
     font-weight heavy
     font-size 0.79rem
     color #ccc
-
-
-  &_type
-    &_tooltiped
-      &.ui-slider .ui-slider-handle
-         background theme-color-2
-    &_scaled
-      &.ui-slider .ui-slider-handle
-         background theme-color-1
-      & .ui-slider-range
-         background theme-color-1
 

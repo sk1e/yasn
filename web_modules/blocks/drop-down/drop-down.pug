@@ -1,9 +1,11 @@
-mixin drop-down(name, width, options)
-  .drop-down(style={width: `${width}rem`})
+mixin drop-down(name, options, mix)
+  .drop-down(class=mix || '')
     select.drop-down__select(name=name)
        each x in options
          option= x
     .drop-down__arrow
       .fa.fa-angle-down
+      
+  
  
     

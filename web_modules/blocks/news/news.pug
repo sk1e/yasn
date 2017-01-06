@@ -1,5 +1,5 @@
-mixin news(title, date, image)
-  .news
+mixin news(title, date, image, mix)
+  .news(class=mix || '')
     img.news__image(src=require("blocks/news/images/" + image) alt=title + ' image')
     .news__description
       .news__title= title

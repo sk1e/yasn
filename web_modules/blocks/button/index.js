@@ -12,9 +12,9 @@ const Button = class {
 
   attachEventHandlers() {
     this.$button
-      .on('mousedown', () => this.$button.addClass('button_shadow_none'))
-      .on('mouseup', () => this.$button.removeClass('button_shadow_none'))
-      .on('mouseout', () => this.$button.removeClass('button_shadow_none'))
+      .on('mousedown', () => this.$button.addClass('button_pressed'))
+      .on('mouseup', () => this.$button.removeClass('button_pressed'))
+      .on('mouseout', () => this.$button.removeClass('button_pressed'))
       .on('click', this.showRippleEffect.bind(this))
       .on('invert-theme:', (_, themeNumber) => {
         this.$button.toggleClass(`button_theme_dark-${themeNumber} button_theme_light-${themeNumber}`);

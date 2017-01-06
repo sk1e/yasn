@@ -1,5 +1,5 @@
-mixin tick-box(type, value, state)
-  .tick-box(class=`tick-box_state_${state}`)
+mixin tick-box(type, value, state, mix)
+  .tick-box(class=`tick-box_state_${state} ${mix || ''}`)
     .fa.fa-check
     input.tick-box__input(type=type
       checked=(state === 'on')

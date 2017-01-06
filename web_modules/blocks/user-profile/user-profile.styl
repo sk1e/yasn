@@ -2,13 +2,15 @@
 @require "./constants.styl"
 
 .user-profile
-  display flex
-  align-items center
   position relative
   
   &:hover .tooltip
     visibility visible
-        
+
+  //- &__photo
+  //-   border 0.4rem solid #ccc
+  //-   border-radius 50%
+    
   &__name
     margin-top -0.36rem
     font-size 1.29rem
@@ -35,7 +37,7 @@
     font-size 1.79rem
     display flex
     justify-content space-between
-    width 100%
+    width 7rem
               
   &__reference
     color theme-color-2
@@ -52,10 +54,10 @@
   &__tooltip
     visibility hidden
     position absolute
-    left 100%
-    bottom "calc(50% - %s)" % (user-profile-tooltip-height / 2)
+    left 105%
+    bottom "calc(50% - %s)" % (user-profile__tooltip-min-height / 2)
     
-    height user-profile-tooltip-height
+    min-height user-profile__tooltip-min-height
     width 11.64rem
     border-radius 0.64rem
     

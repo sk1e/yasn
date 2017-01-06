@@ -1,7 +1,7 @@
 include ../button/button.pug
 
-mixin event(title, day, month, image)
-  .event
+mixin event(title, day, month, image, mix, buttonMix)
+  .event(class=mix || '')
     img.event__image(src=require("blocks/event/images/" + image) alt=title + ' image')
     .event__description
       .event__day= day
@@ -9,4 +9,4 @@ mixin event(title, day, month, image)
       .event__title= title
       .event__text
         block
-      +button("light-1", "small", "add to calendar")
+      +button("light-1", "small", "add to calendar", ` event__button ${buttonMix || ''}`)

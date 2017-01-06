@@ -6,6 +6,28 @@ button-theme(background-color, border-color)
   border 0.07rem solid border-color
   if background-color == white
     color border-color
+    
+unpressed-rules(bottom-size, color)
+  box-shadow 0 bottom-size 0 0 darken(color, 10)
+  margin-bottom bottom-size
+    
+
+pressing-rules(bottom-shadow-size)
+  &^[0]_theme
+    &_dark-1
+    &_light-1
+    &_dark-2
+    &_light-2
+      &^[0]_pressed
+        margin-bottom (bottom-shadow-size / 2)
+        box-shadow none
+
+    &_dark
+    &_light
+      &-1
+        unpressed-rules(bottom-shadow-size, theme-color-1)
+      &-2
+        unpressed-rules(bottom-shadow-size, theme-color-2)
 
 .button
   position relative
@@ -25,17 +47,18 @@ button-theme(background-color, border-color)
     background white
     animation  ripple-animation 1s
 
-
   &_size
     &_big
-      font-size 1.00rem
-      min-width 8.57rem
+      font-size 0.9rem
+      min-width 8.47rem
       height button-height-big
+      pressing-rules(0.21rem)
     &_small
       font-size 0.79rem
       min-width 5.57rem
       height 1.57rem
-
+      pressing-rules(0.15rem)
+      
   &_theme
     &_dark-1
       button-theme(theme-color-1, theme-color-1)
@@ -45,18 +68,9 @@ button-theme(background-color, border-color)
       button-theme(white, theme-color-1)
     &_light-2
       button-theme(white, theme-color-2)
-
-  &_shadow
-    &_dark-1
-      box-shadow 0 0.21rem 0 0 darken(theme-color-1, 10)
-    &_dark-2
-      box-shadow 0 0.21rem 0 0 darken(theme-color-2, 10)
-    &_light-1
-      box-shadow 0 0.21rem 0 0 darken(theme-color-1, 10)
-    &_light-2
-      box-shadow 0 0.21rem 0 0 darken(theme-color-2, 10)
-    &_none
-      box-shadow none
+      
+  &_shadow-none
+    box-shadow none
 
   &_hidden
     visibility hidden
@@ -64,7 +78,6 @@ button-theme(background-color, border-color)
   &_collapsed
     height 0
     border-width 0
-
 
 
 @keyframes ripple-animation

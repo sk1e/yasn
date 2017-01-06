@@ -20,6 +20,6 @@ mixin birthday-dropdowns
     ];
   - const dayOptions = ['Day'].concat(Array.from({length: 31}, (v, k) => k + 1));
   .birthday-dropdowns
-    +drop-down('year', 6.43, yearOptions)
-    +drop-down('month', 7.14, monthOptions)
-    +drop-down('day', 6.43, dayOptions)
+    +drop-down('year', yearOptions, 'birthday-dropdowns__year')
+    +drop-down('month', monthOptions, 'birthday-dropdowns__month')
+    +drop-down('day', dayOptions, 'birthday-dropdowns__day')

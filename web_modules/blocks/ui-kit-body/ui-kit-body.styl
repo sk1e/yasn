@@ -1,79 +1,119 @@
-.ui-kit-body
-  display flex
-  justify-content center
-  padding 3rem 0
-  
-  &__form
-    display flex
-    justify-content center
+@require "../user-profile/constants.styl"
+@require "../tooltiped-input/constants.styl"
 
-    & > form > *:not(:first-child)
-      margin-top 1rem
-    
-  &__form-button-row
-    display flex
-    justify-content flex-end
-    
-  &__form-elements-row
-    width 100%
-    display flex
-    align-items flex-start
-    
-    & > *
-      width 50%
-      
-    & .ui-kit-body__section:first-child .heading
-      margin-top 0
+form-text-area-width = 20.6rem
+form-input-width = form-text-area-width - tooltiped-input__tooltip-min-width - tooltiped-input__tooltip-margin-left
+search-and-dropdown-width = 20.6rem
+
+.ui-kit-body
+  padding 3rem 0
+  margin auto
   
+  &__heading
+    margin 3rem auto
+    &_toggles
+      margin-top 0
+      margin-bottom 2rem
+    &_tick-boxes
+      margin-top 2.5rem
+      margin-bottom 2rem
+      
+  &__stages
+    max-width 42.5rem
+    
+          
   &__sections
-    width 50rem
+    display block
     
   &__section
     display flex
     flex-direction column
-    justify-content center
     align-items center
-    
-    & .heading
-      margin 2.5rem 0
-    
-    & .text-area
-      width 100%
-                          
-  &__items
-    width 100%
-    display flex
-    flex-direction column
     justify-content center
-    align-items center
     
-    & > *:not(:first-child)
-      margin-top 1rem
-
         
   &__row    
     display flex
     align-items flex-end
+    flex-wrap wrap
     
-    & .slider
-      &:first-child 
-        margin-right 1rem
-      &:last-child 
+    
+    &-item
+      &:not(:first-child)
+        margin-left 1.7rem
+      &-percentages:not(:first-child)
+        margin-left 2rem
+      &-sliders
+        &:first-child
+          margin-right 2.5rem
+        &:last-child
+          margin-left 2.5rem
+      &-toggles:not(:first-child)
         margin-left 1rem
-
-    & > *:not(:first-child)
-      margin-left 1rem
-
-    & form .input 
-      align-self flex-start
-      width 16rem
+      &-tick-boxes:not(:first-child)
+        margin-left 1.1rem
         
-  &__multisection-row
+    &_standard-buttons:not(:first-child)
+      margin-top 1.65rem
+      
+    &_news-events
+      justify-content center
+      
+  &__double-sectioned-row
     display flex
-    align-items flex-start
+    flex-wrap wrap
+    width 100%
+    max-width 44rem
+    margin auto
+        
+    &-part
+      width 50%
+      min-width 22rem
     
-    & > *
-     width 50%
-     
-    & .search .input
-      width 19.5rem
+    
+  &__search
+    width 100%
+    max-width search-and-dropdown-width
+    
+  &__drop-down
+    margin-top 4.42rem
+    width 100%
+    max-width search-and-dropdown-width
+    
+
+  &__profile
+    margin-right 10rem
+    &:not(:nth-child(2))
+      margin-top 1.5rem
+      
+  &__news
+    margin-right 0.625rem
+  &__event
+    margin-left 0.625rem
+      
+  &__form
+    display flex
+    flex-direction column
+    align-items center
+    
+    &-button
+      margin-top 0.75rem
+      align-self flex-end
+      
+    &-tooltiped-input:not(:first-child)
+      margin-top 0.90rem
+      
+    &-text-area-and-button
+      display flex
+      flex-direction column
+      
+    &-text-area
+      width 20.6rem
+      margin-top 0.85rem
+      padding-top 0.7rem
+      height 6.25rem
+      
+    &-input
+      width form-input-width
+      
+
