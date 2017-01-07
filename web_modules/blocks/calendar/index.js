@@ -11,16 +11,23 @@ import './calendar.styl';
 const Calendar = class {
   constructor($calendar) {
     this.$calendar = $calendar;
+    this.$widget = $calendar.find('.calendar__widget');    
+    this.$todayButton = this.$calendar.find('.calendar__today-button');
   }
 
   render() {
-    this.$calendar.find('.calendar__widget').datepicker({
+      this.$widget.datepicker({
       changeYear: false,
       altField: this.$calendar.find('.calendar__day'),
       altFormat: 'd',
       firstDay: 1,
       dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
-      showButtonPanel: true,
+    });
+  }
+
+  attachEventHandlers() {
+    this.$todayButton.on('click', () => {
+      this.$widget.datepicker('setDate', new Date());
     });
   }
 };
@@ -29,5 +36,8 @@ $(() => {
   $('.calendar').each((_, node) => {
     const calendar = new Calendar($(node));
     calendar.render();
-  });
+    calendar.attachEventHandlers();
+  });  
 });
+
+
