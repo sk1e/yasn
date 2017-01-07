@@ -11,7 +11,6 @@ const TooltipedSlider = class {
   constructor($widget) {
     this.$widget = $widget;
     this.$tooltip = $widget.find('.tooltip');
-    console.log(this.$tooltip);
   }
 
   render() {
