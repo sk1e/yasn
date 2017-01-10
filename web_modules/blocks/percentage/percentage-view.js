@@ -36,6 +36,7 @@ const PercentageView = class extends CircularArcsView {
       .attr('class', 'percentage__text')
       .attr('text-anchor', 'middle')
       .attr('dominant-baseline', 'middle')
+      .attr('dy', 5)
       .text(this.percent);
 
     return super.makePaths(svg, width, height, data, chartArc);
