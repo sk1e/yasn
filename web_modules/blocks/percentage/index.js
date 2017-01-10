@@ -10,7 +10,7 @@ const Percentage = class {
     this.node = node;
   }
   render() {
-    this.percentageView = new PercentageView(this.node, this.value, 43, 47);
+    this.percentageView = new PercentageView(this.node, this.value);
   }
 };
 

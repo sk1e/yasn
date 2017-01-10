@@ -18,8 +18,7 @@ const ProfileSettings = class {
     this.inputNodes = $profileSettings.find('.input').toArray();
     this.dropDownSelectNodes = $profileSettings.find('.drop-down__select').toArray();
 
-    this.percentageView = new PercentageView(this.$percentage[0],
-                                             this.filledFieldsPercent(), 43, 47);
+    this.percentageView = new PercentageView(this.$percentage[0], this.filledFieldsPercent());
   }
   attachEventHandlers() {
     this.$profileSettings.on('submit', (event) => {
