@@ -1,6 +1,6 @@
 include ../tick-box-field/tick-box-field.pug
 include ../button/button.pug
-include ../tooltip/tooltip.pug
+include ../input-tooltip/input-tooltip.pug
 
 mixin poll(name, items)
   - const fillColors = require('blocks/pie-chart/pie-chart-view').default.fillColors
@@ -25,5 +25,5 @@ mixin poll(name, items)
           +tick-box-field('radio', item.name.full, `poll__${name.short}__${item.name.short}`, 'off')(name=name)
       .poll__input
         +button('light-2', 'big', 'vote')
-        +tooltip('dark-2', 'left')(hidden=true) You didn't choose anything
+        +input-tooltip('dark-2')(hidden) You didn't choose anything
         

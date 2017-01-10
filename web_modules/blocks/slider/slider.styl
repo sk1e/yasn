@@ -1,11 +1,12 @@
 @require "~constants.styl"
+@require "./constants.styl"
 
-handle-height = 1.43rem
 
 .slider
-  height handle-height
+  height slider-handle-width
+  width 100%
+  max-width slider-max-width
   &__widget
-    width 18.57rem
     &_type
       &_tooltiped
         &.ui-slider .ui-slider-handle
@@ -30,8 +31,8 @@ handle-height = 1.43rem
       border-radius 50%
       border none
       margin-top -0.15rem
-      height handle-height
-      width handle-height
+      height slider-handle-width
+      width slider-handle-width
 
   &__scale
     display flex

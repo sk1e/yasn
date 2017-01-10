@@ -1,11 +1,12 @@
+include ../input-tooltip/input-tooltip.pug
+
 mixin tooltiped-input(mix, inputMix)
   .tooltiped-input(class=mix || '')
     input.input(class=inputMix || '')&attributes(attributes)
-    +tooltip('dark-2', 'left', 'tooltiped-input__tooltip', 'tooltiped-input__tooltip-pointer')(hidden)
+    +input-tooltip('dark-2')(hidden)
 
 
 mixin preview-tooltiped-input(text, tooltipTheme, mix, inputMix)
   .tooltiped-input(class=mix || '')
     input.input(class=inputMix || '')&attributes(attributes)
-    +tooltip(tooltipTheme, 'left', 'tooltiped-input__tooltip', 'tooltiped-input__tooltip-pointer')
-      span= text
+    +input-tooltip(tooltipTheme)= text

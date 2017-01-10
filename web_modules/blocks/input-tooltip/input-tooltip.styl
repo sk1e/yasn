@@ -1,0 +1,19 @@
+@require "~constants.styl"
+@require "./constants.styl"
+
+.input-tooltip
+  font-weight heavy
+  font-size 0.71rem
+  text-transform uppercase
+  height 2.00rem
+  min-width input-tooltip-min-width
+  margin-left input-tooltip-margin-left
+
+  &__pointer
+    width 0.85rem
+    height @width
+
+    left -0.14rem
+    bottom "calc(50% - %s)" % @width / 2
+  
+  

@@ -1,4 +1,4 @@
 import '../input';
-import '../tooltip';
+import '../input-tooltip';
 
 import './tooltiped-input.styl';

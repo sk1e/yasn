@@ -27,46 +27,45 @@ mixin section(name, headingModifier)
       
 mixin standard-buttons-section
   mixin std-button(theme, size, name)
-    +button(theme, size, name, 'ui-kit-body__row-item')
+    +button(theme, size, name, 'ui-kit-body__button')
     
   +section('standard buttons')
     .ui-kit-body__row.ui-kit-body__row_standard-buttons
-      +std-button('dark-1', 'small', 'button')
-      +std-button('dark-1', 'big', 'button')
-      +std-button('dark-2', 'big', 'button')
-      +std-button('dark-2', 'small', 'button')
+      .ui-kit-body__pair.ui-kit-body__pair_button
+        +std-button('dark-1', 'small', 'button')
+        +std-button('dark-1', 'big', 'button')
+      .ui-kit-body__pair.ui-kit-body__pair_button
+        +std-button('dark-2', 'big', 'button')
+        +std-button('dark-2', 'small', 'button')
     .ui-kit-body__row.ui-kit-body__row_standard-buttons
-      +std-button('light-1', 'small', 'button')
-      +std-button('light-1', 'big', 'button')
-      +std-button('light-2', 'big', 'button')
-      +std-button('light-2', 'small', 'button')
+      .ui-kit-body__pair.ui-kit-body__pair_button
+        +std-button('light-1', 'small', 'button')
+        +std-button('light-1', 'big', 'button')
+      .ui-kit-body__pair.ui-kit-body__pair_button
+        +std-button('light-2', 'big', 'button')
+        +std-button('light-2', 'small', 'button')
   
 mixin arrow-buttons-section
   +section('arrow buttons')
-    .ui-kit-body__row
+    .ui-kit-body__row.ui-kit-body__row_arrow-buttons
       each theme in ['light-1', 'inactive', 'dark-1']
-        each side in ['left', 'right']
-          +arrow-button(theme, side, 'ui-kit-body__row-item')
+        .ui-kit-body__pair.ui-kit-body__pair_arrow-button
+          each side in ['left', 'right']
+            +arrow-button(theme, side, 'ui-kit-body__row-item')
   
           
 mixin percentages-and-pie-charts-section
   +section('percentages / pie chart')
-    .ui-kit-body__row
+    .ui-kit-body__row.ui-kit-body__row_percentages
       each percents in [0, 38, 62, 89]
         .percentage(data-value=percents, class='ui-kit-body__row-item-percentages')
       .pie-chart(data-values=[10, 30, 30, 30], class='ui-kit-body__row-item-percentages')
 
       
-      
+                
 mixin sliders-section
   +section('sliders')
-    .ui-kit-body__row
-      +slider('tooltiped', 'ui-kit-body__row-item-sliders')
-      +slider('scaled', 'ui-kit-body__row-item-sliders')
-      
-mixin sliders-section
-  +section('sliders')
-    .ui-kit-body__row
+    .ui-kit-body__row.ui-kit-body__row_sliders
       +slider('tooltiped', 'ui-kit-body__row-item-sliders')
       +slider('scaled', 'ui-kit-body__row-item-sliders')
 
@@ -79,35 +78,33 @@ mixin stages-section
 
 mixin form-elements-section    
   +section('form elements')
-    .ui-kit-body__double-sectioned-row
+    .ui-kit-body__row.ui-kit-body__row_double-sectioned
+      form.ui-kit-body__form
+        +preview-tooltiped-input('ERROR', 
+          'dark-2', 
+          'ui-kit-body__form-tooltiped-input',
+          'ui-kit-body__form-input')(type='text', placeholder='Your Name' )
+        +preview-tooltiped-input('THANKS', 
+          'dark-1', 
+          'ui-kit-body__form-tooltiped-input',
+          'ui-kit-body__form-input')(type='text', placeholder='Your Email')
+        .ui-kit-body__form-text-area-and-button  
+          textarea.text-area(placeholder='Your Message' class='ui-kit-body__form-text-area')
+          +button('dark-1', 'big', 'submit', 'ui-kit-body__form-button')
       .ui-kit-body__double-sectioned-row-part
-        form.ui-kit-body__form
-          +preview-tooltiped-input('ERROR', 
-            'dark-2', 
-            'ui-kit-body__form-tooltiped-input',
-            'ui-kit-body__form-input')(type='text', placeholder='Your Name' )
-          +preview-tooltiped-input('THANKS', 
-            'dark-1', 
-            'ui-kit-body__form-tooltiped-input',
-            'ui-kit-body__form-input')(type='text', placeholder='Your Email')
-          .ui-kit-body__form-text-area-and-button  
-            textarea.text-area(placeholder='Your Message' class='ui-kit-body__form-text-area')
-            +button('dark-1', 'big', 'submit', 'ui-kit-body__form-button')
-      .ui-kit-body__double-sectioned-row-part
-        div
-          +section('toggles', 'toggles')
-            .ui-kit-body__row
-              +toggle('off', 'ui-kit-body__row-item-toggles')
-              +toggle('on', 'ui-kit-body__row-item-toggles')
-          +section('tick boxes', 'tick-boxes')
-            .ui-kit-body__row
-              +tick-box('checkbox', 'tick-box-1', 'on', 'ui-kit-body__row-item-tick-boxes')
-              +tick-box('checkbox', 'tick-box-2', 'off', 'ui-kit-body__row-item-tick-boxes')
+        +section('toggles', 'toggles')
+          .ui-kit-body__row.ui-kit-body__row_toggles
+            +toggle('off', 'ui-kit-body__row-item-toggles')
+            +toggle('on', 'ui-kit-body__row-item-toggles')
+        +section('tick boxes', 'tick-boxes')
+          .ui-kit-body__row.ui-kit-body__row_tick-boxes
+            +tick-box('checkbox', 'tick-box-1', 'on', 'ui-kit-body__row-item-tick-boxes')
+            +tick-box('checkbox', 'tick-box-2', 'off', 'ui-kit-body__row-item-tick-boxes')
 
 mixin search-dropdown-section
   +section('search / drop down')
-  +search('ui-kit-body__search')
-  +drop-down('fake', ['Choose An Option', 'Option A', 'Option C'], 'ui-kit-body__drop-down')
+    +search('ui-kit-body__search')
+    +drop-down('fake', ['Choose An Option', 'Option A', 'Option C'], 'ui-kit-body__drop-down')
 
 mixin user-profile-section
   +section('user profile')
@@ -118,10 +115,10 @@ mixin user-profile-section
       
 mixin news-events-section
   +section('news & events')
-    .ui-kit-body__row.ui-kit-body__row_news-events
-      +news('It’s all going downhill', '24 august 2013', 'bicyclist.jpeg', 'ui-kit-body__news')
+    .ui-kit-body__row.ui-kit-body__row_double-sectioned
+      +news('It’s all going downhill', '24 august 2013', 'bicyclist.jpeg')
         p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed condimentum aliquet venenatis. Etiam a nisi nunc, a tincidunt eros.
-      +event('this is the title', '24', 'Aug', 'skyscrapers.jpeg', 'ui-kit-body__event')
+      +event('this is the title', '24', 'Aug', 'skyscrapers.jpeg')
         | Lorem ipsum dolor sit amet, consectetur adipiscing elit.
         
         
@@ -132,13 +129,11 @@ mixin location-section
     
         
 mixin calendar-messaging-sections
-  .ui-kit-body__double-sectioned-row
-    .ui-kit-body__double-sectioned-row-part
-      +section('calendar')
-        +calendar
-    .ui-kit-body__double-sectioned-row-part      
-      +section('messaging')
-        +messenger
+  .ui-kit-body__row.ui-kit-body__row_double-sectioned
+    +section('calendar')
+      +calendar
+    +section('messaging')
+      +messenger
 
         
 
@@ -148,19 +143,18 @@ mixin video-section
         
 mixin ui-kit-body
   .ui-kit-body
-    .ui-kit-body__sections
-      +standard-buttons-section
-      +arrow-buttons-section
-      +percentages-and-pie-charts-section
-      +sliders-section
-      +stages-section
-      +form-elements-section
-      .ui-kit-body__double-sectioned-row
-        .ui-kit-body__double-sectioned-row-part
-          +search-dropdown-section
-        .ui-kit-body__double-sectioned-row-part
-          +user-profile-section  
-      +news-events-section
-      +location-section
-      +calendar-messaging-sections
-      +video-section
+    +standard-buttons-section
+    +arrow-buttons-section
+    +percentages-and-pie-charts-section
+    +sliders-section
+    +stages-section
+    +form-elements-section
+    .ui-kit-body__row.ui-kit-body__row_double-sectioned
+      .ui-kit-body__double-sectioned-row-part
+        +search-dropdown-section
+      .ui-kit-body__double-sectioned-row-part
+        +user-profile-section  
+    +news-events-section
+    +location-section
+    +calendar-messaging-sections
+    +video-section

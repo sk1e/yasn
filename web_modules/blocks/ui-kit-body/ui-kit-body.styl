@@ -1,9 +1,24 @@
 @require "../user-profile/constants.styl"
-@require "../tooltiped-input/constants.styl"
+@require "../button/constants.styl"
+@require "../arrow-button/constants.styl"
+@require "../percentage/constants.styl"
+@require "../slider/constants.styl"
+@require "../toggle/constants.styl"
+@require "../tick-box/constants.styl"
 
-form-text-area-width = 20.6rem
-form-input-width = form-text-area-width - tooltiped-input__tooltip-min-width - tooltiped-input__tooltip-margin-left
-search-and-dropdown-width = 20.6rem
+document-width = 44rem
+
+search-and-dropdown-max-width = 20.6rem
+
+button-spacing = 1.7rem
+percentage-spacing = 2rem
+slider-spacing = 5rem
+toggle-spacing = 1rem
+tick-box-spacing = 1.1rem
+
+button-pair-basis = button-big-min-width + button-small-min-width + button-spacing
+arrow-button-pair-basis = arrow-button-width * 2 + button-spacing
+form-basis = 20.6rem
 
 .ui-kit-body
   padding 3rem 0
@@ -11,6 +26,8 @@ search-and-dropdown-width = 20.6rem
   
   &__heading
     margin 3rem auto
+    font-size 1.3rem
+    letter-spacing 0.1rem
     &_toggles
       margin-top 0
       margin-bottom 2rem
@@ -21,64 +38,78 @@ search-and-dropdown-width = 20.6rem
   &__stages
     max-width 42.5rem
     
-          
-  &__sections
-    display block
-    
+              
   &__section
     display flex
     flex-direction column
     align-items center
     justify-content center
     
-        
-  &__row    
+  &__pair
     display flex
-    align-items flex-end
+    justify-content space-between
     flex-wrap wrap
+    &_button
+      flex-basis button-pair-basis
+      align-items flex-end
+    &_arrow-button
+      flex-basis arrow-button-pair-basis
     
-    
-    &-item
-      &:not(:first-child)
-        margin-left 1.7rem
-      &-percentages:not(:first-child)
-        margin-left 2rem
-      &-sliders
-        &:first-child
-          margin-right 2.5rem
-        &:last-child
-          margin-left 2.5rem
-      &-toggles:not(:first-child)
-        margin-left 1rem
-      &-tick-boxes:not(:first-child)
-        margin-left 1.1rem
         
-    &_standard-buttons:not(:first-child)
-      margin-top 1.65rem
+  &__row
+    margin auto
+    display flex
+    justify-content space-around    
+    flex-wrap wrap
+    width 100%
+          
+    &_standard-buttons
+      align-items flex-end
+      max-width (button-pair-basis + button-spacing) * 2
+      &:not(:nth-child(2))
+        margin-top 1.65rem
+        
+    &_arrow-buttons
+      max-width (arrow-button-pair-basis + button-spacing) * 3
       
+    &_percentages
+      max-width (percentage-width + percentage-spacing) * 5
+      
+    &_sliders
+      max-width (slider-max-width + slider-spacing) * 2
+      
+    &_toggles
+      max-width (toggle-width + toggle-spacing) * 2      
+      
+    &_tick-boxes
+      max-width (tick-box-width + tick-box-spacing) * 2            
+            
     &_news-events
       justify-content center
+    
+    &_double-sectioned
+      max-width document-width
+
       
+  &__double-sectioned-row-part
+    flex-basis (document-width / 2)
+    
   &__double-sectioned-row
     display flex
     flex-wrap wrap
+    justify-content space-around
     width 100%
     max-width 44rem
     margin auto
-        
-    &-part
-      width 50%
-      min-width 22rem
-    
-    
+            
   &__search
     width 100%
-    max-width search-and-dropdown-width
+    max-width search-and-dropdown-max-width
     
   &__drop-down
     margin-top 4.42rem
     width 100%
-    max-width search-and-dropdown-width
+    max-width search-and-dropdown-max-width
     
 
   &__profile
@@ -86,34 +117,31 @@ search-and-dropdown-width = 20.6rem
     &:not(:nth-child(2))
       margin-top 1.5rem
       
-  &__news
-    margin-right 0.625rem
-  &__event
-    margin-left 0.625rem
-      
   &__form
     display flex
     flex-direction column
     align-items center
+    flex-basis form-basis
     
     &-button
       margin-top 0.75rem
       align-self flex-end
       
-    &-tooltiped-input:not(:first-child)
-      margin-top 0.90rem
+    &-tooltiped-input
+      width 100%
+      &:not(:first-child)
+        margin-top 0.90rem
       
     &-text-area-and-button
+      width 100%
       display flex
       flex-direction column
       
     &-text-area
-      width 20.6rem
       margin-top 0.85rem
-      padding-top 0.7rem
       height 6.25rem
       
     &-input
-      width form-input-width
+      width 100%
       
 

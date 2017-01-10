@@ -3,7 +3,7 @@ import $ from 'jquery';
 import '../pie-chart';
 import '../tick-box-field';
 import '../button';
-import '../tooltip';
+import '../input-tooltip';
 import './poll.styl';
 
 const Poll = class {

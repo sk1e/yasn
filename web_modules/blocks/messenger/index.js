@@ -5,6 +5,7 @@ import '../text-area';
 import '../photocam-icon';
 import '../message-icon';
 import '../user-photo';
+import '../tooltip';
 import './messenger.styl';
 import messageSelfTemplate from './message-self-dynamic-template.pug';
 
@@ -13,7 +14,7 @@ const Messenger = class {
     this.$textarea = $messenger.find('.text-area');
     this.$messageList = $messenger.find('.messenger__message-list');
     this.scrollViewNode = $messenger.find('.messenger__scroll-view')[0];
-    this.$replyButton = $messenger.find('.button');
+    this.$replyButton = $messenger.find('.messenger__reply-button');
   }
 
   attachEventHandlers() {

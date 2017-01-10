@@ -1,16 +1,21 @@
+@require "../slider/constants.styl"
+
+slider-tooltip-width = 2.50rem
+
 .slider-tooltip-container
-  position absolute
-  left -1.29rem
-  top -2.29rem  
+  position absolute  
+  left (slider-handle-width / 2) - (slider-tooltip-width / 2)
+  top -2.29rem
   
   &__tooltip
-    width 2.50rem
+    width slider-tooltip-width
     height 1.71rem
     font-size 1.00rem
+    
     &-pointer
-      left 33%
-      bottom -0.14rem
-      width 0.93rem
-      height 0.93rem    
+      width 1.4rem
+      height @width
+      left "calc(50% - %s)" % @width / 2
+      bottom 0
 
   

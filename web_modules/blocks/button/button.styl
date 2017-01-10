@@ -38,6 +38,7 @@ pressing-rules(bottom-shadow-size)
   overflow hidden
   color white
   transition height 0.5s
+  padding button-padding
     
   &__ripple-effect
     position absolute
@@ -50,13 +51,13 @@ pressing-rules(bottom-shadow-size)
   &_size
     &_big
       font-size 0.9rem
-      min-width 8.47rem
-      height button-height-big
+      min-width button-big-min-width
+      height button-big-height
       pressing-rules(0.21rem)
     &_small
       font-size 0.79rem
-      min-width 5.57rem
-      height 1.57rem
+      min-width button-small-min-width
+      height button-small-height
       pressing-rules(0.15rem)
       
   &_theme

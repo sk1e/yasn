@@ -1,6 +1,6 @@
 mixin search(mix)
-  .search
-    form.search__form(class=mix || '')
+  .search(class=mix || '')
+    form.search__form
         input.input.search__input(type="text", placeholder="Search")
         buttton.search__button
           .fa.fa-search
