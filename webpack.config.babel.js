@@ -46,7 +46,9 @@ export default {
       { test: /\.(svg|png|ico|jpeg|ttf|eot|woff|woff2)(\?v=.+)?$/, loader: 'file?name=[path][name].[ext]' },
     ],
   },
-
+  stylus: {
+    import: ['~constants.styl'],
+  },
 
   plugins: [
     new ExtractTextPlugin('[name].css', { allChunks: true }),
