@@ -26,8 +26,8 @@ const PercentageView = class extends CircularArcsView {
       });
   }
 
-  constructor(node, value, innerRadius, outerRadius) {
-    super(node, [value, 100 - value], innerRadius = 42.5, outerRadius = 47.5);
+  constructor(node, value, innerRadius = 42.5, outerRadius = 47.5) {
+    super(node, [value, 100 - value], innerRadius, outerRadius);
   }
 
   makePaths(svg, width, height, data, chartArc) {

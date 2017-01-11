@@ -1,29 +1,34 @@
 include ../tick-box-field/tick-box-field.pug
 include ../button/button.pug
 include ../input-tooltip/input-tooltip.pug
+include ../pie-chart/pie-chart.pug
 
 mixin poll(name, items)
   - const fillColors = require('blocks/pie-chart/pie-chart-view').default.fillColors
   - const values = items.map(x => x.value)
-  .poll
+  .poll.js-poll
     h2= name.full
     .poll__chart
-      .pie-chart(data-values=values)
+      +pie-chart(values, 'js-poll__pie-chart')
       .poll__legend
         div
           - items.forEach((x, i) => {
             .poll__legend-item
               .poll__legend-item-marker(style={ background: fillColors[i] })
-              .poll__legend-item-text= x.name.full
+              .poll__legend-item-text.js-poll__legend-item-text= x.name.full
           - })
         .poll__legend-votes-count
-          span Votes:
-          span= values.reduce((acc, x) => acc + x)
-    form
-      .poll__items
+          | Votes:
+          span.js-poll__votes-number= values.reduce((acc, x) => acc + x)
+    form.js-poll__form
+      .poll__items.js-poll__items
         each item in items
-          +tick-box-field('radio', item.name.full, `poll__${name.short}__${item.name.short}`, 'off')(name=name)
+          +tick-box-field('radio', 
+            item.name.full, 
+            `poll__${name.short}__${item.name.short}`, 
+            'off', 
+            'js-poll__tick-box-field')(name=name)
       .poll__input
-        +button('light-2', 'big', 'vote')
-        +input-tooltip('dark-2')(hidden) You didn't choose anything
+        +button('light-2', 'big', 'vote', 'js-poll__vote-button')
+        +input-tooltip('dark-2', 'js-poll__vote-button-tooltip')(hidden) You didn't choose anything
         

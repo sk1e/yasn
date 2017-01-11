@@ -4,12 +4,12 @@ mixin slider(type, mix)
   .slider(class=mix || '')
     case type
       when "tooltiped"
-        .slider__widget.slider__widget_type_tooltiped
+        .slider__widget.slider__widget_type_tooltiped.js-slider__widget_type_tooltiped
           .ui-slider-handle
-            +slider-tooltip-container('dark-2')= 0
+            +slider-tooltip-container('dark-2', 'js-slider__tooltip')= 0
 
       when "scaled"
-        .slider__widget.slider__widget_type_scaled
+        .slider__widget.slider__widget_type_scaled.js-slider__widget_type_scaled
           .slider__scale
             each n in [0, 25, 50, 75, 100]
               div=n

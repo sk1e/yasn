@@ -8,7 +8,7 @@ import markerImagePath from './images/marker.png';
 
 const Location = class {
   constructor($location) {
-    this.mapNode = $location.find('.location__map')[0];
+    this.mapNode = $location.find('.js-location__map')[0];
     this.coordinates = JSON.parse($location[0].attributes['data-coordinates'].value);
   }
 
@@ -32,7 +32,7 @@ const Location = class {
 };
 
 $(() => {
-  $('.location').each((_, node) => {
+  $('.js-location').each((_, node) => {
     const location = new Location($(node));
     location.attachCoordinates();
   });

@@ -19,7 +19,8 @@ mixin birthday-dropdowns
       'December',
     ];
   - const dayOptions = ['Day'].concat(Array.from({length: 31}, (v, k) => k + 1));
+  - const classnames = require('classnames')
   .birthday-dropdowns
-    +drop-down('year', yearOptions, 'birthday-dropdowns__year')
-    +drop-down('month', monthOptions, 'birthday-dropdowns__month')
-    +drop-down('day', dayOptions, 'birthday-dropdowns__day')
+    +drop-down('year', yearOptions)(mix='birthday-dropdowns__year' selectMix=attributes.dropdownSelectMix)
+    +drop-down('month', monthOptions)(mix='birthday-dropdowns__month' selectMix=attributes.dropdownSelectMix)
+    +drop-down('day', dayOptions)(mix='birthday-dropdowns__day' selectMix=attributes.dropdownSelectMix)

@@ -1,6 +1,6 @@
-mixin drop-down(name, options, mix)
-  .drop-down(class=mix || '')
-    select.drop-down__select(name=name)
+mixin drop-down(name, options)
+  .drop-down(class=attributes.mix || '')
+    select.drop-down__select(name=name class=attributes.selectMix || '')
        each x in options
          option= x
     .drop-down__arrow

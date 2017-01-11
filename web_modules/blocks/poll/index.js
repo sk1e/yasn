@@ -9,20 +9,20 @@ import './poll.styl';
 const Poll = class {
   constructor($poll) {
     this.$poll = $poll;
-    this.$form = $poll.find('form');
+    this.$form = $poll.find('.js-poll__form');
 
-    this.$voteButton = $poll.find('.button');
-    this.$voteButtonTooltip = $poll.find('.button + .tooltip');
+    this.$voteButton = $poll.find('.js-poll__vote-button');
+    this.$voteButtonTooltip = $poll.find('.js-poll__vote-button-tooltip');
 
-    this.$tickBoxInputs = $poll.find('.tick-box__input');
-    this.$tickBoxFields = $poll.find('.tick-box-field');
+    this.$tickBoxFields = $poll.find('.js-poll__tick-box-field');
+    this.$tickBoxInputs = $poll.find('.js-tick-box__input');
 
     this.$selectedTickBoxField = null;
     this.radioWasSelected = false;
   }
 
   get $selectedTickBoxLabel() {
-    return $(`label[for='${this.$selectedTickBoxField.find('.tick-box__input')[0].id}']`);
+    return $(`label[for='${this.$selectedTickBoxField.find('.js-tick-box__input')[0].id}']`);
   }
 
   get selectedTickBoxIndex() {
@@ -51,22 +51,22 @@ const Poll = class {
     if (this.$selectedTickBoxField === null) {
       this.$voteButtonTooltip.triggerHandler('show:');
     } else {
-      const count = $('.poll__legend-votes-count span').eq(1);
+      const count = $('.js-poll__votes-number');
       count.text(+count.text() + 1);
 
       this.$voteButton.triggerHandler('hide:');
-      this.$poll.find('.poll__items').addClass('poll__items_hidden');
+      this.$poll.find('.js-poll__items').addClass('poll__items_hidden');
 
-      this.$poll.find(`.poll__legend-item-text:contains("${this.$selectedTickBoxLabel.text()}")`)
+      this.$poll.find(`.js-poll__legend-item-text:contains("${this.$selectedTickBoxLabel.text()}")`)
         .addClass('poll__legend-item-text_chosen');
 
-      this.$poll.find('.poll__chart .pie-chart').triggerHandler('add-1-for-index:', this.selectedTickBoxIndex);
+      this.$poll.find('.js-poll__pie-chart').triggerHandler('add-1-for-index:', this.selectedTickBoxIndex);
     }
   }
 };
 
 $(() => {
-  $('.poll').each((_, node) => {
+  $('.js-poll').each((_, node) => {
     const poll = new Poll($(node));
     poll.attachEventHandlers();
   });

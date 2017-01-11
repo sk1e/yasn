@@ -6,8 +6,8 @@ mixin tooltip(theme, mix, pointerMix)
       { 'tooltip_hidden': attributes.hidden }, 
       mix
     )
-  .tooltip(class=tooltipClass)
+  .tooltip.js-tooltip(class=tooltipClass)
     .tooltip__pointer(class=pointerMix || '')
-    .tooltip__text
+    .tooltip__text.js-tooltip__text
       block
     

@@ -13,7 +13,7 @@ const Toggle = class {
 };
 
 $(() => {
-  $('.toggle').each((_, node) => {
+  $('.js-toggle').each((_, node) => {
     const toggle = new Toggle($(node));
     toggle.attachEventHandlers();
   });

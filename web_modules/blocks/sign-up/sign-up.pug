@@ -7,23 +7,23 @@ include ~blocks/link/link.pug
 include ~blocks/birthday-dropdowns/birthday-dropdowns.pug
 
 mixin first-section-tooltiped-input
-  +tooltiped-input('sign-up__first-section-tooltiped-input sign-up__field')&attributes(attributes)
+  +tooltiped-input('sign-up__first-section-tooltiped-input sign-up__field js-sign-up__first-section-tooltiped-input')&attributes(attributes)
 
 mixin sign-up
-  .sign-up
-    .sign-up__join
-      .sign-up__join-message Join us!
-      +button('dark-1', 'big', 'Sign up')
-    +stages([1], [2,3,4], 'sign-up__stages')
-    form.sign-up__form
-      .sign-up__sections-container
-        .sign-up__section
+  .sign-up.js-sign-up
+    .sign-up__join.js-sign-up__join
+      .sign-up__join-message.js-sign-up__join-message Join us!
+      +button('dark-1', 'big', 'Sign up', 'js-sign-up__join-button')
+    +stages([1], [2,3,4], 'sign-up__stages js-sign-up__stages')
+    form.sign-up__form.js-sign-up__form
+      .sign-up__sections-container.js-sign-up__sections-container
+        .sign-up__section.js-sign-up__section_first
           +first-section-tooltiped-input(type='text', placeholder='Your Login')
           +first-section-tooltiped-input(type='password' placeholder='Your Password')
           +first-section-tooltiped-input(type='password', placeholder='Repeat Password')
 
         .sign-up__section
-          +tooltiped-input('sign-up__field')(type='email', placeholder='Your Email')
+          +tooltiped-input('sign-up__field js-sign-up__email-tooltiped-input')(type='email', placeholder='Your Email')
           +tick-box-field('checkbox', "I'd like to receive YASN newsletter", 'wants_newsletter','off', 'sign-up__field')
           +tick-box-field('checkbox', "I'd like to receive YASN notifications", 'wants_notifications', 'on', 'sign-up__field')
 
@@ -37,4 +37,4 @@ mixin sign-up
         .sign-up__section
           .sign-up__message Finished! Unfortunately signing up doesn't work here, but you still can to sign in as John Smith.
           +link('sign-up__link')(href='./news.html') Sign in as John Smith            
-      +button('dark-2', 'big', 'next', 'sign-up__form-button')
+      +button('dark-2', 'big', 'next', 'sign-up__form-button js-sign-up__form-button')

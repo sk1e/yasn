@@ -11,10 +11,10 @@ import messageSelfTemplate from './message-self-dynamic-template.pug';
 
 const Messenger = class {
   constructor($messenger) {
-    this.$textarea = $messenger.find('.text-area');
-    this.$messageList = $messenger.find('.messenger__message-list');
-    this.scrollViewNode = $messenger.find('.messenger__scroll-view')[0];
-    this.$replyButton = $messenger.find('.messenger__reply-button');
+    this.$textarea = $messenger.find('.js-messenger__text-area');
+    this.$messageList = $messenger.find('.js-messenger__message-list');
+    this.scrollViewNode = $messenger.find('.js-messenger__scroll-view')[0];
+    this.$replyButton = $messenger.find('.js-messenger__reply-button');
   }
 
   attachEventHandlers() {
@@ -36,12 +36,12 @@ const Messenger = class {
     this.$messageList.append(messageSelfTemplate({ text: textarea.value }));
     textarea.value = '';
     const sv = this.scrollViewNode;
-    sv.scrollTo(0, sv.scrollHeight - sv.clientHeight);
+    sv.scrollTop = sv.scrollHeight;
   }
 };
 
 $(() => {
-  $('.messenger').each((_, node) => {
+  $('.js-messenger').each((_, node) => {
     const messenger = new Messenger($(node));
     messenger.attachEventHandlers();
   });

@@ -12,11 +12,11 @@ import './profile-settings.styl';
 const ProfileSettings = class {
   constructor($profileSettings) {
     this.$profileSettings = $profileSettings;
-    this.$percentage = $profileSettings.find('.percentage');
-    this.$saveNotification = $profileSettings.find('.profile-settings__save-notification');
+    this.$percentage = $profileSettings.find('.js-profile-settings__percentage');
+    this.$saveNotification = $profileSettings.find('.js-profile-settings__save-notification');
 
-    this.inputNodes = $profileSettings.find('.input').toArray();
-    this.dropDownSelectNodes = $profileSettings.find('.drop-down__select').toArray();
+    this.inputNodes = $profileSettings.find('.js-profile-settings__input').toArray();
+    this.dropDownSelectNodes = $profileSettings.find('.js-profile-settings__dropdown-select').toArray();
 
     this.percentageView = new PercentageView(this.$percentage[0], this.filledFieldsPercent());
   }
@@ -41,6 +41,6 @@ const ProfileSettings = class {
 };
 
 $(() => {
-  const profileSettings = new ProfileSettings($('.profile-settings').eq(0));
+  const profileSettings = new ProfileSettings($('.js-profile-settings').eq(0));
   profileSettings.attachEventHandlers();
 });

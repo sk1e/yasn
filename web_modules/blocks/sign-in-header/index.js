@@ -8,7 +8,7 @@ import './sign-in-header.styl';
 const SignInHeader = class {
   constructor($signInHeader) {
     this.$signInHeader = $signInHeader;
-    this.$header = $signInHeader.find('.header');
+    this.$header = $signInHeader.find('.js-sign-in-header__header');
   }
 
   attachEventHandlers() {
@@ -19,7 +19,7 @@ const SignInHeader = class {
 };
 
 $(() => {
-  const signInHeader = new SignInHeader($('.sign-in-header'));
+  const signInHeader = new SignInHeader($('.js-sign-in-header'));
   signInHeader.attachEventHandlers();
 });
 

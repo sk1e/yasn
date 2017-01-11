@@ -10,7 +10,7 @@ import './slider.styl';
 const TooltipedSlider = class {
   constructor($widget) {
     this.$widget = $widget;
-    this.$tooltip = $widget.find('.tooltip');
+    this.$tooltip = $widget.find('.js-slider__tooltip');
   }
 
   render() {
@@ -34,12 +34,12 @@ const ScaledSlider = class {
 
 
 $(() => {
-  $('.slider__widget_type_tooltiped').each((_, node) => {
+  $('.js-slider__widget_type_tooltiped').each((_, node) => {
     const tooltipedSlider = new TooltipedSlider($(node));
     tooltipedSlider.render();
   });
 
-  $('.slider__widget_type_scaled').each((_, node) => {
+  $('.js-slider__widget_type_scaled').each((_, node) => {
     const scaledSlider = new ScaledSlider($(node));
     scaledSlider.render();
   });

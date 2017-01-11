@@ -22,8 +22,8 @@ export const emailValidator = makeRegexValidator(emailRegex, 'this is not an ema
 
 
 export function composeFieldValidator($tooltipedInput, fieldValidators) {
-  const $tooltip = $tooltipedInput.find('.tooltip');
-  const inputNode = $tooltipedInput.find('.input')[0];
+  const $tooltip = $tooltipedInput.find('.js-tooltiped-input__tooltip');
+  const inputNode = $tooltipedInput.find('.js-tooltiped-input__input')[0];
 
   let invariantWasBroken = false;
   return function validate() {

@@ -1,5 +1,7 @@
 include ~blocks/button/button.pug
 include ~blocks/arrow-button/arrow-button.pug
+include ~blocks/percentage/percentage.pug
+include ~blocks/pie-chart/pie-chart.pug
 include ~blocks/tooltip/tooltip.pug
 include ~blocks/slider/slider.pug
 include ~blocks/stages/stages.pug
@@ -51,23 +53,23 @@ mixin arrow-buttons-section
       each theme in ['light-1', 'inactive', 'dark-1']
         .ui-kit-body__pair.ui-kit-body__pair_arrow-button
           each side in ['left', 'right']
-            +arrow-button(theme, side, 'ui-kit-body__row-item')
+            +arrow-button(theme, side)
   
           
 mixin percentages-and-pie-charts-section
   +section('percentages / pie chart')
     .ui-kit-body__row.ui-kit-body__row_percentages
       each percents in [0, 38, 62, 89]
-        .percentage(data-value=percents, class='ui-kit-body__row-item-percentages')
-      .pie-chart(data-values=[10, 30, 30, 30], class='ui-kit-body__row-item-percentages')
+        +percentage(value=percents)
+      +pie-chart([10, 30, 30, 30])
 
       
                 
 mixin sliders-section
   +section('sliders')
     .ui-kit-body__row.ui-kit-body__row_sliders
-      +slider('tooltiped', 'ui-kit-body__row-item-sliders')
-      +slider('scaled', 'ui-kit-body__row-item-sliders')
+      +slider('tooltiped')
+      +slider('scaled')
 
       
 mixin stages-section
@@ -94,17 +96,17 @@ mixin form-elements-section
       .ui-kit-body__double-sectioned-row-part
         +section('toggles', 'toggles')
           .ui-kit-body__row.ui-kit-body__row_toggles
-            +toggle('off', 'ui-kit-body__row-item-toggles')
-            +toggle('on', 'ui-kit-body__row-item-toggles')
+            +toggle('off')
+            +toggle('on')
         +section('tick boxes', 'tick-boxes')
           .ui-kit-body__row.ui-kit-body__row_tick-boxes
-            +tick-box('checkbox', 'tick-box-1', 'on', 'ui-kit-body__row-item-tick-boxes')
-            +tick-box('checkbox', 'tick-box-2', 'off', 'ui-kit-body__row-item-tick-boxes')
+            +tick-box('checkbox', 'tick-box-1', 'on')
+            +tick-box('checkbox', 'tick-box-2', 'off')
 
 mixin search-dropdown-section
   +section('search / drop down')
     +search('ui-kit-body__search')
-    +drop-down('fake', ['Choose An Option', 'Option A', 'Option C'], 'ui-kit-body__drop-down')
+    +drop-down('fake', ['Choose An Option', 'Option A', 'Option B'])(mix='ui-kit-body__drop-down')
 
 mixin user-profile-section
   +section('user profile')

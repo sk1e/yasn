@@ -5,7 +5,7 @@ import './tick-box.styl';
 
 const RadioTickBoxContainer = class {
   constructor($containerDiv) {
-    this.$radios = $containerDiv.find('.tick-box__input[type=radio]');
+    this.$radios = $containerDiv.find('.js-tick-box__input[type=radio]');
     this.$previousRadio = null;
   }
 
@@ -39,7 +39,7 @@ const CheckTickBox = class {
 const TickBox = class {
   constructor($tickBox) {
     this.$tickBox = $tickBox;
-    this.$tickBoxInput = $tickBox.find('.tick-box__input');
+    this.$tickBoxInput = $tickBox.find('.js-tick-box__input');
   }
 
   attachEventHandlers() {
@@ -49,18 +49,18 @@ const TickBox = class {
 
 
 $(() => {
-  $('.tick-box').each((_, node) => {
+  $('.js-tick-box').each((_, node) => {
     const tickBox = new TickBox($(node));
     tickBox.attachEventHandlers();
   });
 
-  $('.tick-box__input[type=checkbox]').each((_, node) => {
+  $('.js-tick-box__input[type=checkbox]').each((_, node) => {
     const checkTickBox = new CheckTickBox($(node));
     checkTickBox.attachEventHandlers();
   });
 
   // container > tick-box-field > tick-box > tick-box__input
-  $('.tick-box__input[type=radio]').parent().parent().parent()
+  $('.js-tick-box__input[type=radio]').parent().parent().parent()
     .each((_, node) => {
       const container = new RadioTickBoxContainer($(node));
       container.attachEventHandlers();

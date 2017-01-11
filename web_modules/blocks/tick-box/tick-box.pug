@@ -1,7 +1,7 @@
 mixin tick-box(type, value, state, mix)
-  .tick-box(class=`tick-box_state_${state} ${mix || ''}`)
+  .tick-box.js-tick-box(class=`tick-box_state_${state} ${mix || ''}`)
     .fa.fa-check
-    input.tick-box__input(type=type
+    input.tick-box__input.js-tick-box__input(type=type
       checked=(state === 'on')
       autocomplete='off'
       name=attributes.name

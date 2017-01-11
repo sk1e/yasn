@@ -1,14 +1,14 @@
 include ../arrow-button/arrow-button.pug
 
-.commentable
+.commentable.js-commentable
   .commentable__commented-item
     block commented-item
     .commentable__commented-item-navigation
       +arrow-button('inactive', 'left')
       +arrow-button('inactive', 'right')
-  .commentable__comment-list
+  .commentable__comment-list.js-commentable__comment-list
     block comments
   .commentable__input
     img(src=require('user-photos/john.png') alt='User photo')
-    textarea.text-area(placeholder='Your Comment')
-  +button('dark-2', 'big', 'send')
+    textarea.text-area.js-commentable__text-area(placeholder='Your Comment')
+  +button('dark-2', 'big', 'send', 'js-commentable__send-button')

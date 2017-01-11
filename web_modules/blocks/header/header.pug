@@ -1,6 +1,6 @@
 include ../tooltip/tooltip.pug
 include ../button/button.pug
 
-mixin header
-  header.header
+mixin header(mix)
+  header.header(class=mix || '')
     .header__title YASN      

@@ -2,6 +2,8 @@
 @require "../header/constants.styl"
 @require "../button/constants.styl"
 
+button-wants-sign-in-yoffset = 5rem
+
 .sign-in
   display flex
   flex-direction column
@@ -12,15 +14,21 @@
   background white
   transition transform 0.5s linear 0.5s
   border-bottom 2px solid theme-color-2
-  
-  &__button    
-    transition transform 0.5s, background 0.3s linear 0.2s, color 0.3s linear 0.2s
+    
+  &__button
     position absolute
     right 1rem
     top (header-height / 2) - (button-big-height / 2)
+          
+    &_animated
+      transition transform 0.5s, background 0.3s linear 0.2s, color 0.3s linear 0.2s
     
     &_wants-sign-in
-      transform translateY(5rem)
+      transform translateY(button-wants-sign-in-yoffset)
+      
+      &^[1].button_pressed
+        transform translateY(button-wants-sign-in-yoffset + button-big-bottom-shadow)
+
 
   
   

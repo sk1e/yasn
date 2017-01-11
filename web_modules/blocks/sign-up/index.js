@@ -23,23 +23,23 @@ const sectionWidth = parseInt(constants['full-section-width'], 10);
 
 const SignUp = class {
   constructor() {
-    this.$joinButton = $('.sign-up__join > .button');
-    this.$container = $('.sign-up__sections-container');
-    this.$nextButton = $('.sign-up__form > .button');
+    this.$joinButton = $('.js-sign-up__join-button');
+    this.$container = $('.js-sign-up__sections-container');
+    this.$nextButton = $('.js-sign-up__form-button');
 
-    const $firstSectionInputs = $('.sign-up__section:nth-child(1) .tooltiped-input');
+    const $firstSectionTooltipedInputs = $('.js-sign-up__first-section-tooltiped-input');
 
-    const passwordInputNode = $firstSectionInputs.eq(1).find('input')[0];
+    const passwordInputNode = $firstSectionTooltipedInputs.eq(1).find('input')[0];
 
     const firstPageFieldValidators =
             [[requiredValidator, makeMinLengthValidator(3)],
              [requiredValidator, makeMinLengthValidator(6)],
              [requiredValidator, makeMatchingPasswordValidator(() => passwordInputNode.value)]]
-            .map((fs, i) => composeFieldValidator($firstSectionInputs.eq(i), fs));
+            .map((fs, i) => composeFieldValidator($firstSectionTooltipedInputs.eq(i), fs));
 
-    const $emailSectionInput = $('.sign-up__section:nth-child(2) .tooltiped-input');
+    const $emailTooltipedInput = $('.js-sign-up__email-tooltiped-input');
 
-    const emailFieldValidator = composeFieldValidator($emailSectionInput,
+    const emailFieldValidator = composeFieldValidator($emailTooltipedInput,
                                                       [requiredValidator, emailValidator]);
 
     this.page = 0;
@@ -48,7 +48,7 @@ const SignUp = class {
   }
 
   attachEventHandlers() {
-    this.$joinButton.on('click', SignUp.transformToTempted);
+    this.$joinButton.on('click', this.transformToTempted.bind(this));
     this.$nextButton.on('click', this.moveToNextPage.bind(this));
   }
 
@@ -71,16 +71,16 @@ const SignUp = class {
     }
   }
 
-  static transformToTempted() {
-    $('.sign-up__form').addClass('sign-up__form_tempted');
-    $('.sign-up').addClass('sign-up_tempted');
-    $('.sign-up__join > .button').triggerHandler('collapse:');
-    $('.sign-up__join-message').addClass('sign-up__join-message_transparent')
+  transformToTempted() {
+    this.$joinButton.triggerHandler('collapse:');
+    $('.js-sign-up__form').addClass('sign-up__form_tempted');
+    $('.js-sign-up').addClass('sign-up_tempted');
+    $('.js-sign-up__join-message').addClass('sign-up__join-message_transparent')
       .on('transitionend', () => {
-        $('.sign-up__join').addClass('sign-up__join_removed');
-        $('.sign-up__stages').addClass('sign-up__stages_opaque');
-        $('.sign-up__form-button').addClass('sign-up__form-button_opaque');
-        $('.sign-up__first-section-tooltiped-input').addClass('sign-up__first-section-tooltiped-input_opaque');
+        $('.js-sign-up__join').addClass('sign-up__join_removed');
+        $('.js-sign-up__stages').addClass('sign-up__stages_opaque');
+        this.$nextButton.addClass('sign-up__form-button_opaque');
+        $('.js-sign-up__first-section-tooltiped-input').addClass('sign-up__first-section-tooltiped-input_opaque');
       });
   }
 };

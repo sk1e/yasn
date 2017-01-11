@@ -1,7 +1,7 @@
 include ../tooltip/tooltip.pug
 
-mixin slider-tooltip-container(theme)
+mixin slider-tooltip-container(theme, tooltipMix)
   .slider-tooltip-container
-    +tooltip('dark-2', 'slider-tooltip-container__tooltip', 'slider-tooltip-container__tooltip-pointer')
+    +tooltip('dark-2', `slider-tooltip-container__tooltip ${tooltipMix || ''}`, 'slider-tooltip-container__tooltip-pointer')
       block
 

@@ -2,7 +2,7 @@ include ~blocks/button/button.pug
 include ~blocks/tooltiped-input/tooltiped-input.pug
 
 mixin sign-in
-  form.sign-in
+  form.sign-in.js-sign-in
     +tooltiped-input(type='text', placeholder='Your Login')
     +tooltiped-input(type='password' placeholder='Your Password')
-    +button("light-2", "big", "sign in", 'sign-in__button')
+    +button("light-2", "big", "sign in", 'sign-in__button sign-in__button_animated js-sign-in__button')

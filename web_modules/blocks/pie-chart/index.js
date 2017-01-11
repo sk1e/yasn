@@ -22,7 +22,7 @@ const PieChart = class {
 };
 
 $(() => {
-  $('.pie-chart').each((_, node) => {
+  $('.js-pie-chart').each((_, node) => {
     const values = JSON.parse(node.attributes['data-values'].value);
     const pieChart = new PieChart($(node), values);
     pieChart.render();

@@ -6,7 +6,7 @@ import './tooltip.styl';
 const Tooltip = class {
   constructor($tooltip) {
     this.$tooltip = $tooltip;
-    this.$text = $tooltip.find('.tooltip__text');
+    this.$text = $tooltip.find('.js-tooltip__text');
   }
 
   attachEventHandlers() {
@@ -21,7 +21,7 @@ const Tooltip = class {
 };
 
 $(() => {
-  $('.tooltip').each((_, node) => {
+  $('.js-tooltip').each((_, node) => {
     const tooltip = new Tooltip($(node));
     tooltip.attachEventHandlers();
   });

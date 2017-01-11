@@ -1,7 +1,8 @@
 include ../photocam-icon/photocam-icon.pug
 include ../tooltip/tooltip.pug
+
 mixin messenger()
-  .messenger
+  .messenger.js-messenger
     .messenger__name Sarah Brown
     .messenger__photo-container
       img.user-photo.messenger__photo(src=require('blocks/user-profile/user-photos/sarah.png') alt='User photo')
@@ -9,9 +10,12 @@ mixin messenger()
       .messenger__icons
         .message-icon
         +photocam-icon
-      .messenger__scroll-view
-        .messenger__message-list
+      .messenger__scroll-view.js-messenger__scroll-view
+        .messenger__message-list.js-messenger__message-list
           +tooltip('white', 'messenger__message messenger__message_incoming', 'messenger__incoming-message-tooltip-pointer')
             | Hey! So are we cool to meet at the art gallery? Say 8pm
-      textarea.text-area.messenger__text-area(placeholder="Your message")
-      +button("dark-1", "big", "reply", 'messenger__reply-button')
+      textarea.text-area.messenger__text-area.js-messenger__text-area(placeholder="Your message")
+      +button("dark-1", "big", "reply", 'messenger__reply-button js-messenger__reply-button')
+
+      
+      

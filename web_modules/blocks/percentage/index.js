@@ -15,11 +15,9 @@ const Percentage = class {
 };
 
 $(() => {
-  $('.percentage').each((_, node) => {
+  $('.js-percentage').each((_, node) => {
     const value = node.attributes['data-value'];
-    if (value) {
-      const percentage = new Percentage(node, JSON.parse(value.value));
-      percentage.render();
-    }
+    const percentage = new Percentage(node, JSON.parse(value.value));
+    percentage.render();
   });
 });

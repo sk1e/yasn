@@ -11,9 +11,9 @@ import commentTemplate from './comment-dynamic-template.pug';
 
 const Commentable = class {
   constructor($commentable) {
-    this.$textarea = $commentable.find('.text-area');
-    this.$commentList = $commentable.find('.commentable__comment-list');
-    this.$sendButton = $commentable.children('.button');
+    this.$textarea = $commentable.find('.js-commentable__text-area');
+    this.$commentList = $commentable.find('.js-commentable__comment-list');
+    this.$sendButton = $commentable.children('.js-commentable__send-button');
   }
 
   attachEventHandlers() {
@@ -44,13 +44,13 @@ const Commentable = class {
     this.$commentList.append(commentHTML);
 
     const commentList = this.$commentList[0];
-    commentList.scrollTo(0, commentList.scrollHeight - commentList.clientHeight);
+    commentList.scrollTop = commentList.scrollHeight;
   }
 };
 
 
 $(() => {
-  $('.commentable').each((_, node) => {
+  $('.js-commentable').each((_, node) => {
     const commentable = new Commentable($(node));
     commentable.attachEventHandlers();
   });

@@ -44,7 +44,7 @@ const Button = class {
 };
 
 $(() => {
-  $('.button').each((_, node) => {
+  $('.js-button').each((_, node) => {
     const button = new Button($(node));
     button.attachEventHandlers();
   });

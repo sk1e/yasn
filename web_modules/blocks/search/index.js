@@ -5,8 +5,8 @@ import '../input';
 
 const Search = class {
   constructor($search) {
-    this.$button = $search.find('.search__button');
-    this.$results = $search.find('.search__results');
+    this.$button = $search.find('.js-search__button');
+    this.$results = $search.find('.js-search__results');
   }
 
   attachEventHandlers() {

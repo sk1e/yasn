@@ -1,0 +1,8 @@
+mixin percentage
+  - const classnames = require('classnames')
+  - const isValidValue = attributes.value >= 0
+  - const percentageClass = classnames(attributes.mix, { 'js-percentage': isValidValue })
+  if isValidValue
+    .percentage(class=percentageClass data-value=attributes.value)
+  else
+    .percentage(class=percentageClass)

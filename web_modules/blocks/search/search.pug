@@ -2,8 +2,8 @@ mixin search(mix)
   .search(class=mix || '')
     form.search__form
         input.input.search__input(type="text", placeholder="Search")
-        buttton.search__button
+        buttton.search__button.js-search__button
           .fa.fa-search
-    .search__results.search__results_empty.search__results_hidden                        
+    .search__results.js-search__results.search__results_empty.search__results_hidden                        
       div I’ve not found what I’m looking for...
       .fa.fa-search

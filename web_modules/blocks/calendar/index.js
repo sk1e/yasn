@@ -11,14 +11,14 @@ import './calendar.styl';
 const Calendar = class {
   constructor($calendar) {
     this.$calendar = $calendar;
-    this.$widget = $calendar.find('.calendar__widget');    
-    this.$todayButton = this.$calendar.find('.calendar__today-button');
+    this.$widget = $calendar.find('.js-calendar__widget');
+    this.$todayButton = this.$calendar.find('.js-calendar__today-button');
   }
 
   render() {
-      this.$widget.datepicker({
+    this.$widget.datepicker({
       changeYear: false,
-      altField: this.$calendar.find('.calendar__day'),
+      altField: this.$calendar.find('.js-calendar__day'),
       altFormat: 'd',
       firstDay: 1,
       dayNamesMin: ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'],
@@ -33,11 +33,10 @@ const Calendar = class {
 };
 
 $(() => {
-  $('.calendar').each((_, node) => {
+  $('.js-calendar').each((_, node) => {
     const calendar = new Calendar($(node));
     calendar.render();
     calendar.attachEventHandlers();
-  });  
+  });
 });
-
 

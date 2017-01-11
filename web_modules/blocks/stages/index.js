@@ -7,7 +7,7 @@ const Stages = class {
   constructor($stages) {
     this.$stages = $stages;
     this.stagesNumber = $stages[0].children.length;
-    this.$stage = $stages.find('.stages__stage');
+    this.$stage = $stages.find('.js-stages__stage');
   }
 
   attachEventHandlers() {
@@ -29,7 +29,7 @@ const Stages = class {
 };
 
 $(() => {
-  $('.stages').each((_, node) => {
+  $('.js-stages').each((_, node) => {
     const stages = new Stages($(node));
     stages.attachEventHandlers();
   });

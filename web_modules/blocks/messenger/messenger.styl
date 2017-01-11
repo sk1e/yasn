@@ -1,11 +1,11 @@
+@require "~constants.styl"
+
 .messenger
   display flex
   flex-direction column
   justify-content center
   
-  //- width 100%
   max-width 20.57rem
-  //- flex-basis 20.57rem
   
   &__name
     border-top-left-radius 0.21rem
@@ -23,11 +23,11 @@
     display flex
     flex-direction column
     justify-content center
-    z-index -1
 
   &__photo-container
     background darken(theme-color-1, 5)
     height 2.43rem
+    z-index 1
     text-align center
     
   &__photo
@@ -45,6 +45,7 @@
     width 84.5%
     height 6.1rem
     margin auto
+    margin-top 1rem
     font bold 0.93rem Lato
     
     

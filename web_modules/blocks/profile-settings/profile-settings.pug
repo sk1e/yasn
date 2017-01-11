@@ -1,16 +1,17 @@
 include ../birthday-dropdowns/birthday-dropdowns.pug
 include ../button/button.pug
+include ../percentage/percentage.pug
 
 
 mixin profile-settings
-  form.profile-settings
+  form.profile-settings.js-profile-settings
     +profile-settings__section('Personal')
       +profile-settings__text-item('name')(placeholder='Your Name', value='John') name
       +profile-settings__text-item('surname')(placeholder='Your Surname', value='Smith') surname
       +profile-settings__text-item('profession')(placeholder='Your Profession', value='UX designer') profession
       .profile-settings__item
         .profile-settings__label birthday
-        +birthday-dropdowns
+        +birthday-dropdowns(dropdownSelectMix='js-profile-settings__dropdown-select')
     +profile-settings__section('Contacts')
       +profile-settings__text-item('facebook')(placeholder='https://www.facebook.com/John.Smith')
         .profile-settings__label.fa.fa-facebook
@@ -18,10 +19,10 @@ mixin profile-settings
         .profile-settings__label.fa.fa-twitter
       +profile-settings__text-item('dribbble')(placeholder='https://dribbble.com/JohhSmith')
         .profile-settings__label.fa.fa-dribbble
-    .profile-settings__save-notification 
+    .profile-settings__save-notification.js-profile-settings__save-notification 
       span Profile saved
     .profile-settings__submit
-      .percentage
+      +percentage(mix='js-profile-settings__percentage')
       +button('dark-2', 'big', 'save')
      
     
@@ -30,7 +31,7 @@ mixin profile-settings__text-item(shortName)
   .profile-settings__item
     label.profile-settings__label(for=id)
       block
-    input.input(id=id)&attributes(attributes)
+    input.input.js-profile-settings__input(id=id)&attributes(attributes)
       
     
 mixin profile-settings__section(title)
