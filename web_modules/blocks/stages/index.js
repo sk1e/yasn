@@ -1,5 +1,5 @@
 import $ from 'jquery';
-import colors from 'colors.json';
+import colors from 'theme/colors.json';
 
 import './stages.styl';
 

@@ -1,2 +1,2 @@
-import 'global.styl';
-import 'fonts.styl';
+import 'theme/global.styl';
+import 'theme/fonts.styl';

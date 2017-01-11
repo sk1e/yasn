@@ -47,7 +47,7 @@ export default {
     ],
   },
   stylus: {
-    import: ['~constants.styl'],
+    import: ['~shared/constants.styl'],
   },
 
   plugins: [

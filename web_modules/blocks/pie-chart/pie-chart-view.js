@@ -1,4 +1,4 @@
-import colors from 'colors.json';
+import colors from 'theme/colors.json';
 import CircularArcsView from 'shared/circular-arcs-view';
 
 const PieChartView = class extends CircularArcsView {
