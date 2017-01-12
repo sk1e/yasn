@@ -1,9 +1,9 @@
 include ../tooltip/tooltip.pug
 
 mixin user-profile(name, profession, imagePath, theme, mix)
-  .user-profile(class=mix || '')
+  .user-profile.js-user-profile(class=mix || '')
     img.user-photo(src=imagePath alt=name + ' photo')
-    +tooltip(theme, 'user-profile__tooltip', 'user-profile__tooltip-pointer')
+    +tooltip(theme, 'user-profile__tooltip js-user-profile__tooltip', 'user-profile__tooltip-pointer')
       - const profileNameTheme = 'user-profile__name_theme_' + theme
       - const profileProfessionTheme = 'user-profile__name_theme_' + theme
       - const profileReferenceTheme = 'user-profile__reference_theme_' + theme
