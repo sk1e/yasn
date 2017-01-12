@@ -12,12 +12,13 @@ const Search = class {
   attachEventHandlers() {
     this.$button.on('click', () => {
       this.$results.toggleClass('search__results_hidden');
+      return false;
     });
   }
 };
 
 $(() => {
-  $('.search').each((_, node) => {
+  $('.js-search').each((_, node) => {
     const search = new Search($(node));
     search.attachEventHandlers();
   });

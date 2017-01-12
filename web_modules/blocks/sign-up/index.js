@@ -63,7 +63,7 @@ const SignUp = class {
       this.page += 1;
       this.$container.css('transform', `translateX(-${sectionWidth * this.page}rem)`);
 
-      $('.sign-up .stages').triggerHandler('move-to-next-stage:', this.page);
+      $('.js-sign-up__stages').triggerHandler('move-to-next-stage:', this.page);
 
       if (this.page === pagesNumber - 1) {
         this.$nextButton.addClass('button_hidden');
