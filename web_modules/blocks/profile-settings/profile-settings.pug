@@ -9,29 +9,30 @@ mixin profile-settings
       +profile-settings__text-item('name')(placeholder='Your Name', value='John') name
       +profile-settings__text-item('surname')(placeholder='Your Surname', value='Smith') surname
       +profile-settings__text-item('profession')(placeholder='Your Profession', value='UX designer') profession
-      .profile-settings__item
+      .profile-settings__item.profile-settings__item_wrappable
         .profile-settings__label birthday
         +birthday-dropdowns(dropdownSelectMix='js-profile-settings__dropdown-select')
     +profile-settings__section('Contacts')
-      +profile-settings__text-item('facebook')(placeholder='https://www.facebook.com/John.Smith')
+      +profile-settings__text-item('facebook', 'contacts')(placeholder='https://www.facebook.com/John.Smith')
         .profile-settings__label.fa.fa-facebook
-      +profile-settings__text-item('twitter')(placeholder='https://twitter.com/john_smith', value='https://twitter.com/john_smith')
+      +profile-settings__text-item('twitter', 'contacts')(placeholder='https://twitter.com/john_smith', value='https://twitter.com/john_smith')
         .profile-settings__label.fa.fa-twitter
-      +profile-settings__text-item('dribbble')(placeholder='https://dribbble.com/JohhSmith')
+      +profile-settings__text-item('dribbble', 'contacts')(placeholder='https://dribbble.com/JohhSmith')
         .profile-settings__label.fa.fa-dribbble
     .profile-settings__save-notification.js-profile-settings__save-notification 
       span Profile saved
     .profile-settings__submit
-      +percentage(mix='js-profile-settings__percentage')
+      +percentage(mix='profile-settings__percentage js-profile-settings__percentage')
       +button('dark-2', 'big', 'save')
      
     
-mixin profile-settings__text-item(shortName)
+mixin profile-settings__text-item(shortName, inputModifier)
   - const id = `profile-settings-item__${shortName}`
+  - const inputModifierClass = inputModifier ? `profile-settings__input_${inputModifier}` : ''
   .profile-settings__item
     label.profile-settings__label(for=id)
       block
-    input.input.js-profile-settings__input(id=id)&attributes(attributes)
+    input.input.profile-settings__input.js-profile-settings__input(id=id class=inputModifierClass)&attributes(attributes)
       
     
 mixin profile-settings__section(title)

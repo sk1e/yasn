@@ -1,21 +1,29 @@
+
+left-padding = 1.55rem
+
 .news
-  display flex
   color white
-  
+  border-top-right-radius 0.21rem
+  border-bottom-right-radius 0.21rem
+  max-width 20.5rem
+  background theme-color-2
+  padding-right 1rem
+
+  padding-left left-padding
+
   &__image
     border-top-left-radius 0.21rem
     border-bottom-left-radius 0.21rem
+    float left
+    margin-left - left-padding
+    padding-right left-padding
     
   &__description
-    border-top-right-radius 0.21rem
-    border-bottom-right-radius 0.21rem
-    width 13.8rem
-    background theme-color-2
-    padding-top 1.7rem
-    padding-left 1.55rem
-    padding-right 1rem
+    display inline
+    padding-top 4rem
     
   &__title
+    margin-top 1.7rem
     font-weight light
     font-size 2.14rem
     line-height 90%

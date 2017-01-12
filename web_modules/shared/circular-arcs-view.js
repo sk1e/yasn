@@ -22,21 +22,22 @@ const CircularArcsView = class {
     this._values = values;
 
     const width = node.offsetWidth;
-    const height = node.offsetHeight;
 
     this.pie = pie().value(x => x).sort(null);
 
     const chartArc = arc()
-      .innerRadius(innerRadius)
-      .outerRadius(outerRadius);
+            .innerRadius(innerRadius)
+            .outerRadius(outerRadius);
+
 
     const $svg = select(node).append('svg')
-            .attr('width', width)
-            .attr('height', height)
+            .attr('width', '100%')
+            .attr('height', '100%')
+            .attr('viewBox', `0 0 ${width} ${width}`)
             .append('g')
-            .attr('transform', `translate(${width / 2}, ${height / 2})`);
+            .attr('transform', `translate(${width / 2}, ${width / 2})`);
 
-    this.paths = this.makePaths($svg, width, height, this.pie(values), chartArc);
+    this.paths = this.makePaths($svg, width, width, this.pie(values), chartArc);
     this.interpolatorFactory = function interpolatorFactory(primaryArc) {
       const interpolator = interpolate(this._current, primaryArc);
       this._current = interpolator(0);

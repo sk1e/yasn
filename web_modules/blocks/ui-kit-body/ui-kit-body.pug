@@ -21,16 +21,16 @@ include ~blocks/video/video.pug
 mixin section(name, headingModifier)
   - const classnames = require('classnames')
   -
-    const headingClass = classnames('ui-kit-body__heading', 
+    const headingClass = classnames('ui-kit-body__heading',
       { [`ui-kit-body__heading_${headingModifier}`]: headingModifier })
   section.ui-kit-body__section
     h2.heading(class=headingClass)= name
     block
-      
+
 mixin standard-buttons-section
   mixin std-button(theme, size, name)
     +button(theme, size, name, 'ui-kit-body__button')
-    
+
   +section('standard buttons')
     .ui-kit-body__row.ui-kit-body__row_standard-buttons
       .ui-kit-body__pair.ui-kit-body__pair_button
@@ -46,7 +46,7 @@ mixin standard-buttons-section
       .ui-kit-body__pair.ui-kit-body__pair_button
         +std-button('light-2', 'big', 'button')
         +std-button('light-2', 'small', 'button')
-  
+
 mixin arrow-buttons-section
   +section('arrow buttons')
     .ui-kit-body__row.ui-kit-body__row_arrow-buttons
@@ -54,8 +54,8 @@ mixin arrow-buttons-section
         .ui-kit-body__pair.ui-kit-body__pair_arrow-button
           each side in ['left', 'right']
             +arrow-button(theme, side)
-  
-          
+
+
 mixin percentages-and-pie-charts-section
   +section('percentages / pie chart')
     .ui-kit-body__row.ui-kit-body__row_percentages
@@ -63,34 +63,34 @@ mixin percentages-and-pie-charts-section
         +percentage(value=percents)
       +pie-chart([10, 30, 30, 30])
 
-      
-                
+
+
 mixin sliders-section
   +section('sliders')
     .ui-kit-body__row.ui-kit-body__row_sliders
       +slider('tooltiped')
       +slider('scaled')
 
-      
+
 mixin stages-section
   +section('stages')
     +stages(['1', '2', '3'], ['4', '5'], 'ui-kit-body__stages')
-    
 
 
-mixin form-elements-section    
+
+mixin form-elements-section
   +section('form elements')
     .ui-kit-body__row.ui-kit-body__row_double-sectioned
       form.ui-kit-body__form
-        +preview-tooltiped-input('ERROR', 
-          'dark-2', 
+        +preview-tooltiped-input('ERROR',
+          'dark-2',
           'ui-kit-body__form-tooltiped-input',
           'ui-kit-body__form-input')(type='text', placeholder='Your Name' )
-        +preview-tooltiped-input('THANKS', 
-          'dark-1', 
+        +preview-tooltiped-input('THANKS',
+          'dark-1',
           'ui-kit-body__form-tooltiped-input',
           'ui-kit-body__form-input')(type='text', placeholder='Your Email')
-        .ui-kit-body__form-text-area-and-button  
+        .ui-kit-body__form-text-area-and-button
           textarea.text-area(placeholder='Your Message' class='ui-kit-body__form-text-area')
           +button('dark-1', 'big', 'submit', 'ui-kit-body__form-button')
       .ui-kit-body__double-sectioned-row-part
@@ -114,7 +114,7 @@ mixin user-profile-section
     - const sarahImagePath = require('user-photos/sarah.png')
     +user-profile('John Smith', 'UX designer', johnImagePath, 'gray', 'ui-kit-body__profile')(twitter='https://twitter.com/john_smith')
     +user-profile('Sarah Brown', 'Developer', sarahImagePath, 'dark-1', 'ui-kit-body__profile')
-      
+
 mixin news-events-section
   +section('news & events')
     .ui-kit-body__row.ui-kit-body__row_double-sectioned
@@ -122,14 +122,14 @@ mixin news-events-section
         p Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed condimentum aliquet venenatis. Etiam a nisi nunc, a tincidunt eros.
       +event('this is the title', '24', 'Aug', 'skyscrapers.jpeg')
         | Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-        
-        
+
+
 mixin location-section
   +section('location')
     +location([37.790988, -122.414978])
-    
-    
-        
+
+
+
 mixin calendar-messaging-sections
   .ui-kit-body__row.ui-kit-body__row_double-sectioned
     +section('calendar')
@@ -137,12 +137,12 @@ mixin calendar-messaging-sections
     +section('messaging')
       +messenger
 
-        
+
 
 mixin video-section
   +section('video')
     +video('0J2QdDbelmY')
-        
+
 mixin ui-kit-body
   .ui-kit-body
     +standard-buttons-section
@@ -155,7 +155,7 @@ mixin ui-kit-body
       .ui-kit-body__double-sectioned-row-part
         +search-dropdown-section
       .ui-kit-body__double-sectioned-row-part
-        +user-profile-section  
+        +user-profile-section
     +news-events-section
     +location-section
     +calendar-messaging-sections

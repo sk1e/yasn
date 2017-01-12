@@ -2,14 +2,12 @@
   &__section
     &:not(:first-child)
       margin-top 2rem
-      
-    &:nth-child(2) .input
-      width 22rem
-          
+                
   &__label
     color #666
     font-size 1.2rem
     font-weight bold
+    min-width 7rem
     
     &::first-letter
       text-transform uppercase
@@ -22,6 +20,16 @@
     padding 0.4rem 0
     &:not(:last-child)
       border-bottom 0.1rem solid lighten(theme-color-2, 20)
+      
+    &_wrappable
+      flex-wrap wrap
+      
+  &__input
+    width 100%
+    max-width 12rem
+    
+    &_contacts
+      max-width 22rem
       
   &__save-notification
     display flex
@@ -43,3 +51,6 @@
     align-items center
     justify-content space-between
     
+
+  &__percentage
+    margin-right 2rem
