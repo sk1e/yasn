@@ -13,6 +13,8 @@ const Calendar = class {
     this.$calendar = $calendar;
     this.$widget = $calendar.find('.js-calendar__widget');
     this.$todayButton = this.$calendar.find('.js-calendar__today-button');
+    this.render();
+    this.attachEventHandlers();
   }
 
   render() {
@@ -34,9 +36,7 @@ const Calendar = class {
 
 $(() => {
   $('.js-calendar').each((_, node) => {
-    const calendar = new Calendar($(node));
-    calendar.render();
-    calendar.attachEventHandlers();
+    new Calendar($(node)); // eslint-disable-line no-new
   });
 });
 

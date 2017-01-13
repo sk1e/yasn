@@ -9,6 +9,7 @@ const SignInHeader = class {
   constructor($signInHeader) {
     this.$signInHeader = $signInHeader;
     this.$header = $signInHeader.find('.js-sign-in-header__header');
+    this.attachEventHandlers();
   }
 
   attachEventHandlers() {
@@ -19,7 +20,6 @@ const SignInHeader = class {
 };
 
 $(() => {
-  const signInHeader = new SignInHeader($('.js-sign-in-header'));
-  signInHeader.attachEventHandlers();
+  new SignInHeader($('.js-sign-in-header')); // eslint-disable-line no-new
 });
 

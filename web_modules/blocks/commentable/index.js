@@ -14,6 +14,7 @@ const Commentable = class {
     this.$textarea = $commentable.find('.js-commentable__text-area');
     this.$commentList = $commentable.find('.js-commentable__comment-list');
     this.$sendButton = $commentable.children('.js-commentable__send-button');
+    this.attachEventHandlers();
   }
 
   attachEventHandlers() {
@@ -51,7 +52,6 @@ const Commentable = class {
 
 $(() => {
   $('.js-commentable').each((_, node) => {
-    const commentable = new Commentable($(node));
-    commentable.attachEventHandlers();
+    new Commentable($(node)); // eslint-disable-line no-new
   });
 });

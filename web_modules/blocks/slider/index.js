@@ -11,6 +11,7 @@ const TooltipedSlider = class {
   constructor($widget) {
     this.$widget = $widget;
     this.$tooltip = $widget.find('.js-slider__tooltip');
+    this.render();
   }
 
   render() {
@@ -25,6 +26,7 @@ const TooltipedSlider = class {
 const ScaledSlider = class {
   constructor($widget) {
     this.$widget = $widget;
+    this.render();
   }
 
   render() {
@@ -36,11 +38,10 @@ const ScaledSlider = class {
 $(() => {
   $('.js-slider__widget_type_tooltiped').each((_, node) => {
     const tooltipedSlider = new TooltipedSlider($(node));
-    tooltipedSlider.render();
+    tooltipedSlider.render(); // eslint-disable-line no-new
   });
 
   $('.js-slider__widget_type_scaled').each((_, node) => {
-    const scaledSlider = new ScaledSlider($(node));
-    scaledSlider.render();
+    new ScaledSlider($(node)); // eslint-disable-line no-new
   });
 });

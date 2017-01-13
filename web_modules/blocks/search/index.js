@@ -7,6 +7,7 @@ const Search = class {
   constructor($search) {
     this.$button = $search.find('.js-search__button');
     this.$results = $search.find('.js-search__results');
+    this.attachEventHandlers();
   }
 
   attachEventHandlers() {
@@ -19,7 +20,6 @@ const Search = class {
 
 $(() => {
   $('.js-search').each((_, node) => {
-    const search = new Search($(node));
-    search.attachEventHandlers();
+    new Search($(node)); // eslint-disable-line no-new
   });
 });

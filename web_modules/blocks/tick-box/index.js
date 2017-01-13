@@ -7,6 +7,7 @@ const RadioTickBoxContainer = class {
   constructor($containerDiv) {
     this.$radios = $containerDiv.find('.js-tick-box__input[type=radio]');
     this.$previousRadio = null;
+    this.attachEventHandlers();
   }
 
   attachEventHandlers() {
@@ -26,6 +27,7 @@ const CheckTickBox = class {
   constructor($tickBoxInput) {
     this.$tickBox = $tickBoxInput.parent();
     this.$tickBoxInput = $tickBoxInput;
+    this.attachEventHandlers();
   }
 
   attachEventHandlers() {
@@ -40,6 +42,7 @@ const TickBox = class {
   constructor($tickBox) {
     this.$tickBox = $tickBox;
     this.$tickBoxInput = $tickBox.find('.js-tick-box__input');
+    this.attachEventHandlers();
   }
 
   attachEventHandlers() {
@@ -50,20 +53,17 @@ const TickBox = class {
 
 $(() => {
   $('.js-tick-box').each((_, node) => {
-    const tickBox = new TickBox($(node));
-    tickBox.attachEventHandlers();
+    new TickBox($(node)); // eslint-disable-line no-new
   });
 
   $('.js-tick-box__input[type=checkbox]').each((_, node) => {
-    const checkTickBox = new CheckTickBox($(node));
-    checkTickBox.attachEventHandlers();
+    new CheckTickBox($(node)); // eslint-disable-line no-new
   });
 
   // container > tick-box-field > tick-box > tick-box__input
   $('.js-tick-box__input[type=radio]').parent().parent().parent()
     .each((_, node) => {
-      const container = new RadioTickBoxContainer($(node));
-      container.attachEventHandlers();
+      new RadioTickBoxContainer($(node)); // eslint-disable-line no-new
     });
 });
 

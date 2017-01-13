@@ -43,6 +43,7 @@ const SignUp = class {
     this.page = 0;
     this.pageValidators = [firstPageFieldValidators, [emailFieldValidator]]
       .map(fs => () => fs.map(f => f()).every(x => x));
+    this.attachEventHandlers();
   }
 
   attachEventHandlers() {
@@ -84,7 +85,6 @@ const SignUp = class {
 };
 
 $(() => {
-  const signUp = new SignUp();
-  signUp.attachEventHandlers();
+  new SignUp(); // eslint-disable-line no-new
 });
 

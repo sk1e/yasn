@@ -15,6 +15,7 @@ const Messenger = class {
     this.$messageList = $messenger.find('.js-messenger__message-list');
     this.scrollViewNode = $messenger.find('.js-messenger__scroll-view')[0];
     this.$replyButton = $messenger.find('.js-messenger__reply-button');
+    this.attachEventHandlers();
   }
 
   attachEventHandlers() {
@@ -42,7 +43,6 @@ const Messenger = class {
 
 $(() => {
   $('.js-messenger').each((_, node) => {
-    const messenger = new Messenger($(node));
-    messenger.attachEventHandlers();
+    new Messenger($(node)); // eslint-disable-line no-new
   });
 });

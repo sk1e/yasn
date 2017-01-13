@@ -19,6 +19,7 @@ const ProfileSettings = class {
     this.dropDownSelectNodes = $profileSettings.find('.js-profile-settings__dropdown-select').toArray();
 
     this.percentageView = new PercentageView(this.$percentage[0], this.filledFieldsPercent());
+    this.attachEventHandlers();
   }
   attachEventHandlers() {
     this.$profileSettings.on('submit', (event) => {
@@ -41,6 +42,5 @@ const ProfileSettings = class {
 };
 
 $(() => {
-  const profileSettings = new ProfileSettings($('.js-profile-settings').eq(0));
-  profileSettings.attachEventHandlers();
+  new ProfileSettings($('.js-profile-settings').eq(0)); // eslint-disable-line no-new
 });

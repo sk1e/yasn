@@ -8,6 +8,7 @@ const Stages = class {
     this.$stages = $stages;
     this.stagesNumber = $stages[0].children.length;
     this.$stage = $stages.find('.js-stages__stage');
+    this.attachEventHandlers();
   }
 
   attachEventHandlers() {
@@ -30,7 +31,6 @@ const Stages = class {
 
 $(() => {
   $('.js-stages').each((_, node) => {
-    const stages = new Stages($(node));
-    stages.attachEventHandlers();
+    new Stages($(node)); // eslint-disable-line no-new
   });
 });

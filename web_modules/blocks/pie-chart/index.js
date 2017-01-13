@@ -8,6 +8,8 @@ const PieChart = class {
   constructor($pieChart, values) {
     this.$pieChart = $pieChart;
     this.values = values;
+    this.render();
+    this.attachEventHandlers();
   }
 
   attachEventHandlers() {
@@ -24,8 +26,6 @@ const PieChart = class {
 $(() => {
   $('.js-pie-chart').each((_, node) => {
     const values = JSON.parse(node.attributes['data-values'].value);
-    const pieChart = new PieChart($(node), values);
-    pieChart.render();
-    pieChart.attachEventHandlers();
+    new PieChart($(node), values); // eslint-disable-line no-new
   });
 });

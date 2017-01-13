@@ -7,6 +7,7 @@ const SignIn = class {
   constructor($signIn) {
     this.$signIn = $signIn;
     this.wantsSignIn = false;
+    this.attachEventHandlers();
   }
 
   attachEventHandlers() {
@@ -30,7 +31,6 @@ const SignIn = class {
 };
 
 $(() => {
-  const signIn = new SignIn($('.js-sign-in'));
-  signIn.attachEventHandlers();
+  new SignIn($('.js-sign-in')); // eslint-disable-line no-new
 });
 

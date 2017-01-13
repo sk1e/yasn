@@ -19,6 +19,7 @@ const Poll = class {
 
     this.$selectedTickBoxField = null;
     this.radioWasSelected = false;
+    this.attachEventHandlers();
   }
 
   get $selectedTickBoxLabel() {
@@ -67,7 +68,6 @@ const Poll = class {
 
 $(() => {
   $('.js-poll').each((_, node) => {
-    const poll = new Poll($(node));
-    poll.attachEventHandlers();
+    new Poll($(node)); // eslint-disable-line no-new
   });
 });

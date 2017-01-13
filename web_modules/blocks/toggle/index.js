@@ -5,6 +5,7 @@ import './toggle.styl';
 const Toggle = class {
   constructor($toggle) {
     this.$toggle = $toggle;
+    this.attachEventHandlers();
   }
 
   attachEventHandlers() {
@@ -14,7 +15,6 @@ const Toggle = class {
 
 $(() => {
   $('.js-toggle').each((_, node) => {
-    const toggle = new Toggle($(node));
-    toggle.attachEventHandlers();
+    new Toggle($(node)); // eslint-disable-line no-new
   });
 });

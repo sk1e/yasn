@@ -10,6 +10,7 @@ const Location = class {
   constructor($location) {
     this.mapNode = $location.find('.js-location__map')[0];
     this.coordinates = JSON.parse($location[0].attributes['data-coordinates'].value);
+    this.attachCoordinates();
   }
 
   attachCoordinates() {
@@ -33,7 +34,6 @@ const Location = class {
 
 $(() => {
   $('.js-location').each((_, node) => {
-    const location = new Location($(node));
-    location.attachCoordinates();
+    new Location($(node)); // eslint-disable-line no-new
   });
 });

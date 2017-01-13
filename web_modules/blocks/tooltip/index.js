@@ -7,6 +7,7 @@ const Tooltip = class {
   constructor($tooltip) {
     this.$tooltip = $tooltip;
     this.$text = $tooltip.find('.js-tooltip__text');
+    this.attachEventHandlers();
   }
 
   attachEventHandlers() {
@@ -22,8 +23,7 @@ const Tooltip = class {
 
 $(() => {
   $('.js-tooltip').each((_, node) => {
-    const tooltip = new Tooltip($(node));
-    tooltip.attachEventHandlers();
+    new Tooltip($(node)); // eslint-disable-line no-new
   });
 });
 

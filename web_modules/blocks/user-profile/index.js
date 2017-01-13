@@ -9,6 +9,7 @@ import './user-profile.styl';
 const UserProfile = class {
   constructor($userProfile) {
     this.$userProfile = $userProfile;
+    this.render();
   }
 
   render() {
@@ -21,7 +22,6 @@ const UserProfile = class {
 
 $(() => {
   $('.js-user-profile').each((_, node) => {
-    const userProfile = new UserProfile($(node));
-    userProfile.render();
+    new UserProfile($(node)); // eslint-disable-line no-new
   });
 });

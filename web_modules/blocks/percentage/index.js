@@ -8,6 +8,7 @@ const Percentage = class {
   constructor(node, value) {
     this.value = value;
     this.node = node;
+    this.render();
   }
   render() {
     this.percentageView = new PercentageView(this.node, this.value);
@@ -17,7 +18,6 @@ const Percentage = class {
 $(() => {
   $('.js-percentage').each((_, node) => {
     const value = node.attributes['data-value'];
-    const percentage = new Percentage(node, JSON.parse(value.value));
-    percentage.render();
+    new Percentage(node, JSON.parse(value.value)); // eslint-disable-line no-new
   });
 });

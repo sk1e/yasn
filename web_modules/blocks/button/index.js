@@ -8,6 +8,7 @@ import './button.styl';
 const Button = class {
   constructor($button) {
     this.$button = $button;
+    this.attachEventHandlers();
   }
 
   attachEventHandlers() {
@@ -45,8 +46,7 @@ const Button = class {
 
 $(() => {
   $('.js-button').each((_, node) => {
-    const button = new Button($(node));
-    button.attachEventHandlers();
+    new Button($(node)); // eslint-disable-line no-new
   });
 });
 
