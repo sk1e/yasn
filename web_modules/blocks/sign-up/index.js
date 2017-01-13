@@ -16,10 +16,8 @@ import {
 } from '../tooltiped-input/validators';
 
 import './sign-up.styl';
-import constants from './constants.json';
 
 const pagesNumber = 4;
-const sectionWidth = parseInt(constants['full-section-width'], 10);
 
 const SignUp = class {
   constructor() {
@@ -61,7 +59,7 @@ const SignUp = class {
         return;
       }
       this.page += 1;
-      this.$container.css('transform', `translateX(-${sectionWidth * this.page}rem)`);
+      this.$container.css('transform', `translateX(-${(1 / pagesNumber) * 100 * this.page}%)`);
 
       $('.js-sign-up__stages').triggerHandler('move-to-next-stage:', this.page);
 

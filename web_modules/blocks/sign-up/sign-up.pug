@@ -6,8 +6,17 @@ include ~blocks/drop-down/drop-down.pug
 include ~blocks/link/link.pug
 include ~blocks/birthday-dropdowns/birthday-dropdowns.pug
 
+mixin sign-up-tooltiped-input(mix)
+  +tooltiped-input({ 
+    main: ['sign-up__field sign-up__tooltiped-input', mix], 
+    input: 'sign-up__input', 
+    tooltip: 'sign-up__tooltip'
+  })&attributes(attributes)
+
 mixin first-section-tooltiped-input
-  +tooltiped-input('sign-up__first-section-tooltiped-input sign-up__field js-sign-up__first-section-tooltiped-input')&attributes(attributes)
+  +sign-up-tooltiped-input('sign-up__first-section-tooltiped-input js-sign-up__first-section-tooltiped-input')&attributes(attributes)
+  
+
 
 mixin sign-up
   .sign-up.js-sign-up
@@ -23,13 +32,13 @@ mixin sign-up
           +first-section-tooltiped-input(type='password', placeholder='Repeat Password')
 
         .sign-up__section
-          +tooltiped-input('sign-up__field js-sign-up__email-tooltiped-input')(type='email', placeholder='Your Email')
+          +sign-up-tooltiped-input('js-sign-up__email-tooltiped-input')(type='email', placeholder='Your Email')
           +tick-box-field('checkbox', "I'd like to receive YASN newsletter", 'wants_newsletter','off', 'sign-up__field')
           +tick-box-field('checkbox', "I'd like to receive YASN notifications", 'wants_notifications', 'on', 'sign-up__field')
 
         .sign-up__section
-          +tooltiped-input('sign-up__field')(type='text', placeholder='Your First Name')
-          +tooltiped-input('sign-up__field')(type='text', placeholder='Your Second name')
+          +sign-up-tooltiped-input(type='text', placeholder='Your First Name')
+          +sign-up-tooltiped-input(type='text', placeholder='Your Second name')
           .sign-up__drop-down-field
             .sign-up__drop-down-field-label Birthday
             +birthday-dropdowns

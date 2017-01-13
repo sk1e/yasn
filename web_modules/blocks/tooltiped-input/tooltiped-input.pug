@@ -1,9 +1,15 @@
 include ../input-tooltip/input-tooltip.pug
 
-mixin tooltiped-input(mix, inputMix)
-  .tooltiped-input(class=mix || '')
-    input.input.js-tooltiped-input__input(class=inputMix || '')&attributes(attributes)
-    +input-tooltip('dark-2', 'js-tooltiped-input__tooltip')(hidden)
+mixin tooltiped-input(mix)
+  - const classnames = require('classnames')
+  - const mainMix = classnames(mix && mix.main)
+  - const inputMix = classnames(mix && mix.input)
+  - const tooltipMix = classnames(mix && mix.tooltip, 'js-tooltiped-input__tooltip')
+  
+  .tooltiped-input(class=mainMix)
+    input.input.tooltiped-input__input.js-tooltiped-input__input(class=inputMix)&attributes(attributes)
+    +input-tooltip('dark-2', tooltipMix)(hidden)
+
 
 
 mixin preview-tooltiped-input(text, tooltipTheme, mix, inputMix)

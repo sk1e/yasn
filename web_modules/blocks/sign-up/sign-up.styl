@@ -1,8 +1,7 @@
-json('./constants.json')
-
 pages = 4
 field-top-margin = 0.86rem
 sign-up-padding = 1.43rem
+full-section-width = 35.71rem
 
 .sign-up
   position relative
@@ -11,7 +10,8 @@ sign-up-padding = 1.43rem
   justify-content space-between  
   overflow hidden
   border 0.21rem solid theme-color-1
-  width 21.43rem
+  max-width 21.43rem
+  width 100%
   height 5.00rem
   padding sign-up-padding
   border-radius 0.71rem
@@ -22,7 +22,7 @@ sign-up-padding = 1.43rem
       
   &_tempted
     border-color theme-color-2
-    width 35.71rem
+    max-width full-section-width
     height 21.43rem
               
   &__join
@@ -71,7 +71,7 @@ sign-up-padding = 1.43rem
     
   &__sections-container
     display flex
-    width full-section-width * pages
+    width "calc(400% + %s)" % (8 * sign-up-padding)
     transition transform 0.5s
     
 
@@ -84,10 +84,18 @@ sign-up-padding = 1.43rem
     width 7.14rem
       
   &__section
-    width full-section-width - (2 * sign-up-padding)
+    width "calc(25% - %s)" % (2 * sign-up-padding)
+    
     margin-right 2 * sign-up-padding
     display flex
     flex-direction column
+        
+  &__input
+    min-width 5rem
+    max-width 15rem
+    
+  &__tooltip
+    min-width 9rem
     
   &__first-section-tooltiped-input
     opacity 0
