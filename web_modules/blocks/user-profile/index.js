@@ -14,7 +14,7 @@ const UserProfile = class {
   render() {
     const $tooltip = this.$userProfile.find('.js-user-profile__tooltip');
     const fontSize = parseInt($('html').css('font-size'), 10);
-    $tooltip.css('bottom', `calc(50% - ${$tooltip.height() / 2 / fontSize}rem)`);
+    $tooltip.css('bottom', `calc(50% - ${$tooltip.outerHeight() / 2 / fontSize}rem)`);
   }
 };
 
