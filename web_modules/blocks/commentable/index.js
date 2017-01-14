@@ -1,10 +1,10 @@
 import $ from 'jquery';
 import johnImagePath from 'user-photos/john.png';
-import '../user-profile';
 import '../video';
 import '../text-area';
 import '../button';
 import '../arrow-button';
+import UserProfile from '../user-profile';
 
 import './commentable.styl';
 import commentTemplate from './comment-dynamic-template.pug';
@@ -42,7 +42,8 @@ const Commentable = class {
                                        '<iframe class=video src="https://www.youtube.com/embed/$1" frameborder="0" allowfullscreen></iframe>'),
     });
     this.$textarea[0].value = '';
-    this.$commentList.append(commentHTML);
+    const $lastComment = this.$commentList.append(commentHTML).children().last();
+    new UserProfile($lastComment.find('.js-user-profile')); // eslint-disable-line no-new
 
     const commentList = this.$commentList[0];
     commentList.scrollTop = commentList.scrollHeight;

@@ -25,3 +25,6 @@ $(() => {
     new UserProfile($(node)); // eslint-disable-line no-new
   });
 });
+
+
+export default UserProfile;
