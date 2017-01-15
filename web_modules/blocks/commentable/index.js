@@ -4,7 +4,7 @@ import '../video';
 import '../text-area';
 import '../button';
 import '../arrow-button';
-import UserProfile from '../user-profile';
+import '../user-profile';
 
 import './commentable.styl';
 import commentTemplate from './comment-dynamic-template.pug';
@@ -42,8 +42,7 @@ const Commentable = class {
                                        '<iframe class=video src="https://www.youtube.com/embed/$1" frameborder="0" allowfullscreen></iframe>'),
     });
     this.$textarea[0].value = '';
-    const $lastComment = this.$commentList.append(commentHTML).children().last();
-    new UserProfile($lastComment.find('.js-user-profile')); // eslint-disable-line no-new
+    this.$commentList.append(commentHTML);
 
     const commentList = this.$commentList[0];
     commentList.scrollTop = commentList.scrollHeight;

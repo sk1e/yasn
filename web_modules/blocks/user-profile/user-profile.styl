@@ -1,11 +1,25 @@
 @require "./constants.styl"
 
+user-profile-height = 7.8rem
+
 .user-profile
   position relative
-  
-  &:hover .tooltip
+
+  display flex
+  justify-content center
+  align-items center
+  height user-profile-height
+        
+  &:hover  .tooltip
     visibility visible
-    
+  
+  &__hover-area
+    position absolute
+    width 110%
+    height 100%
+    left 0
+    top 0
+      
   &__name
     margin-top -0.36rem
     font-size 1.29rem
@@ -14,7 +28,7 @@
       &_dark-1 
         color white
       &_gray   
-        color theme-color-2
+        color theme-color-2        
     
   &__profession
     text-transform uppercase    
@@ -51,6 +65,8 @@
     visibility hidden
     position absolute
     left 110%
+    bottom 0;
+    transform "translateY(calc((100% - %s) / 2))" % user-profile-height
     
     min-height user-profile__tooltip-min-height
     min-width 11.64rem

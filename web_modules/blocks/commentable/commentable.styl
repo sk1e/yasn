@@ -16,7 +16,9 @@ comment-video-width = video-width / video-size-divider
       margin-top 1rem
       display flex      
       align-self flex-end
+      
       & .arrow-button:first-child
+        margin-left 1rem
         margin-right 1rem
 
         
@@ -30,17 +32,18 @@ comment-video-width = video-width / video-size-divider
   &__profile-container
     display flex
     align-items center
+    min-width 4rem
+    margin-right 1rem
     
   &__comment
     display flex
     border-bottom 0.2rem solid theme-color-3-foreground
     
     & .user-profile img
-      height 4rem
+      width 100%
     
   &__comment-text
-    max-width (comment-video-width + 1rem)
-    width 100%
+    flex-basis (comment-video-width + 1rem)
     padding 0.5rem 0.5rem
     display flex
     flex-direction column
@@ -56,6 +59,7 @@ comment-video-width = video-width / video-size-divider
     align-items center
     
     &-photo
+      margin-right 1rem
       width 20%
       min-width 4rem
    
